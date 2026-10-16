@@ -1,0 +1,60 @@
+; Engine configuration file.
+; КОРДОН / CORDON — Godot 4.3+
+
+config_version=5
+
+[application]
+
+config/name="КОРДОН · Cordon"
+config/description="Winter, 1991. A forest cordon at the 101st kilometre."
+run/main_scene="res://scenes/main_menu.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.039, 0.047, 0.063, 1)
+boot_splash/show_image=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+Settings="*res://scripts/core/settings.gd"
+Loc="*res://scripts/core/loc.gd"
+Sfx="*res://scripts/core/audio.gd"
+Fader="*res://scripts/core/fader.gd"
+Game="*res://scripts/core/game.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=false
+common/snap_controls_to_pixels=true
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=false
+
+[internationalization]
+
+locale/fallback="en"
+
+[physics]
+
+common/physics_ticks_per_second=60
+3d/default_gravity=12.0
+
+[rendering]
+
+lights_and_shadows/directional_shadow/size=4096
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
+environment/defaults/default_clear_color=Color(0.039, 0.047, 0.063, 1)
+anti_aliasing/quality/screen_space_aa=1
+environment/volumetric_fog/volume_size=96
+environment/volumetric_fog/volume_depth=96
+textures/default_filters/anisotropic_filtering_level=3
