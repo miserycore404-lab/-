@@ -45,6 +45,8 @@ func start(chapter: int) -> void:
 # --- helpers ----------------------------------------------------------------------
 
 func on_interact(id: String, it: Interactable) -> void:
+	if OS.is_debug_build() and OS.get_cmdline_user_args().size() > 0:
+		print("[director] interact ", id, " awaiting=", _awaiting)
 	if id in _awaiting:
 		interacted.emit(id)
 		return
@@ -105,6 +107,8 @@ func _thought_text(key: String) -> String:
 
 
 func objective(id: String) -> void:
+	if OS.is_debug_build() and OS.get_cmdline_user_args().size() > 0:
+		print("[director] objective ", id)
 	hud.add_objective(id)
 
 
@@ -274,6 +278,7 @@ func _chapter_1() -> void:
 	world.apply_preset("dusk")
 	Sfx.set_music_mood("evening")
 	cabin.set_door_open(false, false)
+	_door_locked = true # frozen shut until the story reaches the door
 	cabin.set_stove_lit(false)
 	cabin.set_lamp_lit(false)
 	cabin.set_cup_full(false)
@@ -287,7 +292,6 @@ func _chapter_1() -> void:
 	done("reach_cordon")
 	think("nalichniki")
 	objective("open_door")
-	_door_locked = true
 	await wait_for(["door"])
 	think("door_stuck")
 	Sfx.play_3d("thud", cabin.door.global_position, -2.0)

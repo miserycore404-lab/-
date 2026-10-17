@@ -94,7 +94,7 @@ func _process(delta: float) -> void:
 				Sfx.play_3d("clock_tick", pendulum.global_position, -22.0, 1.0 if int(t) % 2 == 0 else 0.92)
 	if stove_lit and stove_light:
 		var t := Time.get_ticks_msec() / 1000.0
-		stove_light.light_energy = 2.2 + sin(t * 9.0) * 0.25 + sin(t * 23.0) * 0.18 + sin(t * 3.1) * 0.3
+		stove_light.light_energy = 1.4 + sin(t * 9.0) * 0.16 + sin(t * 23.0) * 0.1 + sin(t * 3.1) * 0.18
 	if lamp_lit and lamp_light:
 		var t := Time.get_ticks_msec() / 1000.0
 		lamp_light.light_energy = 1.25 + sin(t * 13.0) * 0.03 + sin(t * 5.0) * 0.04
@@ -793,7 +793,7 @@ func set_stove_lit(lit: bool) -> void:
 		fire_sound.play()
 		var t := create_tween()
 		stove_light.light_energy = 0.0
-		t.tween_property(stove_light, "light_energy", 2.2, 3.0)
+		t.tween_property(stove_light, "light_energy", 1.4, 3.0)
 	else:
 		fire_sound.stop()
 		stove_light.light_energy = 0.0

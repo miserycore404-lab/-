@@ -101,7 +101,7 @@ func _run() -> void:
 func use(g: Node, id: String) -> void:
 	# wait (up to 20 s) until the director is actually listening for this id
 	var t0 := Time.get_ticks_msec()
-	while not (id in g.director._awaiting) and Time.get_ticks_msec() - t0 < 20000:
+	while not (id in g.director._awaiting) and Time.get_ticks_msec() - t0 < 240000:
 		await get_tree().process_frame
 	var it: Interactable = g.world.cabin.interactables.get(id, g.world.props.interactables.get(id))
 	it.use()
@@ -115,20 +115,27 @@ func put(pl: Player, pos: Vector3, yaw_deg: float, pitch_deg := 0.0) -> void:
 	await wait(0.6)
 
 
+func talk(g: Node, pick := 0) -> void:
+	# play through the current conversation, choosing option `pick`
+	var t0 := Time.get_ticks_msec()
+	while not g.hud.dialogue.running and Time.get_ticks_msec() - t0 < 240000:
+		await get_tree().process_frame
+	while g.hud.dialogue.running:
+		if g.hud.choices_active:
+			g.hud._pick(mini(pick, g.hud._choice_count - 1))
+		await wait(0.5)
+
+
 func _ch1(g: Node, pl: Player) -> void:
-	# look down at own body on the platform
 	pl.set_yaw_pitch(pl._yaw, deg_to_rad(-70))
 	await wait(0.8)
 	await shot("ch1_body")
 	await put(pl, Vector3(1.9, 0.1, 9.0), 0.0, 2.0)
-	await wait(1.0)
 	await shot("ch1_porch")
 	await use(g, "door")
-	await wait(1.0)
 	await use(g, "door")
 	await wait(1.5)
 	await put(pl, Vector3(1.6, 0.55, 1.6), 30.0, -10.0)
-	await wait(1.0)
 	await use(g, "lamp")
 	await wait(2.5)
 	await shot("ch1_lamp")
@@ -136,31 +143,42 @@ func _ch1(g: Node, pl: Player) -> void:
 	await wait(1.0)
 	await shot("ch1_holding_wood")
 	await use(g, "stove")
-	await wait(0.5)
 	await use(g, "stove")
 	await wait(4.0)
 	await put(pl, Vector3(1.0, 0.55, 1.3), 10.0, -8.0)
 	await shot("ch1_stove")
-	await wait(6.0)
 	await use(g, "radio")
-	await wait(3.0)
 	await put(pl, Vector3(0.6, 0.55, 0.9), 120.0, -12.0)
+	await wait(4.0)
 	await shot("ch1_dialogue")
-	# skip through the dialogue quickly by picking choices
-	for i in 60:
-		if g.hud.choices_active:
-			g.hud._pick(0)
-			await wait(0.5)
-		if not g.hud.dialogue.running:
-			break
-		await wait(1.0)
+	await talk(g, 0)
+	await use(g, "kettle")
+	while not g.world.cabin.cup.get_node("Liquid").visible:
+		await use(g, "coffee_tin")
+		await wait(2.0)
+	await use(g, "cup")
 	await wait(1.0)
 	await put(pl, Vector3(-1.4, 0.55, 1.0), 220.0, -18.0)
-	await shot("ch1_room_west")
+	await shot("ch1_holding_cup")
+	g.director.drank.emit()
+	await use(g, "station_log")
+	await wait(2.0)
+	await shot("ch1_reader")
+	g.hud.close_reader()
+	await use(g, "radio")
+	await talk(g, 1)
 	await put(pl, Vector3(0.0, 0.55, 0.6), 0.0, 0.0)
 	await shot("ch1_room_south")
 	await put(pl, Vector3(-0.5, 0.55, 0.5), 160.0, -5.0)
 	await shot("ch1_room_north")
+	await use(g, "bed")
+	# chapter 2 should load
+	var t0 := Time.get_ticks_msec()
+	while Game.chapter != 2 and Time.get_ticks_msec() - t0 < 120000:
+		await get_tree().process_frame
+	await wait(6.0)
+	await shot("ch1_to_ch2")
+	print("CH1_COMPLETE chapter=", Game.chapter, " flags=", Game.flags)
 
 
 func _ch2(g: Node, pl: Player) -> void:
