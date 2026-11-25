@@ -1,0 +1,890 @@
+<title>Line by Line</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one narrow phone-first column; a top bar, then one "card" for the sentence you're on. */
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --ink:#151a2b; --muted:#5d6681; --line:#dde2ee;
+  --accent:#2f4fd8; --accent-ink:#ffffff; --accent-soft:#e3e8fd;
+  --mark:#ffe36b; --mark-ink:#151a2b;
+  --good:#167a4a; --good-soft:#dbf3e6; --bad:#c2342b; --bad-soft:#fbe1de; --warn:#9a6200; --warn-soft:#fdf0d2;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf5; --muted:#9aa3bf; --line:#2a3150;
+  --accent:#7d93ff; --accent-ink:#0e1220; --accent-soft:#232c55;
+  --mark:#e8c53a; --mark-ink:#0e1220;
+  --good:#52d08f; --good-soft:#123826; --bad:#ff7d72; --bad-soft:#40191a; --warn:#f0b54a; --warn-soft:#3a2b0e;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1220; --surface:#171c2e; --ink:#e8ebf5; --muted:#9aa3bf; --line:#2a3150;
+  --accent:#7d93ff; --accent-ink:#0e1220; --accent-soft:#232c55;
+  --mark:#e8c53a; --mark-ink:#0e1220;
+  --good:#52d08f; --good-soft:#123826; --bad:#ff7d72; --bad-soft:#40191a; --warn:#f0b54a; --warn-soft:#3a2b0e;
+  color-scheme:dark}
+html,body{min-height:100%}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+.wrap{max-width:660px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 64px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:1.9rem;font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.35rem;font-weight:700}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.spread{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:.6em 1.1em;font-weight:700;display:inline-flex;align-items:center;gap:.45em;justify-content:center;min-height:44px;transition:transform .08s, background .15s}
+button:active{transform:scale(.97)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,label.btn:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+button.big{width:100%;font-size:1.05rem;min-height:52px}
+button:disabled{opacity:.45;cursor:default}
+button.icon{padding:.5em;width:44px;border-radius:50%}
+button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+input[type=text],textarea,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.7em .85em;width:100%}
+textarea{resize:vertical;min-height:120px;line-height:1.5}
+svg{width:1.15em;height:1.15em;flex:none}
+
+/* top bar */
+.top{display:flex;align-items:center;gap:10px;padding-block:6px 14px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:1.25rem;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.brand i{display:inline-block;width:22px;height:8px;background:var(--mark);border-radius:2px;transform:skewX(-12deg)}
+.top .grow{flex:1}
+
+/* library */
+.hero{padding-block:8px 18px}
+.hero p{max-width:52ch;margin-top:8px}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+.stat b{display:block;font-family:var(--f-display);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.textcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.textcard .title{font-family:var(--f-display);font-weight:700;font-size:1.1rem;overflow-wrap:anywhere}
+.textcard .snip{color:var(--muted);font-size:.92rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar>span{display:block;height:100%;background:var(--accent);border-radius:99px}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:.75rem;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.chip.good{background:var(--good-soft);color:var(--good)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.review-banner{background:var(--accent);color:var(--accent-ink);border-radius:var(--r);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.review-banner button{background:var(--accent-ink);color:var(--accent);border-color:transparent}
+
+/* add */
+.dropzone{border:2px dashed var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;background:var(--surface)}
+.dropzone.drag{border-color:var(--accent);background:var(--accent-soft)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);flex-wrap:wrap}
+.seg button{border:0;min-height:36px;padding:.35em .9em;background:transparent;color:var(--muted)}
+.seg button.on{background:var(--accent);color:var(--accent-ink)}
+.preview{display:flex;flex-direction:column;gap:6px;max-height:280px;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+.preview div{display:flex;gap:10px;font-size:.92rem}
+.preview div span:first-child{color:var(--muted);font-family:var(--f-mono);font-size:.78rem;min-width:2.2em;padding-top:2px}
+.thumb{max-height:160px;border-radius:10px;border:1px solid var(--line)}
+
+/* study */
+.progress-dots{display:flex;gap:3px;flex-wrap:wrap}
+.progress-dots span{flex:1 1 6px;min-width:6px;max-width:28px;height:6px;border-radius:9px;background:var(--line)}
+.progress-dots span.done{background:var(--good)}
+.progress-dots span.cur{background:var(--accent)}
+.ladder{display:flex;gap:6px;flex-wrap:wrap}
+.ladder span{font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.ladder span.done{background:var(--good-soft);border-color:transparent;color:var(--good)}
+.ladder span.cur{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 18px;display:flex;flex-direction:column;gap:16px;box-shadow:0 1px 0 var(--line), 0 12px 30px -18px rgba(20,30,70,.25)}
+.cue{color:var(--muted);font-style:italic;font-size:.95rem;border-left:3px solid var(--line);padding-left:10px}
+.sentence{font-family:var(--f-body);font-size:1.32rem;line-height:1.6;overflow-wrap:anywhere}
+.sentence .w{display:inline}
+.sentence .hid{background:var(--mark);color:var(--mark-ink);border-radius:4px;padding:0 .15em;font-family:var(--f-mono);font-size:.9em;letter-spacing:.05em}
+.sentence.blind{font-family:var(--f-mono);color:var(--muted);font-size:1.05rem;letter-spacing:.1em}
+.blindbar{display:inline-block;height:.9em;border-radius:4px;background:var(--line);vertical-align:middle;margin:0 .12em}
+.answer{font-size:1.1rem;min-height:96px}
+.feedback{border-radius:12px;padding:12px 14px;font-size:1.05rem;line-height:1.7}
+.feedback.ok{background:var(--good-soft)}
+.feedback.no{background:var(--bad-soft)}
+.feedback .t{font-weight:700;font-family:var(--f-display);margin-bottom:4px}
+.d-ok{color:var(--good)}
+.d-miss{color:var(--warn);text-decoration:underline wavy;text-underline-offset:4px;font-weight:700}
+.d-wrong{color:var(--bad);text-decoration:line-through}
+.d-fix{color:var(--good);font-weight:700}
+.d-extra{color:var(--bad);text-decoration:line-through;opacity:.75}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.toolbar .grow{flex:1}
+.mic-live{color:var(--bad)}
+.mic-live svg{animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* first letters */
+.fl{font-size:1.25rem;line-height:2;overflow-wrap:anywhere}
+.fl .w{display:inline-block;margin-right:.35em}
+.fl .w.todo{font-family:var(--f-mono);color:transparent;background:var(--line);border-radius:5px;line-height:1.3;user-select:none}
+.fl .w.next{outline:2px solid var(--accent);outline-offset:1px}
+.fl .w.done{color:var(--ink)}
+.fl .w.slip{color:var(--bad)}
+.flinput{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.fltap{width:100%;min-height:54px;border-style:dashed}
+.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* scramble */
+.built{min-height:52px;padding:10px;border-radius:12px;background:var(--bg);font-size:1.15rem;line-height:1.7;overflow-wrap:anywhere}
+.pool{display:flex;flex-wrap:wrap;gap:8px}
+.pool button{border-radius:10px;min-height:44px;font-weight:400;font-size:1.02rem}
+.pool button.used{visibility:hidden}
+
+.celebrate{text-align:center;padding:28px 12px}
+.celebrate .num{font-family:var(--f-display);font-weight:800;font-size:3.4rem;color:var(--accent);line-height:1}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:700;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+details summary{cursor:pointer;font-weight:700}
+.empty{text-align:center;padding:24px;border:2px dashed var(--line);border-radius:var(--r)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(() => {
+"use strict";
+
+/* ---------- tiny helpers ---------- */
+const $app = document.getElementById("app");
+const ICONS = {
+  back:'<path d="M15 18l-6-6 6-6"/>', plus:'<path d="M12 5v14M5 12h14"/>', cam:'<path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
+  play:'<path d="M7 5l12 7-12 7z"/>', mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/>', eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7"/>', redo:'<path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/>', trash:'<path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/>', edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/>',
+  skip:'<path d="M6 5l8 7-8 7zM17 5v14"/>', spark:'<path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/>', gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>'
+};
+const ic = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
+function h(tag, props, ...kids){
+  const el = document.createElement(tag);
+  if (props) for (const [k,v] of Object.entries(props)){
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k === "html") el.innerHTML = v;           // only for our own static markup/icons
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (k === "style") el.style.cssText = v;
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const c of kids.flat()){ if (c == null || c === false) continue; el.append(c.nodeType ? c : document.createTextNode(String(c))); }
+  return el;
+}
+function B(label, onclick, cls="", icon){ const b = h("button",{class:cls,type:"button",onclick}); if(icon) b.insertAdjacentHTML("beforeend", ic(icon)); if(label) b.append(h("span",null,label)); return b; }
+let toastT;
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2600); }
+const uid = () => Math.random().toString(36).slice(2,10);
+const today = () => { const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
+const addDays = (n) => { const d=new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()+n); return d.getTime(); };
+const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; };
+
+/* ---------- languages ---------- */
+const LANGS = [
+  {code:"en", name:"English", bcp:"en-US", tess:"eng"},
+  {code:"es", name:"Español", bcp:"es-ES", tess:"spa"},
+  {code:"ru", name:"Русский", bcp:"ru-RU", tess:"rus"},
+  {code:"de", name:"Deutsch", bcp:"de-DE", tess:"deu"},
+  {code:"fr", name:"Français", bcp:"fr-FR", tess:"fra"},
+  {code:"it", name:"Italiano", bcp:"it-IT", tess:"ita"},
+  {code:"pt", name:"Português", bcp:"pt-PT", tess:"por"},
+];
+const lang = c => LANGS.find(l=>l.code===c) || LANGS[0];
+
+/* ---------- storage ---------- */
+const KEY = "linebyline.v1";
+const SAMPLE_BODY = `Two roads diverged in a yellow wood,
+And sorry I could not travel both
+And be one traveler, long I stood
+And looked down one as far as I could
+To where it bent in the undergrowth;
+
+Then took the other, as just as fair,
+And having perhaps the better claim,
+Because it was grassy and wanted wear;
+Though as for that the passing there
+Had worn them really about the same.`;
+function defaultState(){
+  return { texts:[ makeText("The Road Not Taken (example)", SAMPLE_BODY, "en", "line") ],
+           settings:{ strict:false, rate:1, input:"type" },
+           stats:{ learned:0, streak:0, lastDay:null, days:{} } };
+}
+function makeText(title, body, langCode, split){
+  return { id:uid(), title, body, lang:langCode, split, chunks: chunk(body, split), pos:0, method:"ladder", chain:true, cards:{}, created:Date.now() };
+}
+let S;
+try { S = JSON.parse(localStorage.getItem(KEY)) || defaultState(); } catch { S = defaultState(); }
+S.settings = Object.assign({strict:false, rate:1, input:"type"}, S.settings||{});
+S.stats = Object.assign({learned:0, streak:0, lastDay:null, days:{}}, S.stats||{});
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} }
+function bumpDay(){
+  const t = today();
+  if (S.stats.lastDay === t) { S.stats.days[t]=(S.stats.days[t]||0)+1; return; }
+  const y = new Date(); y.setDate(y.getDate()-1);
+  const yk = y.getFullYear()+"-"+String(y.getMonth()+1).padStart(2,"0")+"-"+String(y.getDate()).padStart(2,"0");
+  S.stats.streak = (S.stats.lastDay === yk) ? S.stats.streak+1 : 1;
+  S.stats.lastDay = t; S.stats.days[t]=1;
+}
+
+/* ---------- splitting text into chunks ---------- */
+function chunk(body, mode){
+  const clean = body.replace(/\r/g,"").replace(/[ \t]+/g," ").trim();
+  if (!clean) return [];
+  if (mode === "line") return clean.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+  if (mode === "paragraph") return clean.split(/\n\s*\n+/).map(s=>s.replace(/\s*\n\s*/g," ").trim()).filter(Boolean);
+  // sentence mode: joins wrapped lines (common in photos), splits on sentence ends
+  const flat = clean.split(/\n\s*\n+/).map(p=>p.replace(/-\n(?=\p{Ll})/gu,"").replace(/\s*\n\s*/g," "));
+  let out = [];
+  for (const p of flat){
+    let parts;
+    if (typeof Intl !== "undefined" && Intl.Segmenter){
+      parts = [...new Intl.Segmenter(undefined,{granularity:"sentence"}).segment(p)].map(s=>s.segment.trim());
+    } else parts = p.match(/[^.!?…]+[.!?…]+["')\]»”]*|[^.!?…]+$/g) || [p];
+    out.push(...parts.filter(Boolean));
+  }
+  // break very long sentences at commas / semicolons so each step stays learnable
+  const res = [];
+  for (const s of out){
+    const words = s.split(/\s+/);
+    if (mode === "short" ? words.length > 12 : words.length > 24){
+      const lim = mode === "short" ? 12 : 24;
+      const pieces = s.split(/(?<=[,;:—–])\s+/); let cur = "";
+      for (const piece of pieces){
+        if (cur && (cur+" "+piece).split(/\s+/).length > lim){ res.push(cur); cur = piece; }
+        else cur = cur ? cur+" "+piece : piece;
+      }
+      if (cur) res.push(cur);
+    } else res.push(s);
+  }
+  return res;
+}
+
+/* ---------- comparing answers ---------- */
+const norm = w => w.toLocaleLowerCase().normalize("NFD").replace(/\p{M}/gu,"").replace(/[^\p{L}\p{N}]/gu,"");
+const words = s => s.split(/\s+/).filter(w => norm(w));
+function lev(a,b){ if(a===b) return 0; const m=a.length,n=b.length; if(!m) return n; if(!n) return m;
+  let prev=Array.from({length:n+1},(_,i)=>i);
+  for(let i=1;i<=m;i++){ const cur=[i]; for(let j=1;j<=n;j++) cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1)); prev=cur; }
+  return prev[n]; }
+function same(a,b){ if (a===b) return true; if (S.settings.strict) return false; return a.length>=5 && lev(a,b)<=1; }
+function diff(target, answer){
+  const T = words(target), A = words(answer), t=T.map(norm), a=A.map(norm);
+  const m=t.length, n=a.length, L=Array.from({length:m+1},()=>new Int16Array(n+1));
+  for(let i=m-1;i>=0;i--) for(let j=n-1;j>=0;j--) L[i][j] = same(t[i],a[j]) ? L[i+1][j+1]+1 : Math.max(L[i+1][j],L[i][j+1]);
+  const ops=[]; let i=0,j=0;
+  while(i<m && j<n){
+    if (same(t[i],a[j])) { ops.push({k:"ok", w:T[i], typo: t[i]!==a[j]}); i++; j++; }
+    else if (L[i+1][j] >= L[i][j+1]) { ops.push({k:"miss", w:T[i]}); i++; }
+    else { ops.push({k:"extra", w:A[j]}); j++; }
+  }
+  while(i<m) ops.push({k:"miss", w:T[i++]});
+  while(j<n) ops.push({k:"extra", w:A[j++]});
+  // pair "extra" next to "miss" into a substitution so it reads as "you wrote X, it's Y"
+  const merged=[];
+  for (let k=0;k<ops.length;k++){
+    const o=ops[k], nx=ops[k+1];
+    if (nx && ((o.k==="extra"&&nx.k==="miss")||(o.k==="miss"&&nx.k==="extra"))){
+      merged.push({k:"wrong", w: o.k==="miss"?o.w:nx.w, got: o.k==="extra"?o.w:nx.w}); k++;
+    } else merged.push(o);
+  }
+  const ok = merged.filter(o=>o.k==="ok").length;
+  return { ops:merged, ok, total:m, pass: ok===m && merged.every(o=>o.k==="ok") };
+}
+function renderDiff(d){
+  const p = h("div");
+  d.ops.forEach((o,ix)=>{
+    if (ix) p.append(" ");
+    if (o.k==="ok") p.append(h("span",{class:"d-ok"},o.w));
+    else if (o.k==="miss") p.append(h("span",{class:"d-miss",title:"You left this out"},o.w));
+    else if (o.k==="extra") p.append(h("span",{class:"d-extra",title:"Not in the text"},o.got||o.w));
+    else p.append(h("span",{class:"d-wrong"},o.got)," ",h("span",{class:"d-fix"},o.w));
+  });
+  return p;
+}
+
+/* ---------- Claude-powered features (inside the Claude viewer) ---------- */
+const caps = { sample:null, images:null, tts:null, dictation:null };
+if (window.claude?.use){
+  claude.use("sample").then(async s => { caps.sample = s; if (s){ const l = await s.limits().catch(()=>null); caps.images = l?.images || null; } }).catch(()=>{});
+  claude.use("tts").then(t => caps.tts = t).catch(()=>{});
+  claude.use("dictation").then(d => caps.dictation = d).catch(()=>{});
+}
+
+/* ---------- read text from a photo ---------- */
+async function shrink(file, maxSide=1800, maxBytes=3.5e6){
+  const url = URL.createObjectURL(file);
+  try{
+    const img = await new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=rej; i.src=url; });
+    let scale = Math.min(1, maxSide/Math.max(img.naturalWidth, img.naturalHeight));
+    for (let q=0.88; ; q-=0.12){
+      const c=document.createElement("canvas"); c.width=Math.round(img.naturalWidth*scale); c.height=Math.round(img.naturalHeight*scale);
+      c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+      const blob = await new Promise(r=>c.toBlob(r,"image/jpeg",q));
+      if (blob.size<=maxBytes || q<0.4) return blob;
+      if (q<0.6) scale*=0.8;
+    }
+  } finally { URL.revokeObjectURL(url); }
+}
+let tessPromise;
+function loadTesseract(){
+  if (window.Tesseract) return Promise.resolve(window.Tesseract);
+  return tessPromise ||= new Promise((res,rej)=>{
+    const s=document.createElement("script"); s.src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js";
+    s.onload=()=>res(window.Tesseract); s.onerror=()=>{tessPromise=null; rej(new Error("load"));}; document.head.append(s);
+  });
+}
+async function readPhoto(file, langCode, onStatus){
+  const blob = await shrink(file, 1800, Math.min(3.5e6, caps.images?.maxFileBytes || 3.5e6));
+  if (caps.sample && caps.images){
+    onStatus("Claude is reading your photo…");
+    try{
+      const {text} = await caps.sample(
+        "The attached image is a photo of text that the user wants to memorize. Transcribe ALL of the readable text exactly as written, in its original language, keeping the original line breaks and paragraph breaks. Fix only obvious hyphenation at line ends. Do not translate, summarize, add commentary, headings or quotes around it. If there is no readable text, answer with exactly: NO_TEXT",
+        { images:[blob], modelTier:"default" });
+      const t = text.trim();
+      if (t === "NO_TEXT") throw Object.assign(new Error("No readable text found in that photo."),{user:true});
+      return t;
+    } catch(e){
+      if (e.user) throw e;
+      if (e.code === "not_granted") onStatus("Claude access was declined. Trying the on-device reader…");
+      else onStatus("Claude couldn't read it. Trying the on-device reader…");
+    }
+  }
+  onStatus("Loading the text reader (first time takes a moment)…");
+  let T;
+  try { T = await loadTesseract(); } catch { throw Object.assign(new Error("The photo reader couldn't load here. Type or paste the text instead."),{user:true}); }
+  try{
+    const r = await T.recognize(blob, lang(langCode).tess, { logger: m => { if (m.status==="recognizing text") onStatus(`Reading text… ${Math.round(m.progress*100)}%`); } });
+    const t = (r.data.text||"").trim();
+    if (!t) throw Object.assign(new Error("No readable text found in that photo."),{user:true});
+    return t;
+  } catch(e){ if (e.user) throw e; throw Object.assign(new Error("The photo reader couldn't run here. Type or paste the text instead."),{user:true}); }
+}
+
+/* ---------- speech out ---------- */
+function speak(text, langCode){
+  const rate = S.settings.rate;
+  if (caps.tts && langCode === "en"){
+    caps.tts.speak(text,{rate, language: langCode}).catch(()=>speakLocal(text, langCode, rate));
+    return;
+  }
+  speakLocal(text, langCode, rate);
+}
+function speakLocal(text, langCode, rate){
+  if (!("speechSynthesis" in window)) {
+    if (caps.tts) { caps.tts.speak(text,{rate}).catch(()=>toast("Speech isn't available here.")); return; }
+    toast("Speech isn't available in this browser."); return;
+  }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text); u.lang = lang(langCode).bcp; u.rate = rate;
+  const v = speechSynthesis.getVoices().find(v=>v.lang?.toLowerCase().startsWith(langCode)); if (v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+
+/* ---------- speech in ---------- */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+function micAvailable(){ return !!(caps.dictation || SR); }
+let micStop = null;
+function startMic(langCode, onText, onState){
+  // returns nothing; calls onText(fullTranscriptSoFar), onState(listening:boolean)
+  if (micStop){ micStop(); return; }
+  if (caps.dictation){
+    const d = caps.dictation; let finalText = "", offs = [];
+    offs.push(d.onPartial(({text}) => onText((finalText+" "+text).trim())));
+    offs.push(d.onFinal(({text}) => { finalText = (finalText+" "+text).trim(); onText(finalText); }));
+    offs.push(d.onState(({state}) => { if (state==="idle"){ offs.forEach(f=>{try{f()}catch{}}); micStop=null; onState(false);} else onState(true); }));
+    micStop = () => d.stop().catch(()=>{});
+    d.start({language: lang(langCode).code}).catch(e => {
+      offs.forEach(f=>{try{f()}catch{}}); micStop=null; onState(false);
+      if (e?.code==="not_granted") toast("Microphone was declined. You can type instead.");
+      else if (e?.code!=="stopped") toast("Couldn't start the microphone here.");
+    });
+    return;
+  }
+  if (!SR){ toast("Speaking isn't supported in this browser. Try Chrome."); return; }
+  const r = new SR(); r.lang = lang(langCode).bcp; r.interimResults = true; r.continuous = true;
+  let finals = "";
+  r.onresult = e => { let interim=""; for (let i=e.resultIndex;i<e.results.length;i++){ const t=e.results[i][0].transcript; if (e.results[i].isFinal) finals += " "+t; else interim += " "+t; } onText((finals+interim).trim()); };
+  r.onend = () => { micStop=null; onState(false); };
+  r.onerror = e => { if (e.error==="not-allowed") toast("Microphone was blocked. You can type instead."); };
+  micStop = () => r.stop();
+  try { r.start(); onState(true); } catch { micStop=null; toast("Couldn't start the microphone."); }
+}
+function stopMic(){ if (micStop) micStop(); }
+
+/* ---------- spaced review (Leitner boxes) ---------- */
+const BOX_DAYS = [0,1,3,7,14,30];
+function cardOf(t,i){ return t.cards[i] ||= {box:0, due:0}; }
+function markLearned(t,i){ const c=cardOf(t,i); if (!c.box){ c.box=1; c.due=addDays(BOX_DAYS[1]); S.stats.learned++; } }
+function dueList(){ const now=Date.now(), out=[]; for (const t of S.texts) for (const [i,c] of Object.entries(t.cards)) if (c.box && c.due<=now && t.chunks[i]) out.push({t, i:+i}); return out; }
+
+/* ---------- methods ---------- */
+const METHODS = {
+  ladder:  { name:"Ladder", desc:"Read and copy it, then half the words disappear, then type it with nothing showing.", stages:["copy","fade","blind"] },
+  letters: { name:"First letters", desc:"Read it, then type just the first letter of each word while the words stay hidden.", stages:["copy","letters","blind"] },
+  scramble:{ name:"Puzzle", desc:"Read it, put the shuffled words back in order, then type it from memory.", stages:["read","scramble","blind"] },
+  speak:   { name:"Say it", desc:"Listen and read, then say it out loud from memory. Your mic checks you.", stages:["listen","fadeSay","blindSay"] },
+};
+const STAGE_NAME = { copy:"Look & copy", read:"Read", listen:"Listen", fade:"Fade", fadeSay:"Fade", letters:"First letters", scramble:"Puzzle", blind:"From memory", blindSay:"From memory", chain:"Chain" };
+
+/* ---------- router ---------- */
+let view = {name:"home"};
+function go(v){ stopMic(); try{speechSynthesis.cancel()}catch{} view = v; render(); window.scrollTo(0,0); }
+function render(){
+  $app.replaceChildren();
+  ({home:Home, add:Add, study:Study, review:Review, done:Done, settings:Settings})[view.name]();
+}
+function topbar(title, back=true){
+  return h("div",{class:"top"},
+    back ? h("button",{class:"icon ghost",type:"button","aria-label":"Back",onclick:()=>go({name:"home"}),html:ic("back")}) : null,
+    title ? h("div",{class:"brand"},title) : h("div",{class:"brand"},h("i"),"Line by Line"),
+    h("div",{class:"grow"}),
+    !back ? h("button",{class:"icon ghost",type:"button","aria-label":"Settings",onclick:()=>go({name:"settings"}),html:ic("gear")}) : null);
+}
+
+/* ---------- HOME ---------- */
+function Home(){
+  const due = dueList();
+  const totalLearned = S.texts.reduce((n,t)=>n+Object.values(t.cards).filter(c=>c.box).length,0);
+  $app.append(topbar(null,false));
+  $app.append(h("div",{class:"hero"},
+    h("h1",null,"Learn any text by heart, one line at a time."),
+    h("p",{class:"muted"},"Snap a photo or paste the text. You get one sentence at a time and repeat it until you can write it without looking. Then the next one unlocks.")));
+  $app.append(h("div",{class:"statrow"},
+    h("div",{class:"stat"},h("span",{class:"label"},"Memorized"),h("b",null,totalLearned)),
+    h("div",{class:"stat"},h("span",{class:"label"},"Day streak"),h("b",null,S.stats.lastDay===today()||isYesterday(S.stats.lastDay)?S.stats.streak:0)),
+    h("div",{class:"stat"},h("span",{class:"label"},"Due review"),h("b",null,due.length))));
+  if (due.length) $app.append(h("div",{class:"review-banner"},
+    h("div",null,h("h3",null,`${due.length} line${due.length>1?"s":""} to refresh`),h("p",{class:"small"},"Quick check so you don't forget what you learned.")),
+    B("Review now",()=>go({name:"review"}),"", "redo")));
+  $app.append(h("div",{class:"spread",style:"margin-bottom:10px"},h("h2",null,"Your texts"),B("Add text",()=>go({name:"add"}),"primary","plus")));
+  const list = h("div",{class:"stack"});
+  if (!S.texts.length) list.append(h("div",{class:"empty stack"},h("p",null,"No texts yet."),B("Add your first text",()=>go({name:"add"}),"primary","cam")));
+  for (const t of S.texts){
+    const n=t.chunks.length, learned=Object.values(t.cards).filter(c=>c.box).length, pct=n?Math.round(learned/n*100):0;
+    const finished = learned>=n && n>0;
+    list.append(h("div",{class:"textcard"},
+      h("div",{class:"spread"},h("div",{class:"title"},t.title), h("span",{class:"chip"+(finished?" good":"")}, finished?"Memorized":`${learned} / ${n}`)),
+      h("div",{class:"snip"},t.body),
+      h("div",{class:"bar"},h("span",{style:`width:${pct}%`})),
+      h("div",{class:"row"},
+        B(finished?"Practice again":(learned?"Continue":"Start"),()=>startStudy(t, finished?0:null),"primary", "play"),
+        h("span",{class:"chip warn"},METHODS[t.method].name),
+        h("div",{style:"flex:1"}),
+        h("button",{class:"icon ghost",type:"button","aria-label":"Edit "+t.title,onclick:()=>go({name:"add", edit:t.id}),html:ic("edit")}))));
+  }
+  $app.append(list);
+}
+function isYesterday(d){ if(!d) return false; const y=new Date(); y.setDate(y.getDate()-1); return d===y.getFullYear()+"-"+String(y.getMonth()+1).padStart(2,"0")+"-"+String(y.getDate()).padStart(2,"0"); }
+
+/* ---------- ADD / EDIT ---------- */
+function Add(){
+  const editing = view.edit ? S.texts.find(t=>t.id===view.edit) : null;
+  const st = view.draft ||= { title: editing?.title || "", body: editing?.body || "", lang: editing?.lang || guessLang(), split: editing?.split || "sentence", photo:null, status:"", busy:false, confirmDel:false };
+  $app.append(topbar(editing ? "Edit text" : "Add a text"));
+  const body = h("textarea",{id:"body",placeholder:"Paste or type the text you want to learn…",rows:9});
+  body.value = st.body;
+  const title = h("input",{type:"text",id:"title",placeholder:"Name (optional), e.g. Biology ch. 3, poem, speech"}); title.value = st.title;
+  const status = h("p",{class:"small muted","aria-live":"polite"}, st.status);
+  const preview = h("div",{class:"preview"});
+  const count = h("span",{class:"label"});
+  function refresh(){
+    const ch = chunk(body.value, st.split);
+    preview.replaceChildren(...(ch.length ? ch.slice(0,60).map((c,i)=>h("div",null,h("span",null,String(i+1).padStart(2,"0")),h("span",null,c))) : [h("p",{class:"muted small"},"Your steps will show up here.")]));
+    count.textContent = ch.length ? `${ch.length} step${ch.length>1?"s":""}` : "Steps";
+    saveBtn.disabled = !ch.length || st.busy;
+  }
+  body.addEventListener("input",()=>{ st.body=body.value; refresh(); });
+  title.addEventListener("input",()=>st.title=title.value);
+
+  const file = h("input",{type:"file",accept:"image/*",capture:"environment",hidden:true,id:"photo"});
+  const fileAny = h("input",{type:"file",accept:"image/*",hidden:true,id:"photo2"});
+  async function handle(f){
+    if (!f || !f.type.startsWith("image/")) { toast("That isn't an image."); return; }
+    st.busy=true; saveBtn.disabled=true; camBtn.disabled=true;
+    const setS = m => { st.status=m; status.textContent=m; };
+    if (thumb.src) URL.revokeObjectURL(thumb.src);
+    thumb.src = URL.createObjectURL(f); thumb.hidden=false;
+    try{
+      const text = await readPhoto(f, st.lang, setS);
+      body.value = (body.value.trim() ? body.value.trim()+"\n\n" : "") + text; st.body = body.value;
+      setS("Done. Check the text below and fix anything that was misread.");
+      if (!st.title) { st.title = text.split(/\s+/).slice(0,5).join(" ").replace(/[^\p{L}\p{N}\s'-]/gu,"").trim(); title.value = st.title; }
+    } catch(e){ setS(e.message || "Couldn't read the photo. Type or paste the text instead."); }
+    st.busy=false; camBtn.disabled=false; refresh();
+  }
+  file.addEventListener("change",()=>{ handle(file.files[0]); file.value=""; });
+  fileAny.addEventListener("change",()=>{ handle(fileAny.files[0]); fileAny.value=""; });
+  const thumb = h("img",{class:"thumb",alt:"Your photo",hidden:true});
+  const camBtn = B("Take a photo",()=>file.click(),"primary","cam");
+  const zone = h("div",{class:"dropzone"},
+    h("h3",null,"Photo of a page"),
+    h("p",{class:"small muted"},"Book, notes, worksheet or screenshot. The text is copied for you, then you can fix it."),
+    h("div",{class:"row",style:"justify-content:center"}, camBtn, B("Choose image",()=>fileAny.click(),"","plus")),
+    thumb, file, fileAny);
+  zone.addEventListener("dragover",e=>{e.preventDefault(); zone.classList.add("drag");});
+  zone.addEventListener("dragleave",()=>zone.classList.remove("drag"));
+  zone.addEventListener("drop",e=>{e.preventDefault(); zone.classList.remove("drag"); handle(e.dataTransfer.files[0]);});
+  body.addEventListener("paste",e=>{ const f=[...(e.clipboardData?.files||[])].find(f=>f.type.startsWith("image/")); if (f){ e.preventDefault(); handle(f); } });
+
+  const langSel = h("select",{id:"lang","aria-label":"Language of the text"}, LANGS.map(l=>h("option",{value:l.code},l.name)));
+  langSel.value = st.lang; langSel.addEventListener("change",()=>st.lang=langSel.value);
+  const seg = h("div",{class:"seg",role:"group","aria-label":"Split into"});
+  [["short","Short bits"],["sentence","Sentences"],["line","Lines"],["paragraph","Paragraphs"]].forEach(([k,l])=>{
+    const b=B(l,()=>{ st.split=k; [...seg.children].forEach(c=>c.classList.toggle("on",c===b)); refresh(); }, st.split===k?"on":"");
+    seg.append(b);
+  });
+
+  const saveBtn = B(editing?"Save changes":"Save and start learning",()=>{
+    const ch = chunk(body.value, st.split); if (!ch.length) return;
+    const name = title.value.trim() || body.value.trim().split(/\s+/).slice(0,5).join(" ");
+    if (editing){
+      const changed = editing.body!==body.value || editing.split!==st.split;
+      Object.assign(editing,{title:name, body:body.value, lang:st.lang, split:st.split});
+      if (changed){ editing.chunks = ch; editing.cards={}; editing.pos=0; }
+      save(); view.draft=null; toast(changed?"Saved. Progress reset because the text changed.":"Saved."); go({name:"home"});
+    } else {
+      const t = makeText(name, body.value, st.lang, st.split); S.texts.unshift(t); save(); view.draft=null; startStudy(t,0);
+    }
+  },"primary big","check");
+
+  $app.append(h("div",{class:"stack"},
+    zone,
+    h("div",{class:"spread"},h("span",{class:"label"},"Language"),h("div",{style:"max-width:200px;flex:1"},langSel)),
+    status,
+    h("label",{class:"label",for:"body"},"The text"), body,
+    h("label",{class:"label",for:"title"},"Name"), title,
+    h("div",{class:"spread"},h("span",{class:"label"},"Split into"),seg),
+    h("div",{class:"spread"},count,h("span",{class:"small muted"},"Each step is one thing to learn.")),
+    preview,
+    saveBtn,
+    editing ? (st.confirmDel
+      ? h("div",{class:"sheet row"},h("span",{style:"flex:1"},"Delete this text and its progress?"),B("Delete",()=>{S.texts=S.texts.filter(x=>x!==editing); save(); view.draft=null; go({name:"home"}); toast("Deleted.");},"primary","trash"),B("Keep",()=>{st.confirmDel=false; render();}))
+      : B("Delete text",()=>{st.confirmDel=true; render();},"ghost","trash")) : null));
+  refresh();
+}
+function guessLang(){ const n=(navigator.language||"en").slice(0,2); return LANGS.some(l=>l.code===n)?n:"en"; }
+
+/* ---------- STUDY ---------- */
+function startStudy(t, from){
+  if (from!=null) t.pos = from;
+  // skip to first not-yet-learned step
+  if (from==null){ let i=t.pos; while(i<t.chunks.length && cardOf(t,i).box) i++; t.pos = i<t.chunks.length ? i : 0; }
+  save();
+  go({name:"study", id:t.id, stage:0, tries:0, chain:false});
+}
+function Study(){
+  const t = S.texts.find(x=>x.id===view.id); if (!t) return go({name:"home"});
+  const m = METHODS[t.method], i = t.pos, sent = t.chunks[i];
+  const stages = m.stages;
+  const stageKey = view.chain ? "chain" : stages[view.stage];
+
+  $app.append(topbar(t.title.length>26 ? t.title.slice(0,24)+"…" : t.title));
+  // progress
+  const dots = h("div",{class:"progress-dots","aria-label":`Step ${i+1} of ${t.chunks.length}`});
+  if (t.chunks.length<=60) t.chunks.forEach((_,k)=>dots.append(h("span",{class: k===i?"cur":(cardOf(t,k).box?"done":"")})));
+  else dots.append(h("div",{class:"bar",style:"flex:1"},h("span",{style:`width:${Math.round(i/t.chunks.length*100)}%`})));
+  const ladder = h("div",{class:"ladder"});
+  stages.forEach((s,k)=>ladder.append(h("span",{class: !view.chain && k===view.stage?"cur":(k<view.stage||view.chain?"done":"")}, STAGE_NAME[s])));
+  if (t.chain && i>0) ladder.append(h("span",{class:view.chain?"cur":""},"Chain"));
+
+  const methodSeg = h("select",{id:"method","aria-label":"Method"}, Object.entries(METHODS).map(([k,v])=>h("option",{value:k},v.name)));
+  methodSeg.value = t.method;
+  methodSeg.addEventListener("change",()=>{ t.method=methodSeg.value; save(); go({...view, stage:0, tries:0, chain:false}); });
+
+  $app.append(h("div",{class:"stack",style:"margin-bottom:14px"},
+    h("div",{class:"spread"},h("span",{class:"label"},`Step ${i+1} of ${t.chunks.length}`),h("div",{style:"width:150px"},methodSeg)),
+    dots, ladder));
+
+  const card = h("div",{class:"card"});
+  $app.append(card);
+  const prev = i>0 ? t.chunks[i-1] : null;
+  const passStage = () => {
+    if (!view.chain && view.stage < stages.length-1) { go({...view, stage:view.stage+1, tries:0}); return; }
+    if (!view.chain && t.chain && i>0) { go({...view, chain:true, tries:0}); return; }
+    finishStep(t);
+  };
+  STAGES[stageKey]({t, sent, prev, card, passStage, chainText: chainOf(t)});
+
+  $app.append(h("details",{class:"sheet",style:"margin-top:16px"},
+    h("summary",null,"How this works"),
+    h("p",{class:"small muted",style:"margin-top:8px"}, m.desc + (t.chain?" After each step you also recite the last few steps together, so they link up.":"")),
+    h("div",{class:"row",style:"margin-top:10px"},
+      h("label",{class:"row small"}, (()=>{const c=h("input",{type:"checkbox",id:"chain"}); c.checked=t.chain; c.addEventListener("change",()=>{t.chain=c.checked; save(); render();}); return c;})(), "Chain steps together"),
+      h("div",{style:"flex:1"}),
+      B("Skip this step",()=>{ markLearned(t,i); finishStep(t,true); },"ghost","skip"))));
+}
+function chainOf(t){ const from=Math.max(0,t.pos-2); return t.chunks.slice(from,t.pos+1).join(" "); }
+function finishStep(t, skipped){
+  const i = t.pos;
+  if (!skipped){ markLearned(t,i); bumpDay(); }
+  t.pos = i+1; save();
+  if (t.pos >= t.chunks.length){ t.pos = 0; save(); go({name:"done", id:t.id}); return; }
+  toast(skipped ? "Skipped." : "Got it! Next line unlocked.");
+  go({name:"study", id:t.id, stage:0, tries:0, chain:false});
+}
+
+/* sentence rendering helpers */
+function sentenceEl(text, mode){
+  const el = h("div",{class:"sentence"+(mode==="blind"?" blind":"")});
+  const ws = text.split(/\s+/);
+  if (mode==="blind"){
+    ws.forEach(w=>el.append(h("span",{class:"blindbar",style:`width:${Math.max(1,norm(w).length)*0.55}em`})));
+    el.setAttribute("aria-label",`Hidden: ${ws.length} words`);
+    return el;
+  }
+  // fade: hide about half the words (deterministic so retries look the same), keep first letter
+  ws.forEach((w,k)=>{
+    if (k) el.append(" ");
+    const hide = mode==="fade" && norm(w).length>1 && ((k*7+text.length)%5<3);
+    if (hide){
+      const m = w.match(/^([^\p{L}\p{N}]*)([\p{L}\p{N}])(.*?)([^\p{L}\p{N}]*)$/u);
+      if (m){ el.append(m[1], h("span",{class:"hid"}, m[2] + "_".repeat(Math.max(1,m[3].length))), m[4]); return; }
+    }
+    el.append(h("span",{class:"w"},w));
+  });
+  return el;
+}
+function toolbarFor(t, text, opts={}){
+  const bar = h("div",{class:"toolbar"});
+  bar.append(B("Listen",()=>speak(text,t.lang),"","play"));
+  if (opts.peek) bar.append(opts.peek);
+  return bar;
+}
+
+/* typed / spoken answer box used by several stages */
+function answerBox({t, target, card, onPass, mode, voiceFirst}){
+  const ta = h("textarea",{class:"answer",id:"answer",placeholder: voiceFirst?"Tap the mic and say it… (or type)":"Type it here…",autocomplete:"off",autocapitalize:"sentences",spellcheck:"false",rows:3});
+  const fb = h("div",{"aria-live":"polite"});
+  const check = B("Check",()=>doCheck(),"primary","check");
+  let micBtn = null;
+  if (micAvailable() || voiceFirst){
+    micBtn = B(voiceFirst?"Say it":"Speak",()=>{
+      if (!micAvailable()){ toast("Speaking isn't supported here. Type instead."); return; }
+      startMic(t.lang, txt=>{ ta.value = txt; }, on=>{ micBtn.classList.toggle("mic-live",on); micBtn.querySelector("span").textContent = on?"Stop":(voiceFirst?"Say it":"Speak"); if(!on && ta.value.trim() && voiceFirst) doCheck(); });
+    }, voiceFirst?"primary":"", "mic");
+  }
+  ta.addEventListener("keydown",e=>{ if (e.key==="Enter" && !e.shiftKey){ e.preventDefault(); doCheck(); } });
+  function doCheck(){
+    if (!ta.value.trim()){ ta.classList.add("shake"); setTimeout(()=>ta.classList.remove("shake"),300); ta.focus(); return; }
+    stopMic();
+    const d = diff(target, ta.value);
+    view.tries = (view.tries||0) + 1;
+    if (d.pass){
+      fb.replaceChildren(h("div",{class:"feedback ok"},h("div",{class:"t"}, view.tries===1?"Perfect, first try!":"Correct!"), renderDiff(d)));
+      check.disabled = true; ta.disabled = true;
+      const next = B(mode==="final"?"Next line":"Next", onPass, "primary big", "check");
+      card.append(next); next.focus();
+      setTimeout(()=>{ if (document.body.contains(next) && mode!=="final") next.click(); }, 900);
+    } else {
+      const pct = d.total?Math.round(d.ok/d.total*100):0;
+      fb.replaceChildren(h("div",{class:"feedback no"},
+        h("div",{class:"t"}, pct>=70 ? `Close, ${d.ok} of ${d.total} words. Fix the marked ones.` : `${d.ok} of ${d.total} words. Try again.`),
+        renderDiff(d),
+        h("p",{class:"small muted",style:"margin-top:6px"},"Struck out: what you wrote. Green bold: the right word. Wavy: a word you left out.")));
+      ta.select();
+    }
+  }
+  const tools = h("div",{class:"toolbar"}, micBtn, h("div",{class:"grow"}), check);
+  card.append(ta, tools, fb);
+  setTimeout(()=>{ if(!voiceFirst) ta.focus({preventScroll:true}); },50);
+  return {ta};
+}
+
+const STAGES = {
+  copy({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Read it, then type it while looking"));
+    if (prev) card.append(h("div",{class:"cue"},"…"+prev));
+    card.append(sentenceEl(sent,"full"), toolbarFor(t,sent));
+    answerBox({t, target:sent, card, onPass:passStage});
+  },
+  read({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Read it two or three times, out loud if you can"));
+    if (prev) card.append(h("div",{class:"cue"},"…"+prev));
+    card.append(sentenceEl(sent,"full"), toolbarFor(t,sent), B("I've read it",passStage,"primary big","check"));
+  },
+  listen({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Listen and repeat it out loud"));
+    if (prev) card.append(h("div",{class:"cue"},"…"+prev));
+    card.append(sentenceEl(sent,"full"), toolbarFor(t,sent));
+    answerBox({t, target:sent, card, onPass:passStage, voiceFirst:true});
+    setTimeout(()=>speak(sent,t.lang),300);
+  },
+  fade({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Some words are hidden. Type the whole line"));
+    if (prev) card.append(h("div",{class:"cue"},"…"+prev));
+    card.append(sentenceEl(sent,"fade"));
+    answerBox({t, target:sent, card, onPass:passStage});
+  },
+  fadeSay({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Some words are hidden. Say the whole line"));
+    if (prev) card.append(h("div",{class:"cue"},"…"+prev));
+    card.append(sentenceEl(sent,"fade"));
+    answerBox({t, target:sent, card, onPass:passStage, voiceFirst:true});
+  },
+  blind(args){ blindStage(args, false); },
+  blindSay(args){ blindStage(args, true); },
+  chain({t, card, passStage, chainText}){
+    const n = Math.min(3, t.pos+1);
+    card.append(h("span",{class:"label"},`Chain: the last ${n} steps together, from memory`));
+    if (t.pos-n >= 0) card.append(h("div",{class:"cue"},"…"+t.chunks[t.pos-n]));
+    card.append(sentenceEl(chainText,"blind"));
+    peekable(card, chainText);
+    answerBox({t, target:chainText, card, onPass:passStage, mode:"final", voiceFirst: t.method==="speak"});
+  },
+  letters({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Type the first letter of each word"));
+    if (prev) card.append(h("div",{class:"cue"},"…"+prev));
+    const ws = sent.split(/\s+/).filter(w=>norm(w));
+    const line = h("div",{class:"fl"});
+    const spans = ws.map(w=>{ const s=h("span",{class:"w todo"},w); line.append(s); return s; });
+    let k=0, slips=0;
+    const inp = h("input",{class:"flinput",type:"text",id:"flinput",autocomplete:"off",autocapitalize:"none",autocorrect:"off",spellcheck:"false","aria-label":"Type first letters"});
+    const info = h("p",{class:"small muted","aria-live":"polite"},"Tap below to bring up the keyboard.");
+    const tap = B("Tap here and type",()=>inp.focus(),"fltap");
+    function mark(){ spans.forEach((s,j)=>s.classList.toggle("next", j===k)); }
+    function feed(ch){
+      if (k>=ws.length) return;
+      const want = norm(ws[k])[0];
+      if (norm(ch)===want){ spans[k].classList.remove("todo","next"); spans[k].classList.add("done"); k++; }
+      else { slips++; spans[k].classList.add("shake"); const s=spans[k]; setTimeout(()=>s.classList.remove("shake"),300);
+        if (slips%3===0){ s.classList.remove("todo"); s.classList.add("done","slip"); k++; } }  // reveal after 3 misses so you're never stuck
+      info.textContent = `${k} of ${ws.length} words · ${slips} slip${slips===1?"":"s"}`;
+      mark();
+      if (k>=ws.length){
+        inp.blur();
+        const good = slips <= Math.max(1, Math.floor(ws.length/8));
+        card.append(h("div",{class:"feedback "+(good?"ok":"no")},h("div",{class:"t"}, good?"Nice! On to the hard part.":`${slips} slips. Go once more for a cleaner run.`)));
+        card.append(good ? B("Next",passStage,"primary big","check") : B("Again",()=>go({...view, tries:0}),"primary big","redo"));
+        tap.remove();
+      }
+    }
+    inp.addEventListener("input",()=>{ const v=inp.value; inp.value=""; for (const ch of v) if (norm(ch)) feed(ch); });
+    card.append(line, info, tap, inp);
+    mark();
+    setTimeout(()=>inp.focus({preventScroll:true}),60);
+  },
+  scramble({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Tap the words in the right order"));
+    if (prev) card.append(h("div",{class:"cue"},"…"+prev));
+    const ws = sent.split(/\s+/).filter(Boolean);
+    const built = h("div",{class:"built"});
+    const pool = h("div",{class:"pool"});
+    let k=0, slips=0;
+    let order = shuffle(ws.map((w,ix)=>({w,ix})));
+    if (ws.length>1 && order.every((o,j)=>o.ix===j)) order.reverse();
+    order.forEach(o=>{
+      const b = h("button",{type:"button"}, o.w);
+      b.addEventListener("click",()=>{
+        if (norm(o.w)===norm(ws[k]) ){
+          b.classList.add("used"); built.append((k?" ":""), ws[k]); k++;
+          // mark a used duplicate correctly: we consumed this word value
+          if (k>=ws.length){
+            card.append(h("div",{class:"feedback ok"},h("div",{class:"t"}, slips? `Done with ${slips} slip${slips>1?"s":""}.`:"Flawless!")), B("Next",passStage,"primary big","check"));
+          }
+        } else { slips++; b.classList.add("shake"); setTimeout(()=>b.classList.remove("shake"),300); }
+      });
+      pool.append(b);
+    });
+    card.append(built, pool, toolbarFor(t,sent));
+  },
+};
+function peekable(card, text){
+  const holder = h("div");
+  const b = B("Peek (2 s)",()=>{ holder.replaceChildren(h("div",{class:"cue",style:"font-style:normal"},text)); view.peeks=(view.peeks||0)+1; setTimeout(()=>holder.replaceChildren(),2000); },"ghost","eye");
+  card.append(h("div",{class:"toolbar"},b,h("div",{class:"grow"})), holder);
+}
+function blindStage({t, sent, prev, card, passStage}, voice){
+  card.append(h("span",{class:"label"}, voice?"Now say it with nothing showing":"Now write it with nothing showing"));
+  if (prev) card.append(h("div",{class:"cue"},"…"+prev));
+  card.append(sentenceEl(sent,"blind"));
+  peekable(card, sent);
+  answerBox({t, target:sent, card, onPass:passStage, mode:"final", voiceFirst:voice});
+}
+
+/* ---------- DONE ---------- */
+function Done(){
+  const t = S.texts.find(x=>x.id===view.id); if (!t) return go({name:"home"});
+  $app.append(topbar(""));
+  $app.append(h("div",{class:"card celebrate"},
+    h("div",{class:"num"},t.chunks.length),
+    h("h2",null,`You worked through all of “${t.title}”`),
+    h("p",{class:"muted"},"Now prove it: write the whole text from memory. Or come back tomorrow for a review."),
+    h("div",{class:"stack"},
+      B("Full recall test",()=>go({name:"review", full:t.id}),"primary big","spark"),
+      B("Back to my texts",()=>go({name:"home"}),"big"))));
+}
+
+/* ---------- REVIEW ---------- */
+function Review(){
+  if (view.full){
+    const t = S.texts.find(x=>x.id===view.full); if (!t) return go({name:"home"});
+    $app.append(topbar("Full recall"));
+    const card = h("div",{class:"card"}); $app.append(card);
+    card.append(h("span",{class:"label"},`All ${t.chunks.length} steps of “${t.title}”, from memory`));
+    peekable(card, t.chunks.join(" "));
+    answerBox({t, target:t.chunks.join(" "), card, mode:"final", voiceFirst: t.method==="speak", onPass:()=>{ toast("Whole text memorized!"); for (const k in t.cards){ const c=t.cards[k]; c.box=Math.min(5,c.box+1); c.due=addDays(BOX_DAYS[c.box]); } save(); go({name:"home"}); }});
+    return;
+  }
+  view.queue ||= shuffle(dueList()).slice(0,20).map(x=>({id:x.t.id, i:x.i}));
+  view.k ||= 0; view.right ||= 0;
+  $app.append(topbar("Review"));
+  if (view.k >= view.queue.length){
+    $app.append(h("div",{class:"card celebrate"},
+      h("div",{class:"num"},`${view.right}/${view.queue.length}`),
+      h("h2",null, view.queue.length?"Review done":"Nothing to review right now"),
+      h("p",{class:"muted"}, view.queue.length?"Lines you got right come back later. Missed ones come back tomorrow.":"Learn some lines first, they show up here when it's time to refresh them."),
+      B("Back to my texts",()=>go({name:"home"}),"primary big")));
+    return;
+  }
+  const item = view.queue[view.k], t = S.texts.find(x=>x.id===item.id);
+  if (!t || !t.chunks[item.i]){ view.k++; return render(); }
+  const sent = t.chunks[item.i], c = cardOf(t,item.i);
+  $app.append(h("div",{class:"stack",style:"margin-bottom:14px"},
+    h("div",{class:"spread"},h("span",{class:"label"},`${view.k+1} of ${view.queue.length}`),h("span",{class:"chip"},t.title.slice(0,30))),
+    h("div",{class:"bar"},h("span",{style:`width:${view.k/view.queue.length*100}%`}))));
+  const card = h("div",{class:"card"}); $app.append(card);
+  const prev = item.i>0 ? t.chunks[item.i-1] : null;
+  card.append(h("span",{class:"label"},prev?"What comes after this?":"How does it start?"));
+  if (prev) card.append(h("div",{class:"cue"},"…"+prev)); else card.append(h("div",{class:"cue"},"The first line of “"+t.title+"”"));
+  card.append(sentenceEl(sent,"blind"));
+  let missed = false;
+  const holder = h("div");
+  card.append(h("div",{class:"toolbar"},B("Show answer",()=>{ missed=true; holder.replaceChildren(h("div",{class:"feedback no"},h("div",{class:"t"},"Here it is. It'll come back tomorrow."),sent)); },"ghost","eye"),h("div",{class:"grow"})), holder);
+  const box = answerBox({t, target:sent, card, mode:"final", voiceFirst: t.method==="speak", onPass:()=>{
+    const firstTry = view.tries===1 && !missed;
+    if (firstTry){ c.box=Math.min(5,c.box+1); view.right++; } else c.box=1;
+    c.due = addDays(BOX_DAYS[c.box]); bumpDay(); save();
+    go({...view, k:view.k+1, tries:0});
+  }});
+}
+
+/* ---------- SETTINGS ---------- */
+function Settings(){
+  $app.append(topbar("Settings"));
+  const strict = h("input",{type:"checkbox",id:"strict"}); strict.checked=S.settings.strict;
+  strict.addEventListener("change",()=>{S.settings.strict=strict.checked; save();});
+  const rate = h("input",{type:"range",id:"rate",min:"0.6",max:"1.4",step:"0.1"}); rate.value=S.settings.rate;
+  const rl = h("span",{class:"small muted"},S.settings.rate+"×");
+  rate.addEventListener("input",()=>{S.settings.rate=+rate.value; rl.textContent=rate.value+"×"; save();});
+  let confirm=false;
+  const resetWrap = h("div");
+  const drawReset = () => resetWrap.replaceChildren(confirm
+    ? h("div",{class:"row"},h("span",{style:"flex:1"},"Erase all texts and progress?"),B("Erase",()=>{S=defaultState(); save(); go({name:"home"}); toast("Everything was reset.");},"primary","trash"),B("Cancel",()=>{confirm=false; drawReset();}))
+    : B("Reset everything",()=>{confirm=true; drawReset();},"ghost","trash"));
+  drawReset();
+  $app.append(h("div",{class:"stack"},
+    h("label",{class:"sheet row",for:"strict"},strict,h("div",{style:"flex:1"},h("b",null,"Strict spelling"),h("p",{class:"small muted"},"Off: one small typo in a longer word still counts. Capitals and punctuation never matter."))),
+    h("div",{class:"sheet stack"},h("div",{class:"spread"},h("b",null,"Voice speed"),rl),rate,B("Test voice",()=>speak("This is how fast I'll read your lines.","en"),"","play")),
+    h("div",{class:"sheet stack"},h("b",null,"Where your progress lives"),h("p",{class:"small muted"},"Your texts and progress are saved in this browser on this device.")),
+    resetWrap));
+}
+
+render();
+})();
+</script>
