@@ -191,6 +191,36 @@ details summary{cursor:pointer;font-weight:700}
 .heat i.l3{background:var(--good)}
 .scanrow{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 input[type=checkbox]{accent-color:var(--accent);width:20px;height:20px;flex:none}
+.more{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;margin:-6px -2px 14px;scrollbar-width:none}
+.more::-webkit-scrollbar{display:none}
+.more button{min-height:38px;padding:.35em .9em;white-space:nowrap;font-size:.9rem}
+.examcard{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.examcard .count{text-align:center;line-height:1}
+.examcard .count b{display:block;font-family:var(--f-display);font-weight:800;font-size:2rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.examcard .count span{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.examcard.soon .count b{color:var(--bad)}
+.gapline{font-size:1.2rem;line-height:2.1;overflow-wrap:anywhere}
+.gapline.fx{font-size:1.25rem}
+input.gap{display:inline-block;width:auto;padding:.05em .35em;margin:0 .1em;border-radius:7px;border:1.5px dashed var(--accent);background:var(--accent-soft);font:inherit;line-height:1.3;color:var(--ink);max-width:100%}
+input.gap.ok{border-style:solid;border-color:var(--good);background:var(--good-soft)}
+input.gap.bad{border-style:solid;border-color:var(--bad);background:var(--bad-soft)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.match .col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.match button{border-radius:12px;font-weight:400;min-height:68px;text-align:left;justify-content:flex-start;padding:.5em .7em;font-size:.92rem;min-width:0;width:100%}
+.match button>span{overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.match .col:first-child button{font-weight:700;font-family:var(--f-display)}
+.match button.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 2px var(--accent)}
+.match button.done{visibility:hidden}
+.sheetrow{display:grid;gap:2px;padding:10px 0;border-bottom:1px solid var(--line)}
+.sheetrow:last-child{border-bottom:0}
+.sheetrow b{font-family:var(--f-display)}
+.sheetrow button{justify-self:start;min-height:34px;padding:.2em .8em;font-size:.85rem}
+.pill{min-height:34px;padding:.2em .8em;font-variant-numeric:tabular-nums;background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.bigtime{font-family:var(--f-display);font-weight:800;font-size:clamp(4rem,22vw,7rem);line-height:1;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.phase{text-align:center;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-size:.8rem}
+.testrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;font-size:.9rem;padding:6px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.testrow:last-child{border-bottom:0}
+input[type=date],input[type=time]{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.6em .8em}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -211,6 +241,9 @@ const ICONS = {
   gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
   cards:'<rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 012 2v12"/>', type:'<path d="M4 7V5h16v2M12 5v14M9 19h6"/>', quiz:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-1 .6-1.5 1.2-1.5 2.5M12 17h.01"/>',
   chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>', box:'<path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10"/>', book:'<path d="M4 4h6a3 3 0 013 3v13a2 2 0 00-2-2H4zM20 4h-6a3 3 0 00-3 3v13a2 2 0 012-2h7z"/>',
+  timer:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/>', match:'<rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="13" width="7" height="7" rx="1.5"/><path d="M10 7.5h4a2 2 0 012 2V13"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>', cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>', gaps:'<path d="M3 12h3M10 12h4M18 12h3M3 7h18M3 17h18" stroke-dasharray="0"/>',
+  bell:'<path d="M6 16V11a6 6 0 1112 0v5l2 2H4zM10 21h4"/>', share:'<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/>',
   scan:'<path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3M7 12h10"/>'
 };
 const ic = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
@@ -251,6 +284,21 @@ const LANGS = [
 ];
 const lang = c => LANGS.find(l=>l.code===c) || LANGS[0];
 const langSelect = (id, value, onchange) => { const s=h("select",{id,"aria-label":"Language"}, LANGS.map(l=>h("option",{value:l.code},l.name))); s.value=value; s.addEventListener("change",()=>onchange(s.value)); return s; };
+
+/* ================= Android app bridge ================= */
+// When running inside the Android app, window.Native gives on-device text reading, voice, microphone, file sharing and reminders.
+const NATIVE = window.Native || null;
+const nativeCbs = {};
+window.__nativeCb = (id, ok, payload) => { const c = nativeCbs[id]; if (!c) return; delete nativeCbs[id]; ok ? c.res(payload) : c.rej(new Error(payload||"failed")); };
+const nativeCall = (fn, ...args) => new Promise((res, rej) => { const id = uid(); nativeCbs[id] = {res, rej}; try { NATIVE[fn](id, ...args); } catch(e){ delete nativeCbs[id]; rej(e); } });
+const blobToB64 = blob => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(",")[1]); r.onerror = rej; r.readAsDataURL(blob); });
+async function saveFile(filename, data, mime="application/json"){
+  if (NATIVE){ NATIVE.shareFile(filename, mime, data); return "shared"; }
+  if (caps.downloads){ await caps.downloads.save({filename, data}); return "saved"; }
+  const url = URL.createObjectURL(new Blob([data],{type:mime}));
+  const a = h("a",{href:url, download:filename}); document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),5000);
+  return "downloaded";
+}
 
 /* ================= kinds of things to learn ================= */
 const KINDS = {
@@ -443,6 +491,18 @@ try { S = migrate(JSON.parse(localStorage.getItem(KEY))); } catch { S = defaultS
 S.settings = Object.assign({strict:false, rate:1, lang:"ro", goal:10, subject:"all"}, S.settings||{});
 S.stats = Object.assign({learned:0, streak:0, lastDay:null, days:{}}, S.stats||{});
 for (const it of S.items){ it.card ||= {box:0,due:0}; it.cards ||= {}; }
+S.exams ||= []; S.tests ||= []; S.best ||= {}; S.stats.focus ||= {};
+S.settings = Object.assign({theme:"system", remind:false, remindAt:"19:00"}, S.settings);
+const inClaude = !!window.claude;
+function applyTheme(){
+  if (inClaude) return;   // inside Claude the viewer decides the theme
+  const t = S.settings.theme;
+  if (t==="light" || t==="dark") document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+  const dark = t==="dark" || (t==="system" && matchMedia("(prefers-color-scheme: dark)").matches);
+  if (NATIVE?.setDarkBars) NATIVE.setDarkBars(dark);
+}
+applyTheme();
+if (NATIVE && S.settings.remind){ const [hh,mm] = S.settings.remindAt.split(":").map(Number); try { NATIVE.setReminder(true, hh||19, mm||0); } catch {} }
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} }
 function bumpDay(){
   const t = today();
@@ -586,6 +646,14 @@ async function readPhoto(file, langCode, onStatus){
       onStatus(e.code === "not_granted" ? "Claude access was declined. Trying the on-device reader…" : "Claude couldn't read it. Trying the on-device reader…");
     }
   }
+  if (NATIVE){
+    onStatus("Reading text…");
+    try{
+      const t = String(await nativeCall("ocr", await blobToB64(blob))).trim();
+      if (!t) throw userErr("No readable text found in that photo. Try a closer, sharper shot.");
+      return t;
+    } catch(e){ if (e.user) throw e; throw userErr("Couldn't read the photo. Try again with more light, or type the text."); }
+  }
   onStatus("Loading the text reader (the first time takes a moment)…");
   let T;
   try { T = await loadTesseract(); } catch { throw userErr("The photo reader couldn't load. Check your connection, or type the text instead."); }
@@ -600,6 +668,7 @@ async function readPhoto(file, langCode, onStatus){
 /* ================= speech ================= */
 function speak(text, langCode){
   const rate = S.settings.rate;
+  if (NATIVE){ NATIVE.speak(text, lang(langCode).bcp, rate); return; }
   if (caps.tts && langCode === "en"){ caps.tts.speak(text,{rate, language:"en"}).catch(()=>speakLocal(text, langCode, rate)); return; }
   speakLocal(text, langCode, rate);
 }
@@ -614,10 +683,22 @@ function speakLocal(text, langCode, rate){
   speechSynthesis.speak(u);
 }
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-const micAvailable = () => !!(caps.dictation || SR);
+const micAvailable = () => !!(NATIVE || caps.dictation || SR);
 let micStop = null;
 function startMic(langCode, onText, onState){
   if (micStop){ micStop(); return; }
+  if (NATIVE){
+    let finals = "";
+    window.__nativeMic = (type, text) => {
+      if (type==="partial") onText((finals+" "+text).trim());
+      else if (type==="final"){ finals = (finals+" "+text).trim(); onText(finals); }
+      else if (type==="end"){ micStop=null; window.__nativeMic=null; onState(false); }
+      else if (type==="error"){ micStop=null; window.__nativeMic=null; onState(false); if (text) toast(text); }
+    };
+    micStop = () => NATIVE.stopListening();
+    onState(true); NATIVE.listen(lang(langCode).bcp);
+    return;
+  }
   if (caps.dictation){
     const d = caps.dictation; let finalText = ""; const offs = [];
     const off = () => offs.forEach(f=>{try{f()}catch{}});
@@ -649,7 +730,7 @@ const lineCard = (it,i) => it.cards[i] ||= {box:0, due:0};
 function markLine(it,i){ const c=lineCard(it,i); if (!c.box){ c.box=1; c.due=addDays(1); S.stats.learned++; } }
 function gradeCard(it, g){ // 0 again, 1 hard, 2 good, 3 easy
   const c = it.card;
-  if (g===0) c.box = c.box ? 1 : 0;
+  if (g===0){ c.box = c.box ? 1 : 0; c.lapses = (c.lapses||0) + 1; }
   else if (g===1) c.box = Math.max(1, c.box);
   else c.box = Math.min(6, Math.max(1, c.box + (g===3?2:1)));
   c.due = c.box ? addDays(g<=1 ? 1 : BOX_DAYS[c.box]) : 0;
@@ -678,6 +759,8 @@ function topbar(title, opts={}){
     back ? h("button",{class:"icon ghost",type:"button","aria-label":"Back",onclick:()=>go(opts.to||{name:"home"}),html:ic("back")}) : null,
     title ? h("div",{class:"brand"},title) : h("div",{class:"brand"},h("i"),"Line by Line"),
     h("div",{class:"grow"}),
+    focusActive() && view.name!=="focus" ? (()=>{ const b=B(null,()=>go({name:"focus"}),"pill","timer",{"aria-label":"Focus timer"}); b.append(h("span",{"data-focus":""},focusFmt(focusLeft()))); return b; })() : null,
+    !back && !focusActive() ? h("button",{class:"icon ghost",type:"button","aria-label":"Focus timer",onclick:()=>go({name:"focus"}),html:ic("timer")}) : null,
     !back ? h("button",{class:"icon ghost",type:"button","aria-label":"Progress",onclick:()=>go({name:"progress"}),html:ic("chart")}) : null,
     !back ? h("button",{class:"icon ghost",type:"button","aria-label":"Settings",onclick:()=>go({name:"settings"}),html:ic("gear")}) : null);
 }
@@ -717,7 +800,8 @@ VIEWS.home = function(){
     h("div",{class:"goal"},h("span",null,"Today"),h("div",{class:"bar"+(doneToday>=S.settings.goal?" good":"")},h("span",{style:`width:${Math.min(100,doneToday/S.settings.goal*100)}%`})),h("span",{style:"font-variant-numeric:tabular-nums"},`${doneToday} / ${S.settings.goal}`)),
     due.length ? h("div",{class:"review-banner"},
       h("div",null,h("h3",null,`${plural(due.length,"item")} to refresh`),h("p",{class:"small"},"A quick check so you don't forget.")),
-      B("Review now",()=>go({name:"review"}),"","redo")) : null));
+      B("Review now",()=>go({name:"review"}),"","redo")) : null,
+    examCard()));
 
   const counts = id => S.items.filter(it=>it.subjectId===id).length;
   const allBtn = B(null,()=>{S.settings.subject="all"; save(); render();}, sel==="all"?"on":"", null, {role:"tab","aria-selected":String(sel==="all")});
@@ -725,12 +809,19 @@ VIEWS.home = function(){
   $app.append(h("div",{class:"subjects",role:"tablist","aria-label":"Subjects"}, allBtn,
     S.subjects.filter(s=>counts(s.id)||s.id===sel).map(s=>{ const b=B(null,()=>{S.settings.subject=s.id; save(); render();}, sel===s.id?"on":"", null, {role:"tab","aria-selected":String(sel===s.id)}); b.append(s.name," ",h("span",{class:"n"},counts(s.id))); return b; })));
 
-  const startDeck = mode => { if (!cards.length){ toast("Add a formula, definition or rule first."); return; } go({name:"deck", mode, ids: orderForPractice(cards).map(c=>c.id), k:0, right:0}); };
-  const act = (label, sub, mode, icon) => { const b=B(label,()=>startDeck(mode),"",icon); b.append(h("small",null,sub)); return b; };
+  const act = (label, sub, mode, icon) => { const b=B(label,()=>startDeck(cards,mode),"",icon); b.append(h("small",null,sub)); return b; };
+  const weak = cards.filter(c=>(c.card.lapses||0)>0 && c.card.box<=2);
   $app.append(h("div",{class:"actions",style:"margin-block:8px 16px"},
     act("Flashcards", plural(cards.length,"card"), "flash", "cards"),
     act("Type it", "from memory", "type", "type"),
     act("Quiz", "multiple choice", "quiz", "quiz")));
+  $app.append(h("div",{class:"more","aria-label":"More ways to practise"},
+    B("Fill the gaps",()=>startDeck(cards,"gaps"),"","gaps"),
+    B("Match",()=>go({name:"match", subjectId:sel}),"","match"),
+    B("Practice test",()=>startTest(sel),"","spark"),
+    weak.length ? B(`Weak spots · ${weak.length}`,()=>startDeck(weak,"flash"),"","redo") : null,
+    B("Cheat sheet",()=>go({name:"sheet"}),"","list"),
+    B(S.exams.length?"Exams":"Set exam date",()=>go({name:"exams"}),"","cal")));
 
   const search = h("input",{type:"search",id:"search",placeholder:"Search your notes…","aria-label":"Search"});
   search.value = view.q||"";
@@ -806,6 +897,8 @@ VIEWS.addmenu = function(){
     h("span",{class:"label",style:"margin-top:8px"},"Faster ways"),
     canScan() ? B("Scan notes into cards",()=>go({name:"scan"}),"big","scan") : null,
     canScan() ? h("p",{class:"small muted"},"Take a photo of your notes or a textbook page. Claude pulls out the formulas, definitions and rules for you.") : null,
+    B("Paste a list of cards",()=>go({name:"bulk"}),"big","list"),
+    h("p",{class:"small muted"},"One per line, like “Ohm's law: U = R·I”. Good for copying a whole page of notes at once."),
     B("Starter packs",()=>go({name:"packs"}),"big","box"),
     h("p",{class:"small muted"},"Ready-made sets: algebra, geometry, derivatives, physics, chemistry, biology, history dates, Romanian spelling.")));
 };
@@ -1287,30 +1380,89 @@ VIEWS.full = function(){
 };
 
 /* ================= CARD PRACTICE (flashcards / type / quiz) ================= */
-const MODE_NAME = {flash:"Flashcards", type:"Type it", quiz:"Quiz"};
+const MODE_NAME = {flash:"Flashcards", type:"Type it", quiz:"Quiz", gaps:"Gaps"};
+const fmtTime = secs => `${Math.floor(secs/60)}:${String(secs%60).padStart(2,"0")}`;
+function startDeck(cards, mode){
+  if (!cards.length){ toast("Add a formula, definition or rule first."); return; }
+  go({name:"deck", mode, ids: orderForPractice(cards).map(c=>c.id), k:0, right:0, missed:[], start:Date.now()});
+}
+function startTest(subjectId, n=15){
+  const cards = S.items.filter(it=>it.kind!=="text" && (subjectId==="all"||it.subjectId===subjectId));
+  if (cards.length<2){ toast("A practice test needs at least 2 cards in this subject."); return; }
+  const ids = shuffle(cards).slice(0,n).map(c=>c.id);
+  const modes = ids.map(()=>{ const r=Math.random(); return r<0.45?"quiz":r<0.75?"gaps":"type"; });
+  go({name:"deck", mode:"mix", test:true, subjectId, ids, modes, k:0, right:0, missed:[], start:Date.now()});
+}
 VIEWS.deck = function(){
   const ids = view.ids.filter(id=>S.items.some(x=>x.id===id));
-  $app.append(topbar(MODE_NAME[view.mode]));
-  if (view.k >= ids.length){
-    $app.append(h("div",{class:"card celebrate"},
-      h("div",{class:"num"},`${view.right}/${ids.length}`),
-      h("h2",null, view.right===ids.length ? "All correct!" : "Round finished"),
-      h("p",{class:"muted"},"Cards you missed come back sooner. Strong cards come back later."),
-      h("div",{class:"stack"},
-        ids.length>1 ? B("Another round",()=>go({...view, ids:shuffle(ids), k:0, right:0, tries:0}),"primary big","redo") : null,
-        B("Back home",()=>go({name:"home"}),"big"))));
-    return;
-  }
+  $app.append(topbar(view.test ? "Practice test" : MODE_NAME[view.mode]));
+  if (view.k >= ids.length) return deckEnd(ids);
   const it = S.items.find(x=>x.id===ids[view.k]);
-  const seg = h("div",{class:"seg",role:"group","aria-label":"Mode"});
-  Object.entries(MODE_NAME).forEach(([k,l])=>seg.append(B(l,()=>go({...view, mode:k, tries:0}), view.mode===k?"on":"")));
-  $app.append(h("div",{class:"stack",style:"margin-bottom:14px"},
-    h("div",{class:"spread"},h("span",{class:"label"},`${view.k+1} of ${ids.length}`),seg),
-    h("div",{class:"bar"},h("span",{style:`width:${view.k/ids.length*100}%`}))));
+  const mode = view.mode==="mix" ? view.modes[view.k] : view.mode;
+  const head = h("div",{class:"spread"},h("span",{class:"label"},`${view.k+1} of ${ids.length}`));
+  if (view.test) head.append(h("span",{class:"chip warn"},`${view.right} right so far`));
+  else {
+    const seg = h("div",{class:"seg",role:"group","aria-label":"Mode"});
+    Object.entries(MODE_NAME).forEach(([k,l])=>seg.append(B(l,()=>go({...view, mode:k, tries:0}), view.mode===k?"on":"")));
+    head.append(h("div",{style:"overflow-x:auto;max-width:100%"},seg));
+  }
+  $app.append(h("div",{class:"stack",style:"margin-bottom:14px"}, head, h("div",{class:"bar"},h("span",{style:`width:${view.k/ids.length*100}%`}))));
   const card = h("div",{class:"card"}); $app.append(card);
-  const next = g => { gradeCard(it, g); go({...view, k:view.k+1, right:view.right+(g>=2?1:0), tries:0}); };
-  ({flash:flashCard, type:typeCard, quiz:quizCard})[view.mode](it, card, next);
+  const next = g => { gradeCard(it, g); go({...view, k:view.k+1, right:view.right+(g>=2?1:0), missed: g<2 ? [...(view.missed||[]), it.id] : (view.missed||[]), tries:0}); };
+  ({flash:flashCard, type:typeCard, quiz:quizCard, gaps:gapsCard})[mode](it, card, next);
 };
+function deckEnd(ids){
+  const secs = Math.round((Date.now()-(view.start||Date.now()))/1000);
+  const pct = ids.length ? Math.round(view.right/ids.length*100) : 0;
+  if (view.test && !view.saved){ view.saved = true; S.tests.push({date:Date.now(), subjectId:view.subjectId, score:view.right, total:ids.length, secs}); S.tests = S.tests.slice(-60); save(); }
+  const missed = [...new Set(view.missed||[])].map(id=>S.items.find(x=>x.id===id)).filter(Boolean);
+  const verdict = pct>=90 ? "Excellent!" : pct>=70 ? "Good work" : pct>=50 ? "Getting there" : "Keep practising";
+  $app.append(h("div",{class:"card celebrate"},
+    h("div",{class:"num"}, view.test ? pct+"%" : `${view.right}/${ids.length}`),
+    h("h2",null, view.test ? verdict : (view.right===ids.length ? "All correct!" : "Round finished")),
+    h("p",{class:"muted"}, `${view.right} of ${ids.length} right in ${fmtTime(secs)}.` + (view.test ? "" : " Missed cards come back sooner.")),
+    h("div",{class:"stack"},
+      missed.length ? B(missed.length===1?"Practise the one I missed":`Practise the ${missed.length} I missed`,()=>startDeck(missed,"flash"),"primary big","redo") : null,
+      view.test ? B("Take another test",()=>startTest(view.subjectId),"big","spark") : (ids.length>1 ? B("Another round",()=>go({...view, ids:shuffle(ids), k:0, right:0, missed:[], start:Date.now(), tries:0}),"big","redo") : null),
+      B("Back home",()=>go({name:"home"}),"big"))));
+  if (missed.length) $app.append(h("div",{class:"sheet",style:"margin-top:14px"},h("h3",null,"Go over these again"),
+    missed.map(it=>h("div",{class:"sheetrow"},h("b",null,it.term), isFx(it)?fx(it.content):h("span",{class:"muted"},it.content)))));
+}
+function gapsCard(it, card, next){
+  cardHead(it, card, false);
+  const f = isFx(it);
+  const toks = it.content.split(/(\s+)/);
+  const cand = toks.map((t,i)=>({t,i})).filter(o=>o.t.trim() && (f ? /[\p{L}\p{N}]/u.test(o.t) : (norm(o.t).length>=4 || /\d/.test(o.t))));
+  if (!cand.length) return typeCard(it, card, next);
+  const n = Math.max(1, Math.min(6, Math.round(cand.length*(f?0.4:0.3))));
+  const hide = new Set(shuffle(cand).slice(0,n).map(o=>o.i));
+  const line = h("div",{class:"gapline"+(f?" fx":"")});
+  const inputs = [];
+  toks.forEach((t,i)=>{
+    if (hide.has(i)){
+      const inp = h("input",{type:"text",class:"gap",autocomplete:"off",autocapitalize:"off",autocorrect:"off",spellcheck:"false","aria-label":"Missing part "+(inputs.length+1),style:`width:${Math.max(3,[...t].length+1)}ch`});
+      inp.dataset.want = t; inputs.push(inp); line.append(inp);
+    } else line.append(f ? fx(t,"") : t);
+  });
+  card.append(h("span",{class:"label"},"Fill in the missing parts"), line);
+  const check = B("Check",()=>{
+    let good = 0;
+    inputs.forEach(inp=>{
+      const w = inp.dataset.want, a = inp.value.trim();
+      const ok = a && (f ? normF(w).toLowerCase()===normF(a).toLowerCase() : same(norm(w), norm(a)));
+      inp.classList.add(ok?"ok":"bad"); inp.disabled = true;
+      if (ok) good++; else { inp.value = a ? `${a} → ${w}` : w; inp.style.width = Math.max(3,[...inp.value].length+1)+"ch"; }
+    });
+    check.remove();
+    const all = good===inputs.length;
+    card.append(h("div",{class:"feedback "+(all?"ok":"no")},h("div",{class:"t"}, all ? "All right!" : `${good} of ${inputs.length} right. The red ones show the answer.`)),
+      ...(all ? [] : [backEl(it)]),
+      B("Next",()=>next(all?2:(good*2>=inputs.length?1:0)),"primary big","check"));
+  },"primary big","check");
+  inputs.forEach((inp,ix)=>inp.addEventListener("keydown",e=>{ if (e.key==="Enter"){ e.preventDefault(); if (ix<inputs.length-1) inputs[ix+1].focus(); else check.click(); } }));
+  card.append(check);
+  setTimeout(()=>inputs[0]?.focus({preventScroll:true}),60);
+}
 function cardHead(it, card, reverse){
   card.append(h("div",{class:"spread"},h("div",{class:"row"},h("span",{class:"kind "+it.kind},KINDS[it.kind].name),h("span",{class:"chip"},subj(it.subjectId).name)), pips(it.card.box)));
   if (reverse){
@@ -1428,6 +1580,12 @@ VIEWS.progress = function(){
     h("div",{class:"sheet stack"},h("h3",null,"Last 16 weeks"),heat,h("p",{class:"small muted"},"Each square is a day. Darker means more lines and cards practised.")),
     h("div",{class:"sheet stack"},h("h3",null,"By subject"),
       bySubj.length ? bySubj.map(x=>h("div",{class:"stack",style:"gap:4px"},h("div",{class:"spread"},h("span",null,x.s.name),h("span",{class:"small muted",style:"font-variant-numeric:tabular-nums"},`${x.m} / ${x.n} memorized`)),h("div",{class:"bar good"},h("span",{style:`width:${x.m/x.n*100}%`})))) : h("p",{class:"muted small"},"Nothing added yet.")),
+    S.tests.length ? h("div",{class:"sheet stack"},h("h3",null,"Practice tests"),
+      h("div",null, S.tests.slice(-8).reverse().map(t=>h("div",{class:"testrow"},
+        h("span",null, new Date(t.date).toLocaleDateString(undefined,{day:"numeric",month:"short"})+" · "+(t.subjectId==="all"?"All subjects":subj(t.subjectId).name)),
+        h("b",{style:`color:var(${t.score/t.total>=0.7?"--good":"--warn"})`}, Math.round(t.score/t.total*100)+"%"),
+        h("span",{class:"muted"},fmtTime(t.secs)))))) : null,
+    h("div",{class:"sheet spread"},h("div",null,h("h3",null,"Focus sessions"),h("p",{class:"small muted"},"25-minute study blocks with the timer.")),h("div",{style:"text-align:right"},h("b",{style:"font-family:var(--f-display);font-size:1.4rem"},Object.values(S.stats.focus).reduce((a,b)=>a+b,0)),h("div",{class:"small muted"},`${S.stats.focus[today()]||0} today`))),
     h("div",{class:"sheet stack"},h("h3",null,"By type"),
       h("div",{class:"row"}, byKind.map(x=>h("span",{class:"row",style:"gap:6px;margin-right:10px"},h("span",{class:"kind "+x.k},KINDS[x.k].name),h("span",{class:"small muted"},`${x.m}/${x.n}`)))))));
 };
@@ -1462,22 +1620,29 @@ VIEWS.settings = function(){
 
   const backupStatus = h("p",{class:"small muted","aria-live":"polite"});
   const exportBtn = B("Save a backup file",async()=>{
-    const data = JSON.stringify(S), filename = `line-by-line-backup-${today()}.json`;
-    if (caps.downloads){
-      try { await caps.downloads.save({filename, data}); backupStatus.textContent="Backup saved."; } catch { backupStatus.textContent="The backup wasn't saved."; }
-      return;
-    }
-    const url = URL.createObjectURL(new Blob([data],{type:"application/json"}));
-    const a = h("a",{href:url, download:filename}); document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),5000);
-    backupStatus.textContent = "Backup downloaded.";
+    try { const how = await saveFile(`line-by-line-backup-${today()}.json`, JSON.stringify(S)); backupStatus.textContent = how==="shared" ? "Choose where to keep it, e.g. Google Drive or Files." : "Backup saved."; }
+    catch { backupStatus.textContent = "The backup wasn't saved."; }
   },"","box");
-  const imp = h("input",{type:"file",accept:"application/json,.json",hidden:true,id:"importfile"});
+  const themeSeg = h("div",{class:"seg",role:"group","aria-label":"Theme"});
+  [["system","Automatic"],["light","Light"],["dark","Dark"]].forEach(([k,l])=>themeSeg.append(B(l,()=>{ S.settings.theme=k; save(); applyTheme(); render(); }, S.settings.theme===k?"on":"")));
+  const remindBox = h("input",{type:"checkbox",id:"remind"}); remindBox.checked = !!S.settings.remind;
+  const remindAt = h("input",{type:"time",id:"remindat",value:S.settings.remindAt});
+  const syncRemind = () => { const [hh,mm] = S.settings.remindAt.split(":").map(Number); NATIVE?.setReminder?.(!!S.settings.remind, hh||19, mm||0); };
+  remindBox.addEventListener("change",()=>{ S.settings.remind = remindBox.checked; save(); syncRemind(); toast(remindBox.checked?`Reminder set for ${S.settings.remindAt} every day.`:"Reminder off."); });
+  remindAt.addEventListener("change",()=>{ if (!remindAt.value) return; S.settings.remindAt = remindAt.value; save(); syncRemind(); });
+  const imp = h("input",{type:"file",accept:"application/json,.json,*/*",hidden:true,id:"importfile"});
   let pending = null;
   imp.addEventListener("change",async()=>{
     const f = imp.files[0]; imp.value=""; if (!f) return;
-    try { const d = migrate(JSON.parse(await f.text())); if (!Array.isArray(d.items) || !Array.isArray(d.subjects)) throw 0; pending = d; drawImport(); }
-    catch { backupStatus.textContent = "That file isn't a Line by Line backup."; }
+    try {
+      const raw = JSON.parse(await f.text());
+      if (raw?.type==="linebyline-deck"){ const r = importDeck(raw); backupStatus.textContent = `Added ${plural(r.n,"item")} to ${r.name}.`; return; }
+      const d = migrate(raw); if (!Array.isArray(d.items) || !Array.isArray(d.subjects)) throw 0; pending = d; drawImport();
+    }
+    catch { backupStatus.textContent = "That file isn't a Line by Line backup or shared subject."; }
   });
+  const shareSel = h("select",{id:"sharesubj","aria-label":"Subject to share"}, S.subjects.filter(s=>S.items.some(i=>i.subjectId===s.id)).map(s=>h("option",{value:s.id},s.name)));
+  const shareRow = shareSel.options.length ? h("div",{class:"row",style:"flex-wrap:nowrap"}, shareSel, B("Share",()=>shareSubject(shareSel.value),"","share")) : null;
   const importWrap = h("div");
   const drawImport = () => importWrap.replaceChildren(pending
     ? h("div",{class:"row"},h("span",{class:"grow small"},`Replace everything here with the backup (${plural(pending.items.length,"item")})?`),B("Replace",()=>{ S=pending; save(); go({name:"home"}); toast("Backup restored."); },"primary"),B("Cancel",()=>{pending=null; drawImport();}))
@@ -1492,15 +1657,256 @@ VIEWS.settings = function(){
   drawReset();
 
   $app.append(h("div",{class:"stack"},
+    NATIVE ? h("div",{class:"sheet stack"},
+      h("label",{class:"row",for:"remind",style:"flex-wrap:nowrap"},remindBox,h("div",{class:"grow"},h("b",null,"Daily reminder"),h("p",{class:"small muted"},"A notification to practise, so you keep your streak."))),
+      h("div",{class:"spread"},h("label",{class:"small",for:"remindat"},"Remind me at"),remindAt)) : null,
+    !inClaude ? h("div",{class:"sheet spread"},h("b",null,"Theme"),themeSeg) : null,
     h("div",{class:"sheet stack"},h("b",null,"Language for new items"),h("p",{class:"small muted"},"Used for reading photos, the voice and the microphone. You can pick another language on each item. The app itself stays in English."),langSelect("deflang",S.settings.lang,v=>{S.settings.lang=v; save();})),
     h("div",{class:"sheet spread"},h("div",null,h("b",null,"Daily goal"),h("p",{class:"small muted"},"Lines and cards to practise each day.")),goal),
     h("label",{class:"sheet row",for:"strict",style:"flex-wrap:nowrap"},strict,h("div",{class:"grow"},h("b",null,"Strict spelling"),h("p",{class:"small muted"},"Off: one small typo in a longer word still counts, and definitions that are 85% right pass. Capitals and punctuation never matter."))),
     h("div",{class:"sheet stack"},h("div",{class:"spread"},h("b",null,"Voice speed"),rl),rate,B("Test voice",()=>speak(S.settings.lang==="ro"?"Așa voi citi rândurile tale.":"This is how fast I'll read your lines.",S.settings.lang),"","play")),
     h("div",{class:"sheet stack"},h("b",null,"Subjects"),subjWrap),
-    h("div",{class:"sheet stack"},h("b",null,"Backup"),h("p",{class:"small muted"},"Everything is saved on this device only. Save a backup file to move it to another phone or keep it safe."),h("div",{class:"row"},exportBtn,importWrap),imp,backupStatus),
+    h("div",{class:"sheet stack"},h("b",null,"Backup"),h("p",{class:"small muted"},"Everything is saved on this device only. Save a backup file to move it to another phone or keep it safe."),h("div",{class:"row"},exportBtn,importWrap),imp,backupStatus,
+      shareRow ? h("b",{style:"margin-top:6px"},"Share a subject") : null,
+      shareRow ? h("p",{class:"small muted"},"Send a subject's cards to a friend. They open it with “Restore from a backup” and the cards are added to what they have.") : null,
+      shareRow),
     resetWrap));
 };
 
+/* ================= EXAMS ================= */
+const daysUntil = d => Math.round((new Date(d+"T00:00:00") - new Date(today()+"T00:00:00"))/86400000);
+function examCard(){
+  const ex = S.exams.filter(e=>daysUntil(e.date)>=0).sort((a,b)=>a.date.localeCompare(b.date))[0];
+  if (!ex) return null;
+  const d = daysUntil(ex.date);
+  return h("div",{class:"examcard"+(d<=7?" soon":"")},
+    h("div",{class:"stack",style:"gap:2px;min-width:0"},
+      h("span",{class:"label"},"Next exam"),
+      h("h3",{style:"overflow-wrap:anywhere"},ex.name),
+      h("p",{class:"small muted"},`${subj(ex.subjectId).name} · ${new Date(ex.date+"T00:00:00").toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"})}`),
+      h("div",{class:"row",style:"margin-top:6px"},B("Practice test",()=>startTest(ex.subjectId),"primary","spark"),B("All exams",()=>go({name:"exams"}),"ghost"))),
+    h("div",{class:"count"},h("b",null, d===0?"!":d), h("span",null, d===0?"today":d===1?"day":"days")));
+}
+VIEWS.exams = function(){
+  $app.append(topbar("Exams"));
+  const st = view.st ||= {name:"", subjectId: S.settings.subject!=="all"?S.settings.subject:subjectByName(S,"Math").id, date:""};
+  const name = h("input",{type:"text",id:"exname",placeholder:"e.g. Bac Math, Biology test"}); name.value=st.name; name.addEventListener("input",()=>st.name=name.value);
+  const date = h("input",{type:"date",id:"exdate",min:today()}); date.value=st.date; date.addEventListener("input",()=>st.date=date.value);
+  const add = B("Add exam",()=>{
+    if (!name.value.trim() || !date.value){ toast("Give the exam a name and a date."); return; }
+    S.exams.push({id:uid(), name:name.value.trim(), subjectId:st.subjectId, date:date.value}); save();
+    view.st = null; toast("Exam added."); render();
+  },"primary big","plus");
+  const list = S.exams.slice().sort((a,b)=>a.date.localeCompare(b.date));
+  $app.append(h("div",{class:"stack"},
+    h("p",{class:"muted"},"Add your exams and tests. The next one shows on the home screen with a countdown, and you can take practice tests for it."),
+    list.length ? h("div",{class:"stack"}, list.map(ex=>{
+      const d = daysUntil(ex.date);
+      return h("div",{class:"examcard"+(d>=0&&d<=7?" soon":"")},
+        h("div",{class:"stack",style:"gap:2px;min-width:0"},
+          h("h3",{style:"overflow-wrap:anywhere"},ex.name),
+          h("p",{class:"small muted"},`${subj(ex.subjectId).name} · ${new Date(ex.date+"T00:00:00").toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"})}`),
+          h("div",{class:"row",style:"margin-top:6px"},
+            d>=0 ? B("Practice test",()=>startTest(ex.subjectId),"","spark") : h("span",{class:"chip good"},"Done"),
+            B("Remove",()=>{ S.exams = S.exams.filter(x=>x!==ex); save(); render(); toast("Exam removed."); },"ghost","trash"))),
+        h("div",{class:"count"}, d>=0 ? [h("b",null,d===0?"!":d), h("span",null,d===0?"today":d===1?"day":"days")] : h("span",null,"past")));
+    })) : null,
+    h("div",{class:"sheet stack"},
+      h("h3",null,"Add an exam"),
+      h("div",{class:"field"},h("label",{class:"label",for:"exname"},"Name"),name),
+      h("div",{class:"sheetgrid"},
+        h("div",{class:"field"},h("label",{class:"label",for:"exsubj"},"Subject"),h("div",null,subjectSelect("exsubj",st.subjectId,v=>st.subjectId=v))),
+        h("div",{class:"field"},h("label",{class:"label",for:"exdate"},"Date"),date)),
+      add)));
+};
+
+/* ================= MATCH GAME ================= */
+VIEWS.match = function(){
+  const sel = view.subjectId ?? S.settings.subject;
+  const pool = S.items.filter(it=>it.kind!=="text" && (sel==="all"||it.subjectId===sel));
+  $app.append(topbar("Match"));
+  if (pool.length<3){
+    $app.append(h("div",{class:"empty stack"},h("p",null,"Match needs at least 3 cards in this subject."),B("Starter packs",()=>go({name:"packs"}),"primary","box")));
+    return;
+  }
+  const ids = shuffle(pool).slice(0,6).map(c=>c.id);
+  const get = id => S.items.find(x=>x.id===id);
+  const key = "match:"+sel, best = S.best[key];
+  const info = h("p",{class:"small muted","aria-live":"polite"},"Tap a name, then the answer that goes with it." + (best ? ` Your best: ${fmtTime(best)}.` : ""));
+  let picked = null, matched = 0, slips = 0, start = 0;
+  const left = h("div",{class:"col"}), right = h("div",{class:"col"});
+  const mk = (id, side) => {
+    const it = get(id);
+    const b = h("button",{type:"button"}, h("span",null, side==="l" ? it.term : (isFx(it) ? fx(it.content) : it.content)));
+    b.dataset.id = id; b.dataset.side = side;
+    b.addEventListener("click",()=>{
+      if (!start) start = Date.now();
+      if (b.classList.contains("done")) return;
+      if (!picked || picked.dataset.side===side){ picked?.classList.remove("sel"); picked = b; b.classList.add("sel"); return; }
+      if (picked.dataset.id===id){
+        picked.classList.add("done"); b.classList.add("done"); picked = null; matched++;
+        if (NATIVE?.vibrate) NATIVE.vibrate(20);
+        if (matched===ids.length){
+          const secs = Math.max(1, Math.round((Date.now()-start)/1000));
+          const record = !best || secs < best; if (record){ S.best[key] = secs; }
+          bumpDay(); save();
+          $app.append(h("div",{class:"card celebrate",style:"margin-top:14px"},
+            h("div",{class:"num"},fmtTime(secs)),
+            h("h2",null, record ? "New best time!" : "All matched"),
+            h("p",{class:"muted"}, `${plural(slips,"wrong tap")}.` + (!record ? ` Best: ${fmtTime(best)}.` : "")),
+            h("div",{class:"stack"},B("Play again",()=>go({name:"match", subjectId:sel}),"primary big","redo"),B("Back home",()=>go({name:"home"}),"big"))));
+        }
+      } else {
+        slips++; const p = picked; [p,b].forEach(x=>{ x.classList.add("shake"); setTimeout(()=>x.classList.remove("shake"),300); });
+        p.classList.remove("sel"); picked = null;
+      }
+    });
+    return b;
+  };
+  shuffle(ids).forEach(id=>left.append(mk(id,"l")));
+  shuffle(ids).forEach(id=>right.append(mk(id,"r")));
+  $app.append(h("div",{class:"stack"}, info, h("div",{class:"match"}, left, right)));
+};
+
+/* ================= PASTE A LIST ================= */
+function parseBulk(text, kind){
+  const rows = [];
+  for (const raw of text.split(/\n/)){
+    const l = raw.trim().replace(/^[-•*\d.)\s]+(?=\S)/, m => /\d/.test(m) && !/[.)]/.test(m) ? m : "");
+    if (!l) continue;
+    let pair = null;
+    for (const sep of ["\t"," | "," — "," – "," - ",": "," = "]){
+      const i = l.indexOf(sep);
+      if (i>0){ pair = sep===" = " ? [l.slice(0,i).trim(), l.trim()] : [l.slice(0,i).trim(), l.slice(i+sep.length).trim()]; break; }
+    }
+    if (!pair || !pair[1]) continue;
+    const [term, content] = pair;
+    const k = kind!=="auto" ? kind : looksLikeFormula(content) ? "formula" : (/^\d{1,4}\b/.test(content) && content.split(/\s+/).length<=4) ? "fact" : content.split(/\s+/).length>5 ? "definition" : "fact";
+    rows.push({kind:k, term, content});
+  }
+  return rows;
+}
+VIEWS.bulk = function(){
+  const st = view.st ||= {text:"", kind:"auto", subjectId: S.settings.subject!=="all"?S.settings.subject:subjectByName(S,"General").id, lang:S.settings.lang};
+  $app.append(topbar("Paste a list",{to:{name:"addmenu"}}));
+  const ta = h("textarea",{id:"bulk",rows:10,placeholder:"Ohm's law: U = R·I\nMitosis - cell division that makes two identical cells\nFall of the Berlin Wall | 9 November 1989"});
+  ta.value = st.text;
+  const kindSel = h("select",{id:"bulkkind","aria-label":"Type"}, h("option",{value:"auto"},"Guess for each line"), CARD_KINDS.map(k=>h("option",{value:k},KINDS[k].name)));
+  kindSel.value = st.kind;
+  const preview = h("div",{class:"preview"}), count = h("span",{class:"label"});
+  const saveBtn = B("Save cards",()=>{
+    const rows = parseBulk(ta.value, st.kind); if (!rows.length) return;
+    rows.forEach(r=>S.items.unshift(makeItem({...r, lang:st.lang, subjectId:st.subjectId})));
+    S.settings.subject = st.subjectId; save(); view.st=null; toast(`Saved ${plural(rows.length,"card")}.`); go({name:"home"});
+  },"primary big","check");
+  const refresh = () => {
+    const rows = parseBulk(ta.value, st.kind);
+    count.textContent = rows.length ? plural(rows.length,"card") : "Preview";
+    preview.replaceChildren(...(rows.length ? rows.slice(0,60).map(r=>h("div",null,h("span",{class:"kind "+r.kind,style:"min-width:0"},KINDS[r.kind].name),h("span",{style:"min-width:0;overflow-wrap:anywhere"},h("b",null,r.term)," → ", r.kind==="formula"?fx(r.content):r.content))) : [h("p",{class:"muted small"},"Put the name first, then a colon, dash or | and the answer. One card per line.")]));
+    saveBtn.disabled = !rows.length;
+  };
+  ta.addEventListener("input",()=>{ st.text=ta.value; refresh(); });
+  kindSel.addEventListener("change",()=>{ st.kind=kindSel.value; refresh(); });
+  $app.append(h("div",{class:"stack"},
+    h("label",{class:"label",for:"bulk"},"Your list"), ta,
+    h("div",{class:"sheetgrid"},
+      h("div",{class:"field"},h("label",{class:"label",for:"bulkkind"},"Type"),kindSel),
+      h("div",{class:"field"},h("label",{class:"label",for:"subj"},"Subject"),h("div",null,subjectSelect("subj",st.subjectId,v=>st.subjectId=v)))),
+    h("div",{class:"field"},h("label",{class:"label",for:"lang"},"Language"),langSelect("lang",st.lang,v=>st.lang=v)),
+    count, preview, saveBtn));
+  refresh();
+};
+
+/* ================= CHEAT SHEET ================= */
+VIEWS.sheet = function(){
+  const sel = S.settings.subject;
+  const its = S.items.filter(it=>it.kind!=="text" && (sel==="all"||it.subjectId===sel));
+  $app.append(topbar(sel==="all" ? "Cheat sheet" : subj(sel).name+" cheat sheet"));
+  if (!its.length){ $app.append(h("div",{class:"empty"},h("p",null,"No cards in this subject yet."))); return; }
+  const hideBox = h("input",{type:"checkbox",id:"hideans"}); hideBox.checked = !!view.hide;
+  hideBox.addEventListener("change",()=>{ view.hide = hideBox.checked; render(); });
+  $app.append(h("label",{class:"sheet row",for:"hideans",style:"margin-bottom:12px;flex-wrap:nowrap"},hideBox,h("div",null,h("b",null,"Hide the answers"),h("p",{class:"small muted"},"Quiz yourself: tap each one to check."))));
+  for (const k of ["formula","theorem","definition","rule","fact"]){
+    const group = its.filter(it=>it.kind===k).sort((a,b)=>a.term.localeCompare(b.term));
+    if (!group.length) continue;
+    $app.append(h("div",{class:"sheet",style:"margin-bottom:12px"},
+      h("div",{class:"spread",style:"margin-bottom:4px"},h("span",{class:"kind "+k},{formula:"Formulas",theorem:"Theorems",definition:"Definitions",rule:"Rules",fact:"Facts & dates"}[k]),h("span",{class:"small muted"},group.length)),
+      group.map(it=>{
+        const ans = () => h("div",null, isFx(it) ? fx(it.content) : it.content, it.note ? h("div",{class:"note"},it.note) : null);
+        const row = h("div",{class:"sheetrow"}, h("b",null,it.term));
+        if (view.hide){ const b = B("Show",()=>b.replaceWith(ans()),"","eye"); row.append(b); } else row.append(ans());
+        return row;
+      })));
+  }
+};
+
+/* ================= FOCUS TIMER ================= */
+const FOCUS_MIN = {work:25, rest:5};
+const focus = {running:false, end:0, left:FOCUS_MIN.work*60000, phase:"work", ac:null};
+const focusLeft = () => focus.running ? focus.end-Date.now() : focus.left;
+const focusActive = () => focus.running || focus.left < FOCUS_MIN[focus.phase]*60000;
+const focusFmt = ms => fmtTime(Math.max(0, Math.ceil(ms/1000)));
+setInterval(()=>{
+  if (focus.running && focusLeft()<=0){ focus.running=false; finishFocus(); }
+  document.querySelectorAll("[data-focus]").forEach(el=>el.textContent=focusFmt(focusLeft()));
+}, 500);
+function beep(){
+  try{
+    const ac = focus.ac; if (!ac) return;
+    [0,0.3,0.6].forEach(t=>{ const o=ac.createOscillator(), g=ac.createGain(); o.frequency.value=880; o.connect(g); g.connect(ac.destination);
+      g.gain.setValueAtTime(0.0001,ac.currentTime+t); g.gain.exponentialRampToValueAtTime(0.3,ac.currentTime+t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,ac.currentTime+t+0.25);
+      o.start(ac.currentTime+t); o.stop(ac.currentTime+t+0.27); });
+  } catch {}
+}
+function finishFocus(){
+  beep(); try { NATIVE?.vibrate ? NATIVE.vibrate(600) : navigator.vibrate?.([250,120,250]); } catch {}
+  if (focus.phase==="work"){ S.stats.focus[today()] = (S.stats.focus[today()]||0)+1; save(); focus.phase="rest"; toast("Focus session done. Take a 5-minute break."); }
+  else { focus.phase="work"; toast("Break's over. Ready for another round?"); }
+  focus.left = FOCUS_MIN[focus.phase]*60000;
+  if (view.name==="focus") render();
+}
+VIEWS.focus = function(){
+  $app.append(topbar("Focus timer"));
+  const toggle = () => {
+    try { focus.ac ||= new (window.AudioContext||window.webkitAudioContext)(); focus.ac.resume?.(); } catch {}
+    if (focus.running){ focus.left = focusLeft(); focus.running = false; } else { focus.end = Date.now()+focus.left; focus.running = true; }
+    render();
+  };
+  const sessions = S.stats.focus[today()]||0;
+  $app.append(h("div",{class:"card"},
+    h("div",{class:"phase"}, focus.phase==="work" ? "Focus" : "Break"),
+    h("div",{class:"bigtime","data-focus":"",role:"timer"}, focusFmt(focusLeft())),
+    h("p",{class:"muted",style:"text-align:center"}, focus.phase==="work" ? "25 minutes of studying, then a 5-minute break. The timer keeps running while you practise." : "Stand up, drink some water, look away from the screen."),
+    B(focus.running?"Pause":(focusActive()?"Resume":"Start"),toggle,"primary big", focus.running?null:"play"),
+    h("div",{class:"row",style:"justify-content:center"},
+      B("Reset",()=>{ focus.running=false; focus.left=FOCUS_MIN[focus.phase]*60000; render(); },"ghost","redo"),
+      B(focus.phase==="work"?"Skip to break":"Skip break",()=>{ focus.running=false; focus.phase = focus.phase==="work"?"rest":"work"; focus.left=FOCUS_MIN[focus.phase]*60000; render(); },"ghost","skip")),
+    h("p",{class:"small muted",style:"text-align:center"}, `Sessions today: ${sessions}`),
+    focus.running ? B("Go practise while it runs",()=>go({name:"home"}),"big","cards") : null));
+};
+
+/* ================= SHARE A SUBJECT ================= */
+async function shareSubject(subjectId){
+  const s = subj(subjectId);
+  const items = S.items.filter(i=>i.subjectId===subjectId).map(i=>({kind:i.kind, term:i.term, content:i.content, note:i.note, lang:i.lang, title:i.title, body:i.body, split:i.split}));
+  if (!items.length){ toast("That subject is empty."); return; }
+  const data = JSON.stringify({type:"linebyline-deck", v:1, subject:s.name, items});
+  try { await saveFile(`${s.name.replace(/[^\p{L}\p{N}]+/gu,"-")}-cards.json`, data); } catch { toast("Couldn't share the file."); }
+}
+function importDeck(d){
+  let sub = S.subjects.find(s=>s.name===d.subject); if (!sub){ sub={id:uid(), name:String(d.subject||"Shared").slice(0,60)}; S.subjects.push(sub); }
+  const have = new Set(S.items.filter(i=>i.subjectId===sub.id).map(i=>i.kind+"|"+(i.term||i.title)));
+  let n = 0;
+  for (const x of d.items||[]){
+    if (!x || !KINDS[x.kind] || have.has(x.kind+"|"+(x.term||x.title))) continue;
+    S.items.push(makeItem({kind:x.kind, term:String(x.term||""), content:String(x.content||""), note:String(x.note||""), lang:x.lang, title:String(x.title||""), body:String(x.body||""), split:x.split, subjectId:sub.id})); n++;
+  }
+  save(); return {n, name:sub.name};
+}
+
+// Android back button: go to the screen the on-screen back arrow leads to
+window.__back = () => { const b = document.querySelector('[aria-label="Back"]'); if (b){ b.click(); return true; } return false; };
+window.__onResume = () => { if (view.name==="home") render(); };
 render();
 })();
 </script>

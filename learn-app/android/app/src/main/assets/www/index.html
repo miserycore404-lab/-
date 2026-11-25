@@ -1,0 +1,2169 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
+<title>Line by Line</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* latin-ext */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/f1f5781bbe21561f.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/2fca64cb8a0c9b78.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/98740c239b4f3816.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/d4c6b24c0a1746b6.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/0fa996f63f6eb9b8.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/16709f937534d074.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/16db5cbe6178e22e.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/10d6a582947e2f61.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/3b58e8bdf772de36.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/16db5cbe6178e22e.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/10d6a582947e2f61.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/3b58e8bdf772de36.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/16db5cbe6178e22e.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/10d6a582947e2f61.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/3b58e8bdf772de36.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/a07c36cf8a237057.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/add2d251bd06971d.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/2565db8a3eb5f285.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/856c310c71dc6b3f.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/9326b4c9bf1db20f.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/b87346fdc77fc573.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/a07c36cf8a237057.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/add2d251bd06971d.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/2565db8a3eb5f285.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/856c310c71dc6b3f.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/9326b4c9bf1db20f.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/b87346fdc77fc573.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+</style>
+<style>
+/* Layout: one narrow phone-first column; a top bar, subject chips, then cards. Practice happens in one big "card". */
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --sunk:#eaeef6; --ink:#151a2b; --muted:#5d6681; --line:#dde2ee;
+  --accent:#2f4fd8; --accent-ink:#ffffff; --accent-soft:#e3e8fd;
+  --mark:#ffe36b; --mark-ink:#151a2b;
+  --good:#167a4a; --good-soft:#dbf3e6; --bad:#c2342b; --bad-soft:#fbe1de; --warn:#9a6200; --warn-soft:#fdf0d2;
+  --k-formula:#2f4fd8; --k-definition:#7a3fc4; --k-theorem:#0f7c86; --k-rule:#b4521b; --k-fact:#8a6a00; --k-text:#3f4a66;
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1220; --surface:#171c2e; --sunk:#111627; --ink:#e8ebf5; --muted:#9aa3bf; --line:#2a3150;
+  --accent:#7d93ff; --accent-ink:#0e1220; --accent-soft:#232c55;
+  --mark:#e8c53a; --mark-ink:#0e1220;
+  --good:#52d08f; --good-soft:#123826; --bad:#ff7d72; --bad-soft:#40191a; --warn:#f0b54a; --warn-soft:#3a2b0e;
+  --k-formula:#8fa2ff; --k-definition:#c39bff; --k-theorem:#4fd2dc; --k-rule:#ff9d66; --k-fact:#e8c53a; --k-text:#aab3cf;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1220; --surface:#171c2e; --sunk:#111627; --ink:#e8ebf5; --muted:#9aa3bf; --line:#2a3150;
+  --accent:#7d93ff; --accent-ink:#0e1220; --accent-soft:#232c55;
+  --mark:#e8c53a; --mark-ink:#0e1220;
+  --good:#52d08f; --good-soft:#123826; --bad:#ff7d72; --bad-soft:#40191a; --warn:#f0b54a; --warn-soft:#3a2b0e;
+  --k-formula:#8fa2ff; --k-definition:#c39bff; --k-theorem:#4fd2dc; --k-rule:#ff9d66; --k-fact:#e8c53a; --k-text:#aab3cf;
+  color-scheme:dark}
+html,body{min-height:100%}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+.wrap{max-width:680px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 72px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:1.85rem;font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.3rem;font-weight:700}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.label{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.spread{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.grow{flex:1}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:.6em 1.1em;font-weight:700;display:inline-flex;align-items:center;gap:.45em;justify-content:center;min-height:44px;transition:transform .08s, background .15s}
+button:active{transform:scale(.97)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+button.big{width:100%;font-size:1.05rem;min-height:52px}
+button:disabled{opacity:.45;cursor:default}
+button.icon{padding:.5em;width:44px;border-radius:50%}
+button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+input[type=text],input[type=search],input[type=number],textarea,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.7em .85em;width:100%}
+textarea{resize:vertical;min-height:110px;line-height:1.5}
+svg{width:1.15em;height:1.15em;flex:none}
+
+.top{display:flex;align-items:center;gap:6px;padding-block:6px 14px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:1.25rem;letter-spacing:-.02em;display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brand i{display:inline-block;width:22px;height:8px;background:var(--mark);border-radius:2px;transform:skewX(-12deg);flex:none}
+
+.hero{padding-block:4px 16px}
+.hero p{max-width:52ch;margin-top:8px}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+.stat b{display:block;font-family:var(--f-display);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.goal{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--muted)}
+.goal .bar{flex:1}
+.bar{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar>span{display:block;height:100%;background:var(--accent);border-radius:99px}
+.bar.good>span{background:var(--good)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:.74rem;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.chip.good{background:var(--good-soft);color:var(--good)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.kind{display:inline-flex;align-items:center;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:6px;border:1.5px solid currentColor;white-space:nowrap}
+.kind.formula{color:var(--k-formula)} .kind.definition{color:var(--k-definition)} .kind.theorem{color:var(--k-theorem)} .kind.rule{color:var(--k-rule)} .kind.fact{color:var(--k-fact)} .kind.text{color:var(--k-text)}
+.review-banner{background:var(--accent);color:var(--accent-ink);border-radius:var(--r);padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.review-banner button{background:var(--accent-ink);color:var(--accent);border-color:transparent}
+
+.subjects{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none;margin-inline:-2px}
+.subjects::-webkit-scrollbar{display:none}
+.subjects button{min-height:38px;padding:.35em .95em;white-space:nowrap;font-weight:700}
+.subjects button .n{font-weight:400;color:var(--muted);font-variant-numeric:tabular-nums}
+.subjects button.on .n{color:inherit}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.actions button{flex-direction:column;gap:2px;border-radius:var(--r);min-height:70px;padding:.5em}
+.actions button small{font-weight:400;color:var(--muted);font-size:.75rem}
+
+.textcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.textcard .title{font-family:var(--f-display);font-weight:700;font-size:1.08rem;overflow-wrap:anywhere;min-width:0}
+.textcard .snip{color:var(--muted);font-size:.92rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.itemrow{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:start;text-align:left;width:100%;font-weight:400;cursor:pointer;justify-items:start}
+.itemrow .term{font-family:var(--f-display);font-weight:700;font-size:1.02rem;overflow-wrap:anywhere;min-width:0}
+.itemrow .content{grid-column:1 / -1;color:var(--muted);font-size:.92rem;overflow-wrap:anywhere;min-width:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.itemrow .meta{display:flex;gap:6px;align-items:center}
+.pips{display:inline-flex;gap:2px}
+.pips i{width:5px;height:12px;border-radius:2px;background:var(--line)}
+.pips i.on{background:var(--good)}
+.fx{font-family:var(--f-mono);font-weight:500;letter-spacing:-.01em}
+.fx sup,.fx sub{font-size:.7em;line-height:0}
+.sheetgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.sheetgrid>*{min-width:0}
+.sheetgrid button{border-radius:var(--r);flex-direction:column;align-items:flex-start;justify-content:flex-start;text-align:left;padding:12px;min-height:76px;gap:4px}
+.sheetgrid button small{font-weight:400;color:var(--muted);font-size:.8rem;line-height:1.3}
+
+.dropzone{border:2px dashed var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center;background:var(--surface)}
+.dropzone.drag{border-color:var(--accent);background:var(--accent-soft)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--surface);flex-wrap:wrap}
+.seg button{border:0;min-height:36px;padding:.35em .85em;background:transparent;color:var(--muted)}
+.seg button.on{background:var(--accent);color:var(--accent-ink)}
+.preview{display:flex;flex-direction:column;gap:6px;max-height:260px;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+.preview div{display:flex;gap:10px;font-size:.92rem}
+.preview div span:first-child{color:var(--muted);font-family:var(--f-mono);font-size:.78rem;min-width:2.2em;padding-top:2px}
+.thumb{max-height:160px;border-radius:10px;border:1px solid var(--line)}
+.symbols{display:flex;flex-wrap:wrap;gap:4px}
+.symbols button{min-height:36px;min-width:38px;padding:.2em .5em;border-radius:8px;font-family:var(--f-mono);font-weight:500}
+.fxpreview{background:var(--sunk);border-radius:10px;padding:10px 12px;font-size:1.15rem;min-height:2.4em;overflow-x:auto}
+.field{display:flex;flex-direction:column;gap:6px}
+
+.progress-dots{display:flex;gap:3px;flex-wrap:wrap}
+.progress-dots span{flex:1 1 6px;min-width:6px;max-width:28px;height:6px;border-radius:9px;background:var(--line)}
+.progress-dots span.done{background:var(--good)}
+.progress-dots span.cur{background:var(--accent)}
+.ladder{display:flex;gap:6px;flex-wrap:wrap}
+.ladder span{font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.ladder span.done{background:var(--good-soft);border-color:transparent;color:var(--good)}
+.ladder span.cur{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 18px;display:flex;flex-direction:column;gap:16px;box-shadow:0 1px 0 var(--line), 0 12px 30px -18px rgba(20,30,70,.25)}
+.cue{color:var(--muted);font-style:italic;font-size:.95rem;border-left:3px solid var(--line);padding-left:10px;overflow-wrap:anywhere}
+.sentence{font-size:1.3rem;line-height:1.6;overflow-wrap:anywhere}
+.sentence .hid{background:var(--mark);color:var(--mark-ink);border-radius:4px;padding:0 .15em;font-family:var(--f-mono);font-size:.9em;letter-spacing:.05em}
+.sentence.blind{color:var(--muted);line-height:1.9}
+.blindbar{display:inline-block;height:.9em;border-radius:4px;background:var(--line);vertical-align:middle;margin:0 .12em}
+.front{font-family:var(--f-display);font-weight:700;font-size:1.55rem;line-height:1.25;overflow-wrap:anywhere;text-wrap:balance}
+.back{font-size:1.2rem;line-height:1.55;overflow-wrap:anywhere;border-top:1px dashed var(--line);padding-top:14px}
+.back.fx{font-size:1.3rem}
+.note{font-size:.92rem;color:var(--muted);overflow-wrap:anywhere}
+.answer{font-size:1.1rem;min-height:90px}
+.feedback{border-radius:12px;padding:12px 14px;font-size:1.05rem;line-height:1.7;overflow-wrap:anywhere}
+.feedback.ok{background:var(--good-soft)}
+.feedback.no{background:var(--bad-soft)}
+.feedback .t{font-weight:700;font-family:var(--f-display);margin-bottom:4px}
+.d-ok{color:var(--good)}
+.d-miss{color:var(--warn);text-decoration:underline wavy;text-underline-offset:4px;font-weight:700}
+.d-wrong{color:var(--bad);text-decoration:line-through}
+.d-fix{color:var(--good);font-weight:700}
+.d-extra{color:var(--bad);text-decoration:line-through;opacity:.75}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.grades button{border-radius:12px;flex-direction:column;gap:0;padding:.4em .2em;min-height:56px}
+.grades button small{font-weight:400;font-size:.72rem;color:var(--muted)}
+.grades .again{border-color:var(--bad);color:var(--bad)}
+.grades .good{border-color:var(--good);color:var(--good)}
+.choices{display:flex;flex-direction:column;gap:8px}
+.choices button{justify-content:flex-start;text-align:left;border-radius:12px;font-weight:400;padding:.75em 1em;overflow-wrap:anywhere;min-width:0}
+.choices button.right{background:var(--good-soft);border-color:var(--good)}
+.choices button.wrongpick{background:var(--bad-soft);border-color:var(--bad)}
+.mic-live{color:var(--bad)!important}
+.mic-live svg{animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+.fl{font-size:1.25rem;line-height:2;overflow-wrap:anywhere}
+.fl .w{display:inline-block;margin-right:.35em}
+.fl .w.todo{font-family:var(--f-mono);color:transparent;background:var(--line);border-radius:5px;line-height:1.3;user-select:none}
+.fl .w.next{outline:2px solid var(--accent);outline-offset:1px}
+.fl .w.slip{color:var(--bad)}
+.flinput{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.fltap{width:100%;min-height:54px;border-style:dashed}
+.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.built{min-height:52px;padding:10px;border-radius:12px;background:var(--sunk);font-size:1.15rem;line-height:1.7;overflow-wrap:anywhere}
+.pool{display:flex;flex-wrap:wrap;gap:8px}
+.pool button{border-radius:10px;min-height:44px;font-weight:400;font-size:1.02rem}
+.pool button.used{visibility:hidden}
+
+.celebrate{text-align:center;padding:28px 12px}
+.celebrate .num{font-family:var(--f-display);font-weight:800;font-size:3.4rem;color:var(--accent);line-height:1}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:700;z-index:50;width:max-content;max-width:calc(100% - 32px);text-align:center}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+details summary{cursor:pointer;font-weight:700}
+.empty{text-align:center;padding:24px;border:2px dashed var(--line);border-radius:var(--r)}
+.pack{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.pack ul{margin:0;padding-left:1.1em;color:var(--muted);font-size:.9rem}
+.heat{display:grid;grid-template-rows:repeat(7,12px);grid-auto-flow:column;grid-auto-columns:12px;gap:3px;overflow-x:auto;padding-bottom:4px}
+.heat i{border-radius:3px;background:var(--line)}
+.heat i.l1{background:color-mix(in srgb,var(--good) 35%,var(--line))}
+.heat i.l2{background:color-mix(in srgb,var(--good) 65%,var(--line))}
+.heat i.l3{background:var(--good)}
+.scanrow{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+input[type=checkbox]{accent-color:var(--accent);width:20px;height:20px;flex:none}
+.more{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;margin:-6px -2px 14px;scrollbar-width:none}
+.more::-webkit-scrollbar{display:none}
+.more button{min-height:38px;padding:.35em .9em;white-space:nowrap;font-size:.9rem}
+.examcard{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.examcard .count{text-align:center;line-height:1}
+.examcard .count b{display:block;font-family:var(--f-display);font-weight:800;font-size:2rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.examcard .count span{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.examcard.soon .count b{color:var(--bad)}
+.gapline{font-size:1.2rem;line-height:2.1;overflow-wrap:anywhere}
+.gapline.fx{font-size:1.25rem}
+input.gap{display:inline-block;width:auto;padding:.05em .35em;margin:0 .1em;border-radius:7px;border:1.5px dashed var(--accent);background:var(--accent-soft);font:inherit;line-height:1.3;color:var(--ink);max-width:100%}
+input.gap.ok{border-style:solid;border-color:var(--good);background:var(--good-soft)}
+input.gap.bad{border-style:solid;border-color:var(--bad);background:var(--bad-soft)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.match .col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.match button{border-radius:12px;font-weight:400;min-height:68px;text-align:left;justify-content:flex-start;padding:.5em .7em;font-size:.92rem;min-width:0;width:100%}
+.match button>span{overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.match .col:first-child button{font-weight:700;font-family:var(--f-display)}
+.match button.sel{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 2px var(--accent)}
+.match button.done{visibility:hidden}
+.sheetrow{display:grid;gap:2px;padding:10px 0;border-bottom:1px solid var(--line)}
+.sheetrow:last-child{border-bottom:0}
+.sheetrow b{font-family:var(--f-display)}
+.sheetrow button{justify-self:start;min-height:34px;padding:.2em .8em;font-size:.85rem}
+.pill{min-height:34px;padding:.2em .8em;font-variant-numeric:tabular-nums;background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.bigtime{font-family:var(--f-display);font-weight:800;font-size:clamp(4rem,22vw,7rem);line-height:1;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.phase{text-align:center;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-size:.8rem}
+.testrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;font-size:.9rem;padding:6px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.testrow:last-child{border-bottom:0}
+input[type=date],input[type=time]{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.6em .8em}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(() => {
+"use strict";
+
+/* ================= helpers ================= */
+const $app = document.getElementById("app");
+const ICONS = {
+  back:'<path d="M15 18l-6-6 6-6"/>', plus:'<path d="M12 5v14M5 12h14"/>', cam:'<path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
+  play:'<path d="M7 5l12 7-12 7z"/>', mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/>', eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7"/>', redo:'<path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/>', trash:'<path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/>', edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/>',
+  skip:'<path d="M6 5l8 7-8 7zM17 5v14"/>', spark:'<path d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M18 6l-3 3M9 15l-3 3"/>',
+  gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
+  cards:'<rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 012 2v12"/>', type:'<path d="M4 7V5h16v2M12 5v14M9 19h6"/>', quiz:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-1 .6-1.5 1.2-1.5 2.5M12 17h.01"/>',
+  chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>', box:'<path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10"/>', book:'<path d="M4 4h6a3 3 0 013 3v13a2 2 0 00-2-2H4zM20 4h-6a3 3 0 00-3 3v13a2 2 0 012-2h7z"/>',
+  timer:'<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/>', match:'<rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="13" width="7" height="7" rx="1.5"/><path d="M10 7.5h4a2 2 0 012 2V13"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>', cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>', gaps:'<path d="M3 12h3M10 12h4M18 12h3M3 7h18M3 17h18" stroke-dasharray="0"/>',
+  bell:'<path d="M6 16V11a6 6 0 1112 0v5l2 2H4zM10 21h4"/>', share:'<circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/>',
+  scan:'<path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3M7 12h10"/>'
+};
+const ic = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n]}</svg>`;
+function h(tag, props, ...kids){
+  const el = document.createElement(tag);
+  if (props) for (const [k,v] of Object.entries(props)){
+    if (v == null || v === false) continue;
+    if (k === "class") el.className = v;
+    else if (k === "html") el.innerHTML = v;            // only ever our own static icons
+    else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else if (k === "style") el.style.cssText = v;
+    else el.setAttribute(k, v === true ? "" : v);
+  }
+  for (const c of kids.flat()){ if (c == null || c === false) continue; el.append(c.nodeType ? c : document.createTextNode(String(c))); }
+  return el;
+}
+function B(label, onclick, cls="", icon, attrs){ const b = h("button",Object.assign({class:cls,type:"button",onclick},attrs||{})); if(icon) b.insertAdjacentHTML("beforeend", ic(icon)); if(label!=null&&label!=="") b.append(h("span",null,label)); return b; }
+let toastT;
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.hidden=false; clearTimeout(toastT); toastT=setTimeout(()=>t.hidden=true,2600); }
+const uid = () => Math.random().toString(36).slice(2,10);
+const dayKey = d => d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const today = () => dayKey(new Date());
+const yesterday = () => { const d=new Date(); d.setDate(d.getDate()-1); return dayKey(d); };
+const addDays = n => { const d=new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()+n); return d.getTime(); };
+const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a; };
+const plural = (n, w) => `${n} ${w}${n===1?"":"s"}`;
+
+/* ================= languages ================= */
+const LANGS = [
+  {code:"ro", name:"Română", bcp:"ro-RO", tess:"ron"},
+  {code:"en", name:"English", bcp:"en-US", tess:"eng"},
+  {code:"es", name:"Español", bcp:"es-ES", tess:"spa"},
+  {code:"fr", name:"Français", bcp:"fr-FR", tess:"fra"},
+  {code:"de", name:"Deutsch", bcp:"de-DE", tess:"deu"},
+  {code:"it", name:"Italiano", bcp:"it-IT", tess:"ita"},
+  {code:"pt", name:"Português", bcp:"pt-PT", tess:"por"},
+  {code:"ru", name:"Русский", bcp:"ru-RU", tess:"rus"},
+];
+const lang = c => LANGS.find(l=>l.code===c) || LANGS[0];
+const langSelect = (id, value, onchange) => { const s=h("select",{id,"aria-label":"Language"}, LANGS.map(l=>h("option",{value:l.code},l.name))); s.value=value; s.addEventListener("change",()=>onchange(s.value)); return s; };
+
+/* ================= Android app bridge ================= */
+// When running inside the Android app, window.Native gives on-device text reading, voice, microphone, file sharing and reminders.
+const NATIVE = window.Native || null;
+const nativeCbs = {};
+window.__nativeCb = (id, ok, payload) => { const c = nativeCbs[id]; if (!c) return; delete nativeCbs[id]; ok ? c.res(payload) : c.rej(new Error(payload||"failed")); };
+const nativeCall = (fn, ...args) => new Promise((res, rej) => { const id = uid(); nativeCbs[id] = {res, rej}; try { NATIVE[fn](id, ...args); } catch(e){ delete nativeCbs[id]; rej(e); } });
+const blobToB64 = blob => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(",")[1]); r.onerror = rej; r.readAsDataURL(blob); });
+async function saveFile(filename, data, mime="application/json"){
+  if (NATIVE){ NATIVE.shareFile(filename, mime, data); return "shared"; }
+  if (caps.downloads){ await caps.downloads.save({filename, data}); return "saved"; }
+  const url = URL.createObjectURL(new Blob([data],{type:mime}));
+  const a = h("a",{href:url, download:filename}); document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),5000);
+  return "downloaded";
+}
+
+/* ================= kinds of things to learn ================= */
+const KINDS = {
+  text:      {name:"Text",        front:"Name",              back:"Text",        hint:"A passage, poem, speech or paragraph to learn word for word."},
+  formula:   {name:"Formula",     front:"What it's for",     back:"Formula",     hint:"Math, physics, chemistry. Use ^ for powers and _ for subscripts."},
+  definition:{name:"Definition",  front:"Term",              back:"Definition",  hint:"A word or idea and what it means."},
+  theorem:   {name:"Theorem",     front:"Theorem name",      back:"Statement",   hint:"A named result, law or property and what it says."},
+  rule:      {name:"Rule",        front:"Rule",              back:"Explanation", hint:"Grammar, spelling, a method or a procedure."},
+  fact:      {name:"Fact / date", front:"Question or event", back:"Answer",      hint:"Dates, capitals, names, numbers. Anything with one answer."},
+};
+const CARD_KINDS = ["formula","definition","theorem","rule","fact"];
+
+/* ================= formulas: display + compare ================= */
+// Renders "a^2 + b_1" with real superscripts/subscripts; braces group: x^{n-1}, C_6H_{12}O_6
+function fx(str, cls="fx"){
+  const el = h("span",{class:cls});
+  const s = String(str).replace(/sqrt\s*\(/g,"√(");
+  const re = /([\^_])(\{([^}]*)\}|\(([^)]*)\)|(-?\d+(?:[.,]\d+)?|[\p{L}′'+-]))/gu;
+  let last = 0, m;
+  while ((m = re.exec(s))){
+    if (m.index > last) el.append(s.slice(last, m.index));
+    el.append(h(m[1]==="^"?"sup":"sub", null, m[3] ?? m[4] ?? m[5]));
+    last = re.lastIndex;
+  }
+  if (last < s.length) el.append(s.slice(last));
+  return el;
+}
+const SUP = {"⁰":"0","¹":"1","²":"2","³":"3","⁴":"4","⁵":"5","⁶":"6","⁷":"7","⁸":"8","⁹":"9","ⁿ":"n","⁻":"-"};
+const SUB = {"₀":"0","₁":"1","₂":"2","₃":"3","₄":"4","₅":"5","₆":"6","₇":"7","₈":"8","₉":"9"};
+function normF(s){
+  return String(s)
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹ⁿ⁻]+/g, m => "^"+[...m].map(c=>SUP[c]).join(""))
+    .replace(/[₀₁₂₃₄₅₆₇₈₉]+/g, m => "_"+[...m].map(c=>SUB[c]).join(""))
+    .replace(/sqrt/g,"√").replace(/\s+/g,"").replace(/[×·∙⋅*]/g,"").replace(/[−–—]/g,"-").replace(/[:÷]/g,"/")
+    .replace(/[{}]/g,"").replace(/\^\((\w+)\)/g,"^$1").replace(/[’′]/g,"'").replace(/<=/g,"≤").replace(/>=/g,"≥").replace(/!=/g,"≠").replace(/->/g,"→")
+    .replace(/,/g,".");
+}
+const looksLikeFormula = s => /[=^_√π∑∫≤≥≠±→Δ]/.test(s) && String(s).split(/\s+/).length < 25;
+const SYMBOLS = ["²","³","^","_","√","π","Δ","Σ","∫","±","×","·","÷","≤","≥","≠","≈","∞","→","⇔","°","α","β","γ","θ","λ","μ","ρ","σ","φ","ω","Ω","∈","ℕ","ℤ","ℝ","∠","⊥","∥"];
+function symbolBar(target){
+  return h("div",{class:"symbols","aria-label":"Insert symbol"}, SYMBOLS.map(s => B(s, () => {
+    const a = target.selectionStart ?? target.value.length, b = target.selectionEnd ?? a;
+    target.setRangeText(s, a, b, "end"); target.focus(); target.dispatchEvent(new Event("input"));
+  }, "", null, {"aria-label":"Insert "+s})));
+}
+
+/* ================= starter packs ================= */
+const P = (kind, term, content, note) => ({kind, term, content, note:note||""});
+const PACKS = [
+  { id:"math-alg", subject:"Math", lang:"en", name:"Algebra essentials", items:[
+    P("formula","Quadratic formula (roots of ax² + bx + c = 0)","x = (-b ± √(b^2 - 4ac)) / (2a)","Works when a ≠ 0. The part under the root is the discriminant."),
+    P("formula","Discriminant","Δ = b^2 - 4ac","Δ > 0: two real roots. Δ = 0: one double root. Δ < 0: no real roots."),
+    P("formula","Square of a sum","(a + b)^2 = a^2 + 2ab + b^2"),
+    P("formula","Square of a difference","(a - b)^2 = a^2 - 2ab + b^2"),
+    P("formula","Difference of squares","a^2 - b^2 = (a - b)(a + b)"),
+    P("formula","Arithmetic progression: n-th term","a_n = a_1 + (n - 1)d","d is the common difference."),
+    P("formula","Arithmetic progression: sum of first n terms","S_n = n(a_1 + a_n) / 2"),
+    P("formula","Geometric progression: n-th term","a_n = a_1 · q^{n-1}","q is the common ratio."),
+    P("formula","Logarithm of a product","log_a(xy) = log_a x + log_a y","a > 0, a ≠ 1, x > 0, y > 0"),
+    P("formula","Change of base for logarithms","log_a x = log_b x / log_b a"),
+    P("definition","Prime number","A natural number greater than 1 whose only divisors are 1 and itself."),
+    P("definition","Function","A rule that assigns to each element of a set A exactly one element of a set B."),
+  ]},
+  { id:"math-geo", subject:"Math", lang:"en", name:"Geometry & trigonometry", items:[
+    P("theorem","Pythagorean theorem","In a right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides.","a² + b² = c²"),
+    P("theorem","Thales' theorem (angle in a semicircle)","If A, B and C are points on a circle and AC is a diameter, then angle ABC is a right angle."),
+    P("formula","Law of cosines","c^2 = a^2 + b^2 - 2ab·cos C"),
+    P("formula","Law of sines","a / sin A = b / sin B = c / sin C = 2R","R is the radius of the circumscribed circle."),
+    P("formula","Fundamental trigonometric identity","sin^2 x + cos^2 x = 1"),
+    P("formula","Area of a circle","A = πr^2"),
+    P("formula","Circumference of a circle","C = 2πr"),
+    P("formula","Area of a triangle (base and height)","A = b·h / 2"),
+    P("formula","Heron's formula","A = √(p(p - a)(p - b)(p - c))","p is the semi-perimeter: p = (a + b + c) / 2"),
+    P("fact","Sum of the angles in a triangle","180°"),
+  ]},
+  { id:"math-calc", subject:"Math", lang:"en", name:"Derivatives", items:[
+    P("formula","Derivative of xⁿ","(x^n)' = n·x^{n-1}"),
+    P("formula","Derivative of eˣ","(e^x)' = e^x"),
+    P("formula","Derivative of ln x","(ln x)' = 1/x","x > 0"),
+    P("formula","Derivative of sin x","(sin x)' = cos x"),
+    P("formula","Derivative of cos x","(cos x)' = -sin x"),
+    P("formula","Product rule","(f·g)' = f'·g + f·g'"),
+    P("formula","Quotient rule","(f/g)' = (f'·g - f·g') / g^2","g ≠ 0"),
+    P("formula","Chain rule","(f(g(x)))' = f'(g(x))·g'(x)"),
+  ]},
+  { id:"phys", subject:"Physics", lang:"en", name:"Mechanics & electricity", items:[
+    P("rule","Newton's first law","An object stays at rest or keeps moving in a straight line at constant speed unless a net force acts on it."),
+    P("formula","Newton's second law","F = m·a","F in newtons (N), m in kg, a in m/s²"),
+    P("rule","Newton's third law","When one object exerts a force on another, the second exerts an equal and opposite force on the first."),
+    P("formula","Average speed","v = d / t"),
+    P("formula","Velocity with constant acceleration","v = v_0 + a·t"),
+    P("formula","Distance with constant acceleration","d = v_0·t + a·t^2 / 2"),
+    P("formula","Weight","G = m·g","g ≈ 9.8 m/s² on Earth"),
+    P("formula","Kinetic energy","E_k = m·v^2 / 2"),
+    P("formula","Gravitational potential energy","E_p = m·g·h"),
+    P("formula","Mechanical work","L = F·d·cos α"),
+    P("formula","Power","P = L / t","Measured in watts (W)."),
+    P("formula","Density","ρ = m / V"),
+    P("formula","Ohm's law","U = R·I","U voltage (V), R resistance (Ω), I current (A)"),
+    P("formula","Electric power","P = U·I"),
+  ]},
+  { id:"chem", subject:"Chemistry", lang:"en", name:"Chemistry basics", items:[
+    P("formula","Amount of substance (moles)","n = m / M","M is the molar mass in g/mol."),
+    P("formula","Ideal gas law","pV = nRT","R ≈ 8.314 J/(mol·K)"),
+    P("formula","Molar concentration","c = n / V"),
+    P("formula","pH","pH = -log[H^+]"),
+    P("fact","Avogadro's number","6.022 × 10^23 particles per mole"),
+    P("definition","Atomic number","The number of protons in the nucleus of an atom."),
+    P("definition","Isotopes","Atoms of the same element with the same number of protons but different numbers of neutrons."),
+    P("definition","Catalyst","A substance that speeds up a chemical reaction without being used up."),
+    P("rule","Law of conservation of mass","In a closed system, the total mass of the reactants equals the total mass of the products."),
+  ]},
+  { id:"bio", subject:"Biology", lang:"en", name:"Cell biology", items:[
+    P("definition","Cell","The basic structural and functional unit of all living organisms."),
+    P("definition","Mitochondrion","The organelle that produces most of the cell's ATP through cellular respiration."),
+    P("definition","Osmosis","The movement of water across a semipermeable membrane from a lower to a higher solute concentration."),
+    P("definition","Mitosis","Cell division that produces two daughter cells genetically identical to the parent cell."),
+    P("definition","Meiosis","Cell division that produces four cells with half the number of chromosomes, used to make gametes."),
+    P("definition","Enzyme","A protein that speeds up a specific chemical reaction in the body without being used up."),
+    P("formula","Photosynthesis","6CO_2 + 6H_2O → C_6H_{12}O_6 + 6O_2","Needs light energy and chlorophyll."),
+    P("formula","Cellular respiration","C_6H_{12}O_6 + 6O_2 → 6CO_2 + 6H_2O + energy"),
+  ]},
+  { id:"hist", subject:"History", lang:"en", name:"Key dates", items:[
+    P("fact","Columbus reaches the Americas","1492"),
+    P("fact","Start of the French Revolution","1789"),
+    P("fact","Union of Moldavia and Wallachia under Alexandru Ioan Cuza","1859"),
+    P("fact","Romania's independence proclaimed","1877"),
+    P("fact","The Great Union of Romania","1 December 1918"),
+    P("fact","Start of the Second World War","1 September 1939"),
+    P("fact","Fall of the Berlin Wall","9 November 1989"),
+    P("fact","Romanian Revolution","December 1989"),
+    P("fact","Romania joins NATO","2004"),
+    P("fact","Romania joins the European Union","1 January 2007"),
+  ]},
+  { id:"ro-orto", subject:"Languages", lang:"ro", name:"Ortografie română", items:[
+    P("rule","s-a sau sa?","„s-a” = pronume reflexiv + verb auxiliar (s-a dus). „sa” = adjectiv posesiv (cartea sa)."),
+    P("rule","l-a sau la?","„l-a” = pronume + verb auxiliar (l-a văzut). „la” = prepoziție (merg la școală)."),
+    P("rule","i-a sau ia?","„i-a” = pronume + verb auxiliar (i-a dat). „ia” = verbul „a lua” (ia cartea)."),
+    P("rule","v-a sau va?","„v-a” = pronume + verb auxiliar (v-a chemat). „va” = auxiliar de viitor (va pleca)."),
+    P("rule","ne-a sau nea?","„ne-a” = pronume + verb auxiliar (ne-a spus). „nea” = zăpadă (popular) sau „nene”."),
+    P("rule","decât sau doar?","„decât” se folosește în propoziții negative (nu am decât doi lei). În propoziții afirmative se folosește „doar”."),
+    P("rule","sau ori s-au?","„sau” = conjuncție (tu sau eu). „s-au” = pronume + verb auxiliar (s-au întâlnit)."),
+    P("rule","ce-i sau cei?","„ce-i” = ce + este / ce + îi (ce-i asta?). „cei” = articol sau pronume demonstrativ (cei doi)."),
+  ]},
+];
+
+/* ================= storage & migration ================= */
+const KEY = "linebyline.v1";
+const DEFAULT_SUBJECTS = ["Math","Physics","Chemistry","Biology","History","Languages","General"];
+const LUCEAFARUL = `A fost odată ca-n povești,
+A fost ca niciodată,
+Din rude mari împărătești,
+O prea frumoasă fată.`;
+const ROAD = `Two roads diverged in a yellow wood,
+And sorry I could not travel both
+And be one traveler, long I stood
+And looked down one as far as I could
+To where it bent in the undergrowth;`;
+
+function makeItem(o){
+  const kind = o.kind || "text";
+  const body = kind==="text" ? (o.body||"") : (o.content||"");
+  const split = o.split || (kind==="text" ? "sentence" : "short");
+  return { id:uid(), kind, subjectId:o.subjectId, title:o.title||"", term:o.term||"", content:o.content||"", note:o.note||"",
+    body, lang:o.lang||"ro", split, chunks:chunk(body, split), pos:0, method:"ladder", chain: kind==="text",
+    cards:{}, card:{box:0,due:0}, created:Date.now(), pack:o.pack||null };
+}
+function subjectByName(st, name){ return st.subjects.find(s=>s.name===name) || st.subjects.find(s=>s.name==="General") || st.subjects[0]; }
+function defaultState(){
+  const st = { v:2, subjects: DEFAULT_SUBJECTS.map(n=>({id:uid(), name:n})), items:[],
+    settings:{ strict:false, rate:1, lang:"ro", goal:10, subject:"all" }, stats:{ learned:0, streak:0, lastDay:null, days:{} } };
+  st.items.push(makeItem({kind:"text", title:"Luceafărul (example)", body:LUCEAFARUL, lang:"ro", split:"line", subjectId:subjectByName(st,"Languages").id}));
+  st.items.push(makeItem({kind:"text", title:"The Road Not Taken (example)", body:ROAD, lang:"en", split:"line", subjectId:subjectByName(st,"Languages").id}));
+  const pick = (packId, n) => { const p = PACKS.find(p=>p.id===packId); p.items.slice(0,n).forEach(it => st.items.push(makeItem({...it, lang:p.lang, subjectId:subjectByName(st, p.subject).id, pack:packId}))); };
+  pick("math-geo",3); pick("phys",3); pick("chem",2); pick("bio",2);
+  return st;
+}
+function migrate(raw){
+  if (!raw) return defaultState();
+  if (raw.v === 2) return raw;
+  const st = defaultState(); st.items = [];   // v1 had only texts
+  const gen = subjectByName(st,"General").id;
+  for (const t of raw.texts||[]) st.items.push(Object.assign(makeItem({kind:"text", title:t.title, body:t.body, lang:t.lang, split:t.split, subjectId:gen}), {chunks:t.chunks||chunk(t.body||"",t.split), pos:t.pos||0, method:t.method||"ladder", chain:t.chain!==false, cards:t.cards||{}}));
+  Object.assign(st.settings, raw.settings||{}); st.settings.lang = "ro";
+  Object.assign(st.stats, raw.stats||{});
+  return st;
+}
+let S;
+try { S = migrate(JSON.parse(localStorage.getItem(KEY))); } catch { S = defaultState(); }
+S.settings = Object.assign({strict:false, rate:1, lang:"ro", goal:10, subject:"all"}, S.settings||{});
+S.stats = Object.assign({learned:0, streak:0, lastDay:null, days:{}}, S.stats||{});
+for (const it of S.items){ it.card ||= {box:0,due:0}; it.cards ||= {}; }
+S.exams ||= []; S.tests ||= []; S.best ||= {}; S.stats.focus ||= {};
+S.settings = Object.assign({theme:"system", remind:false, remindAt:"19:00"}, S.settings);
+const inClaude = !!window.claude;
+function applyTheme(){
+  if (inClaude) return;   // inside Claude the viewer decides the theme
+  const t = S.settings.theme;
+  if (t==="light" || t==="dark") document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+  const dark = t==="dark" || (t==="system" && matchMedia("(prefers-color-scheme: dark)").matches);
+  if (NATIVE?.setDarkBars) NATIVE.setDarkBars(dark);
+}
+applyTheme();
+if (NATIVE && S.settings.remind){ const [hh,mm] = S.settings.remindAt.split(":").map(Number); try { NATIVE.setReminder(true, hh||19, mm||0); } catch {} }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch {} }
+function bumpDay(){
+  const t = today();
+  if (S.stats.lastDay !== t){ S.stats.streak = S.stats.lastDay === yesterday() ? S.stats.streak+1 : 1; S.stats.lastDay = t; }
+  S.stats.best = Math.max(S.stats.best||0, S.stats.streak);
+  S.stats.days[t] = (S.stats.days[t]||0) + 1;
+}
+const streakNow = () => (S.stats.lastDay===today() || S.stats.lastDay===yesterday()) ? S.stats.streak : 0;
+const subj = id => S.subjects.find(s=>s.id===id) || {name:"General", id:null};
+
+/* ================= chunking ================= */
+function chunk(body, mode){
+  const clean = String(body).replace(/\r/g,"").replace(/[ \t]+/g," ").trim();
+  if (!clean) return [];
+  if (mode === "line") return clean.split(/\n+/).map(s=>s.trim()).filter(Boolean);
+  if (mode === "paragraph") return clean.split(/\n\s*\n+/).map(s=>s.replace(/\s*\n\s*/g," ").trim()).filter(Boolean);
+  const flat = clean.split(/\n\s*\n+/).map(p=>p.replace(/-\n(?=\p{Ll})/gu,"").replace(/\s*\n\s*/g," "));
+  let out = [];
+  for (const p of flat){
+    let parts;
+    if (typeof Intl !== "undefined" && Intl.Segmenter) parts = [...new Intl.Segmenter(undefined,{granularity:"sentence"}).segment(p)].map(s=>s.segment.trim());
+    else parts = p.match(/[^.!?…]+[.!?…]+["')\]»”]*|[^.!?…]+$/g) || [p];
+    out.push(...parts.filter(Boolean));
+  }
+  const lim = mode === "short" ? 12 : 24, res = [];
+  for (const s of out){
+    if (s.split(/\s+/).length > lim){
+      let cur = "";
+      for (const piece of s.split(/(?<=[,;:—–])\s+/)){
+        if (cur && (cur+" "+piece).split(/\s+/).length > lim){ res.push(cur); cur = piece; }
+        else cur = cur ? cur+" "+piece : piece;
+      }
+      if (cur) res.push(cur);
+    } else res.push(s);
+  }
+  return res;
+}
+
+/* ================= comparing answers ================= */
+const norm = w => w.toLocaleLowerCase().normalize("NFD").replace(/\p{M}/gu,"").replace(/[^\p{L}\p{N}]/gu,"");
+const words = s => s.split(/\s+/).filter(w => norm(w));
+function lev(a,b){ if(a===b) return 0; const m=a.length,n=b.length; if(!m) return n; if(!n) return m;
+  let prev=Array.from({length:n+1},(_,i)=>i);
+  for(let i=1;i<=m;i++){ const cur=[i]; for(let j=1;j<=n;j++) cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1)); prev=cur; }
+  return prev[n]; }
+function same(a,b){ if (a===b) return true; if (S.settings.strict) return false; return a.length>=5 && lev(a,b)<=1; }
+function diff(target, answer){
+  const T = words(target), A = words(answer), t=T.map(norm), a=A.map(norm);
+  const m=t.length, n=a.length, L=Array.from({length:m+1},()=>new Int16Array(n+1));
+  for(let i=m-1;i>=0;i--) for(let j=n-1;j>=0;j--) L[i][j] = same(t[i],a[j]) ? L[i+1][j+1]+1 : Math.max(L[i+1][j],L[i][j+1]);
+  const ops=[]; let i=0,j=0;
+  while(i<m && j<n){
+    if (same(t[i],a[j])) { ops.push({k:"ok", w:T[i]}); i++; j++; }
+    else if (L[i+1][j] >= L[i][j+1]) { ops.push({k:"miss", w:T[i]}); i++; }
+    else { ops.push({k:"extra", w:A[j]}); j++; }
+  }
+  while(i<m) ops.push({k:"miss", w:T[i++]});
+  while(j<n) ops.push({k:"extra", w:A[j++]});
+  const merged=[];
+  for (let k=0;k<ops.length;k++){
+    const o=ops[k], nx=ops[k+1];
+    if (nx && ((o.k==="extra"&&nx.k==="miss")||(o.k==="miss"&&nx.k==="extra"))){ merged.push({k:"wrong", w:o.k==="miss"?o.w:nx.w, got:o.k==="extra"?o.w:nx.w}); k++; }
+    else merged.push(o);
+  }
+  const ok = merged.filter(o=>o.k==="ok").length;
+  return { ops:merged, ok, total:m, pass: ok===m && merged.every(o=>o.k==="ok") };
+}
+function renderDiff(d){
+  const p = h("div");
+  d.ops.forEach((o,ix)=>{
+    if (ix) p.append(" ");
+    if (o.k==="ok") p.append(h("span",{class:"d-ok"},o.w));
+    else if (o.k==="miss") p.append(h("span",{class:"d-miss",title:"You left this out"},o.w));
+    else if (o.k==="extra") p.append(h("span",{class:"d-extra",title:"Not in the text"},o.w));
+    else p.append(h("span",{class:"d-wrong"},o.got)," ",h("span",{class:"d-fix"},o.w));
+  });
+  return p;
+}
+// Cards: formulas compare symbol by symbol (spaces and × · ignored); definitions allow small wording slips
+function judge(target, answer, kind){
+  if (kind==="formula" || looksLikeFormula(target)){
+    const a = normF(target), b = normF(answer);
+    if (a===b || (!S.settings.strict && a.toLowerCase()===b.toLowerCase())) return {pass:true, formula:true};
+    const d = diff(target, answer);
+    return {pass:d.pass, formula:true, d};
+  }
+  const d = diff(target, answer);
+  if (d.pass) return {pass:true, d};
+  const extras = d.ops.filter(o=>o.k==="extra").length;
+  const close = !S.settings.strict && d.total>=6 && d.ok/d.total >= 0.85 && extras <= 2;
+  return {pass:close, close, d};
+}
+
+/* ================= Claude-powered features (only inside the Claude viewer) ================= */
+const caps = { sample:null, images:null, tts:null, dictation:null, downloads:null };
+if (window.claude?.use){
+  claude.use("sample").then(async s => { caps.sample = s; if (s){ const l = await s.limits().catch(()=>null); caps.images = l?.images || null; if (view.name==="addmenu") render(); } }).catch(()=>{});
+  claude.use("tts").then(t => caps.tts = t).catch(()=>{});
+  claude.use("dictation").then(d => caps.dictation = d).catch(()=>{});
+  claude.use("downloads").then(d => caps.downloads = d).catch(()=>{});
+}
+const canScan = () => !!(caps.sample && caps.images);
+
+/* ================= photos ================= */
+async function shrink(file, maxSide=1800, maxBytes=3.5e6){
+  const url = URL.createObjectURL(file);
+  try{
+    const img = await new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=rej; i.src=url; });
+    let scale = Math.min(1, maxSide/Math.max(img.naturalWidth, img.naturalHeight));
+    for (let q=0.88; ; q-=0.12){
+      const c=document.createElement("canvas"); c.width=Math.round(img.naturalWidth*scale); c.height=Math.round(img.naturalHeight*scale);
+      c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+      const blob = await new Promise(r=>c.toBlob(r,"image/jpeg",q));
+      if (blob.size<=maxBytes || q<0.4) return blob;
+      if (q<0.6) scale*=0.8;
+    }
+  } finally { URL.revokeObjectURL(url); }
+}
+let tessPromise;
+function loadTesseract(){
+  if (window.Tesseract) return Promise.resolve(window.Tesseract);
+  return tessPromise ||= new Promise((res,rej)=>{
+    const s=document.createElement("script"); s.src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js";
+    s.onload=()=>res(window.Tesseract); s.onerror=()=>{tessPromise=null; rej(new Error("load"));}; document.head.append(s);
+  });
+}
+const userErr = m => Object.assign(new Error(m),{user:true});
+async function readPhoto(file, langCode, onStatus){
+  const blob = await shrink(file, 1800, Math.min(3.5e6, caps.images?.maxFileBytes || 3.5e6));
+  if (canScan()){
+    onStatus("Claude is reading your photo…");
+    try{
+      const {text} = await caps.sample(
+        "The attached image is a photo of text that the user wants to memorize. Transcribe ALL of the readable text exactly as written, in its original language, keeping line breaks and paragraph breaks. Write math with plain characters: ^ for powers, _ for subscripts, √, π, ≤, ≥. Fix only obvious hyphenation at line ends. Do not translate, summarize or add commentary. If there is no readable text, answer with exactly: NO_TEXT",
+        { images:[blob], modelTier:"default" });
+      const t = text.trim();
+      if (t === "NO_TEXT") throw userErr("No readable text found in that photo.");
+      return t;
+    } catch(e){
+      if (e.user) throw e;
+      onStatus(e.code === "not_granted" ? "Claude access was declined. Trying the on-device reader…" : "Claude couldn't read it. Trying the on-device reader…");
+    }
+  }
+  if (NATIVE){
+    onStatus("Reading text…");
+    try{
+      const t = String(await nativeCall("ocr", await blobToB64(blob))).trim();
+      if (!t) throw userErr("No readable text found in that photo. Try a closer, sharper shot.");
+      return t;
+    } catch(e){ if (e.user) throw e; throw userErr("Couldn't read the photo. Try again with more light, or type the text."); }
+  }
+  onStatus("Loading the text reader (the first time takes a moment)…");
+  let T;
+  try { T = await loadTesseract(); } catch { throw userErr("The photo reader couldn't load. Check your connection, or type the text instead."); }
+  try{
+    const r = await T.recognize(blob, lang(langCode).tess, { logger: m => { if (m.status==="recognizing text") onStatus(`Reading text… ${Math.round(m.progress*100)}%`); } });
+    const t = (r.data.text||"").trim();
+    if (!t) throw userErr("No readable text found in that photo.");
+    return t;
+  } catch(e){ if (e.user) throw e; throw userErr("The photo reader couldn't run here. Type or paste the text instead."); }
+}
+
+/* ================= speech ================= */
+function speak(text, langCode){
+  const rate = S.settings.rate;
+  if (NATIVE){ NATIVE.speak(text, lang(langCode).bcp, rate); return; }
+  if (caps.tts && langCode === "en"){ caps.tts.speak(text,{rate, language:"en"}).catch(()=>speakLocal(text, langCode, rate)); return; }
+  speakLocal(text, langCode, rate);
+}
+function speakLocal(text, langCode, rate){
+  if (!("speechSynthesis" in window)){
+    if (caps.tts){ caps.tts.speak(text,{rate}).catch(()=>toast("Reading aloud isn't available here.")); return; }
+    toast("Reading aloud isn't available in this browser."); return;
+  }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text); u.lang = lang(langCode).bcp; u.rate = rate;
+  const v = speechSynthesis.getVoices().find(v=>v.lang?.toLowerCase().startsWith(langCode)); if (v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const micAvailable = () => !!(NATIVE || caps.dictation || SR);
+let micStop = null;
+function startMic(langCode, onText, onState){
+  if (micStop){ micStop(); return; }
+  if (NATIVE){
+    let finals = "";
+    window.__nativeMic = (type, text) => {
+      if (type==="partial") onText((finals+" "+text).trim());
+      else if (type==="final"){ finals = (finals+" "+text).trim(); onText(finals); }
+      else if (type==="end"){ micStop=null; window.__nativeMic=null; onState(false); }
+      else if (type==="error"){ micStop=null; window.__nativeMic=null; onState(false); if (text) toast(text); }
+    };
+    micStop = () => NATIVE.stopListening();
+    onState(true); NATIVE.listen(lang(langCode).bcp);
+    return;
+  }
+  if (caps.dictation){
+    const d = caps.dictation; let finalText = ""; const offs = [];
+    const off = () => offs.forEach(f=>{try{f()}catch{}});
+    offs.push(d.onPartial(({text}) => onText((finalText+" "+text).trim())));
+    offs.push(d.onFinal(({text}) => { finalText = (finalText+" "+text).trim(); onText(finalText); }));
+    offs.push(d.onState(({state}) => { if (state==="idle"){ off(); micStop=null; onState(false);} else onState(true); }));
+    micStop = () => d.stop().catch(()=>{});
+    d.start({language: langCode}).catch(e => {
+      off(); micStop=null; onState(false);
+      if (e?.code==="not_granted") toast("Microphone was declined. You can type instead.");
+      else if (e?.code!=="stopped") toast("Couldn't start the microphone here.");
+    });
+    return;
+  }
+  if (!SR){ toast("Speaking isn't supported in this browser. Try Chrome."); return; }
+  const r = new SR(); r.lang = lang(langCode).bcp; r.interimResults = true; r.continuous = true;
+  let finals = "";
+  r.onresult = e => { let interim=""; for (let i=e.resultIndex;i<e.results.length;i++){ const t=e.results[i][0].transcript; if (e.results[i].isFinal) finals += " "+t; else interim += " "+t; } onText((finals+interim).trim()); };
+  r.onend = () => { micStop=null; onState(false); };
+  r.onerror = e => { if (e.error==="not-allowed") toast("Microphone was blocked. You can type instead."); };
+  micStop = () => r.stop();
+  try { r.start(); onState(true); } catch { micStop=null; toast("Couldn't start the microphone."); }
+}
+const stopMic = () => { if (micStop) micStop(); };
+
+/* ================= spaced repetition ================= */
+const BOX_DAYS = [0,1,3,7,14,30,60];
+const lineCard = (it,i) => it.cards[i] ||= {box:0, due:0};
+function markLine(it,i){ const c=lineCard(it,i); if (!c.box){ c.box=1; c.due=addDays(1); S.stats.learned++; } }
+function gradeCard(it, g){ // 0 again, 1 hard, 2 good, 3 easy
+  const c = it.card;
+  if (g===0){ c.box = c.box ? 1 : 0; c.lapses = (c.lapses||0) + 1; }
+  else if (g===1) c.box = Math.max(1, c.box);
+  else c.box = Math.min(6, Math.max(1, c.box + (g===3?2:1)));
+  c.due = c.box ? addDays(g<=1 ? 1 : BOX_DAYS[c.box]) : 0;
+  if (g>0) bumpDay();
+  save();
+}
+const isMemorized = it => it.kind==="text" ? (it.chunks.length>0 && it.chunks.every((_,i)=>it.cards[i]?.box)) : it.card.box>0;
+function dueList(){
+  const now=Date.now(), out=[];
+  for (const it of S.items){
+    if (it.kind==="text"){ for (const [i,c] of Object.entries(it.cards)) if (c.box && c.due<=now && it.chunks[i]) out.push({type:"line", id:it.id, i:+i}); }
+    else if (it.card.box && it.card.due<=now) out.push({type:"card", id:it.id});
+  }
+  return out;
+}
+const memorizedCount = () => S.items.reduce((n,it)=> n + (it.kind==="text" ? Object.values(it.cards).filter(c=>c.box).length : (it.card.box?1:0)), 0);
+
+/* ================= router ================= */
+let view = {name:"home"};
+function go(v){ stopMic(); try{speechSynthesis.cancel()}catch{} view = v; render(); window.scrollTo(0,0); }
+const VIEWS = {};
+function render(){ $app.replaceChildren(); (VIEWS[view.name]||VIEWS.home)(); }
+function topbar(title, opts={}){
+  const back = opts.back !== false;
+  return h("div",{class:"top"},
+    back ? h("button",{class:"icon ghost",type:"button","aria-label":"Back",onclick:()=>go(opts.to||{name:"home"}),html:ic("back")}) : null,
+    title ? h("div",{class:"brand"},title) : h("div",{class:"brand"},h("i"),"Line by Line"),
+    h("div",{class:"grow"}),
+    focusActive() && view.name!=="focus" ? (()=>{ const b=B(null,()=>go({name:"focus"}),"pill","timer",{"aria-label":"Focus timer"}); b.append(h("span",{"data-focus":""},focusFmt(focusLeft()))); return b; })() : null,
+    !back && !focusActive() ? h("button",{class:"icon ghost",type:"button","aria-label":"Focus timer",onclick:()=>go({name:"focus"}),html:ic("timer")}) : null,
+    !back ? h("button",{class:"icon ghost",type:"button","aria-label":"Progress",onclick:()=>go({name:"progress"}),html:ic("chart")}) : null,
+    !back ? h("button",{class:"icon ghost",type:"button","aria-label":"Settings",onclick:()=>go({name:"settings"}),html:ic("gear")}) : null);
+}
+function subjectSelect(id, value, onchange){
+  const s = h("select",{id,"aria-label":"Subject"}, S.subjects.map(x=>h("option",{value:x.id},x.name)), h("option",{value:"__new"},"+ New subject…"));
+  s.value = value || subjectByName(S,"General")?.id;
+  s.addEventListener("change",()=>{
+    if (s.value==="__new"){
+      const wrap = s.parentElement, inp = h("input",{type:"text",placeholder:"Subject name, e.g. Geography",id:id+"-new"});
+      const ok = B("Add",()=>{ const n=inp.value.trim(); if(!n) return; const x={id:uid(),name:n}; S.subjects.push(x); save(); onchange(x.id); render(); },"primary");
+      wrap.replaceChildren(h("div",{class:"row",style:"flex-wrap:nowrap"},inp,ok)); inp.focus(); return;
+    }
+    onchange(s.value);
+  });
+  return s;
+}
+const pips = box => h("span",{class:"pips","aria-label":`Strength ${box} of 6`}, [1,2,3,4,5,6].map(k=>h("i",{class:k<=box?"on":""})));
+const isFx = it => it.kind==="formula" || looksLikeFormula(it.content);
+
+/* ================= HOME ================= */
+VIEWS.home = function(){
+  const due = dueList();
+  const sel = S.items.length && S.settings.subject!=="all" && !S.subjects.some(s=>s.id===S.settings.subject) ? (S.settings.subject="all") : S.settings.subject;
+  const inSubject = it => sel==="all" || it.subjectId===sel;
+  const cards = S.items.filter(it=>inSubject(it) && it.kind!=="text");
+  const doneToday = S.stats.days[today()]||0;
+
+  $app.append(topbar(null,{back:false}));
+  $app.append(h("div",{class:"hero"},
+    h("h1",null,"Learn it by heart."),
+    h("p",{class:"muted"},"Texts line by line, plus formulas, definitions, theorems and rules for every subject. You repeat each one until you know it without looking.")));
+  $app.append(h("div",{class:"stack",style:"margin-bottom:16px"},
+    h("div",{class:"statrow"},
+      h("div",{class:"stat"},h("span",{class:"label"},"Memorized"),h("b",null,memorizedCount())),
+      h("div",{class:"stat"},h("span",{class:"label"},"Day streak"),h("b",null,streakNow())),
+      h("div",{class:"stat"},h("span",{class:"label"},"Due"),h("b",null,due.length))),
+    h("div",{class:"goal"},h("span",null,"Today"),h("div",{class:"bar"+(doneToday>=S.settings.goal?" good":"")},h("span",{style:`width:${Math.min(100,doneToday/S.settings.goal*100)}%`})),h("span",{style:"font-variant-numeric:tabular-nums"},`${doneToday} / ${S.settings.goal}`)),
+    due.length ? h("div",{class:"review-banner"},
+      h("div",null,h("h3",null,`${plural(due.length,"item")} to refresh`),h("p",{class:"small"},"A quick check so you don't forget.")),
+      B("Review now",()=>go({name:"review"}),"","redo")) : null,
+    examCard()));
+
+  const counts = id => S.items.filter(it=>it.subjectId===id).length;
+  const allBtn = B(null,()=>{S.settings.subject="all"; save(); render();}, sel==="all"?"on":"", null, {role:"tab","aria-selected":String(sel==="all")});
+  allBtn.append("All ", h("span",{class:"n"},S.items.length));
+  $app.append(h("div",{class:"subjects",role:"tablist","aria-label":"Subjects"}, allBtn,
+    S.subjects.filter(s=>counts(s.id)||s.id===sel).map(s=>{ const b=B(null,()=>{S.settings.subject=s.id; save(); render();}, sel===s.id?"on":"", null, {role:"tab","aria-selected":String(sel===s.id)}); b.append(s.name," ",h("span",{class:"n"},counts(s.id))); return b; })));
+
+  const act = (label, sub, mode, icon) => { const b=B(label,()=>startDeck(cards,mode),"",icon); b.append(h("small",null,sub)); return b; };
+  const weak = cards.filter(c=>(c.card.lapses||0)>0 && c.card.box<=2);
+  $app.append(h("div",{class:"actions",style:"margin-block:8px 16px"},
+    act("Flashcards", plural(cards.length,"card"), "flash", "cards"),
+    act("Type it", "from memory", "type", "type"),
+    act("Quiz", "multiple choice", "quiz", "quiz")));
+  $app.append(h("div",{class:"more","aria-label":"More ways to practise"},
+    B("Fill the gaps",()=>startDeck(cards,"gaps"),"","gaps"),
+    B("Match",()=>go({name:"match", subjectId:sel}),"","match"),
+    B("Practice test",()=>startTest(sel),"","spark"),
+    weak.length ? B(`Weak spots · ${weak.length}`,()=>startDeck(weak,"flash"),"","redo") : null,
+    B("Cheat sheet",()=>go({name:"sheet"}),"","list"),
+    B(S.exams.length?"Exams":"Set exam date",()=>go({name:"exams"}),"","cal")));
+
+  const search = h("input",{type:"search",id:"search",placeholder:"Search your notes…","aria-label":"Search"});
+  search.value = view.q||"";
+  search.addEventListener("input",()=>{ view.q = search.value; drawList(); });
+  $app.append(h("div",{class:"spread",style:"margin-bottom:10px;flex-wrap:nowrap"}, search, B("Add",()=>go({name:"addmenu"}),"primary","plus")));
+
+  const list = h("div",{class:"stack"});
+  $app.append(list);
+  function drawList(){
+    const q = (view.q||"").trim().toLowerCase();
+    const its = S.items.filter(inSubject).filter(it => !q || [it.title,it.term,it.content,it.body,it.note].join(" ").toLowerCase().includes(q));
+    list.replaceChildren();
+    if (!its.length){
+      list.append(h("div",{class:"empty stack"}, h("p",null, q ? "Nothing matches that search." : "Nothing here yet."),
+        !q ? h("div",{class:"row",style:"justify-content:center"},B("Add something",()=>go({name:"addmenu"}),"primary","plus"),B("Starter packs",()=>go({name:"packs"}),"","box")) : null));
+      return;
+    }
+    const texts = its.filter(it=>it.kind==="text"), cs = its.filter(it=>it.kind!=="text");
+    for (const t of texts) list.append(textCard(t));
+    if (texts.length && cs.length) list.append(h("span",{class:"label",style:"margin-top:6px"},"Cards"));
+    for (const c of cs) list.append(itemRow(c));
+  }
+  drawList();
+};
+const orderForPractice = cards => shuffle(cards).sort((a,b)=> a.card.box - b.card.box).slice(0,30);  // weakest first
+function textCard(t){
+  const n=t.chunks.length, learned=Object.values(t.cards).filter(c=>c.box).length, pct=n?Math.round(learned/n*100):0;
+  const finished = learned>=n && n>0;
+  return h("div",{class:"textcard"},
+    h("div",{class:"spread",style:"flex-wrap:nowrap;align-items:flex-start"},h("div",{class:"title"},t.title), h("span",{class:"chip"+(finished?" good":"")}, finished?"Memorized":`${learned} / ${n}`)),
+    h("div",{class:"snip"},t.body),
+    h("div",{class:"bar"},h("span",{style:`width:${pct}%`})),
+    h("div",{class:"row"},
+      B(finished?"Practise again":(learned?"Continue":"Start"),()=>startStudy(t, finished?0:null),"primary","play"),
+      h("span",{class:"kind text"},"Text"),
+      h("span",{class:"chip"},subj(t.subjectId).name),
+      h("div",{class:"grow"}),
+      h("button",{class:"icon ghost",type:"button","aria-label":"Edit "+t.title,onclick:()=>go({name:"addtext", edit:t.id}),html:ic("edit")})));
+}
+function itemRow(it){
+  return h("button",{class:"itemrow",type:"button",onclick:()=>go({name:"item", id:it.id})},
+    h("div",{class:"term"},it.term),
+    h("div",{class:"meta"},h("span",{class:"kind "+it.kind},KINDS[it.kind].name), pips(it.card.box)),
+    h("div",{class:"content"}, isFx(it) ? fx(it.content) : it.content));
+}
+
+/* ================= ITEM DETAIL ================= */
+VIEWS.item = function(){
+  const it = S.items.find(x=>x.id===view.id); if (!it) return go({name:"home"});
+  $app.append(topbar(KINDS[it.kind].name));
+  const due = it.card.box ? (it.card.due<=Date.now() ? "Due now" : "Next review "+new Date(it.card.due).toLocaleDateString(undefined,{month:"short",day:"numeric"})) : "Not learned yet";
+  $app.append(h("div",{class:"card"},
+    h("div",{class:"spread"},h("span",{class:"kind "+it.kind},KINDS[it.kind].name),h("span",{class:"chip"},subj(it.subjectId).name)),
+    h("div",{class:"front"},it.term),
+    backEl(it),
+    h("div",{class:"spread"},h("div",{class:"row"},pips(it.card.box),h("span",{class:"small muted"},due)), B("Listen",()=>speak(it.term+". "+it.content, it.lang),"ghost","play")),
+    h("div",{class:"stack"},
+      B("Practise this card",()=>go({name:"deck", mode:"type", ids:[it.id], k:0, right:0}),"primary big","type"),
+      it.content.split(/\s+/).length > 7 && !isFx(it) ? B("Learn it word for word",()=>startStudy(it,0),"big","book") : null,
+      B("Edit",()=>go({name:"addcard", edit:it.id}),"ghost","edit"))));
+};
+
+/* ================= ADD MENU ================= */
+VIEWS.addmenu = function(){
+  $app.append(topbar("Add"));
+  const grid = h("div",{class:"sheetgrid"});
+  const opt = (kind, onclick) => h("button",{type:"button",onclick}, h("span",{class:"kind "+kind},KINDS[kind].name), h("small",null,KINDS[kind].hint));
+  grid.append(opt("text",()=>go({name:"addtext"})));
+  for (const k of CARD_KINDS) grid.append(opt(k,()=>go({name:"addcard", kind:k})));
+  $app.append(h("div",{class:"stack"},
+    h("p",{class:"muted"},"What do you want to learn?"),
+    grid,
+    h("span",{class:"label",style:"margin-top:8px"},"Faster ways"),
+    canScan() ? B("Scan notes into cards",()=>go({name:"scan"}),"big","scan") : null,
+    canScan() ? h("p",{class:"small muted"},"Take a photo of your notes or a textbook page. Claude pulls out the formulas, definitions and rules for you.") : null,
+    B("Paste a list of cards",()=>go({name:"bulk"}),"big","list"),
+    h("p",{class:"small muted"},"One per line, like “Ohm's law: U = R·I”. Good for copying a whole page of notes at once."),
+    B("Starter packs",()=>go({name:"packs"}),"big","box"),
+    h("p",{class:"small muted"},"Ready-made sets: algebra, geometry, derivatives, physics, chemistry, biology, history dates, Romanian spelling.")));
+};
+
+/* ================= ADD / EDIT TEXT ================= */
+VIEWS.addtext = function(){
+  const editing = view.edit ? S.items.find(t=>t.id===view.edit) : null;
+  const st = view.draft ||= { title: editing?.title || "", body: editing?.body || "", lang: editing?.lang || S.settings.lang, split: editing?.split || "sentence",
+    subjectId: editing?.subjectId || (S.settings.subject!=="all"?S.settings.subject:subjectByName(S,"General").id), status:"", busy:false, confirmDel:false };
+  $app.append(topbar(editing ? "Edit text" : "Add a text", {to: editing?{name:"home"}:{name:"addmenu"}}));
+  const body = h("textarea",{id:"body",placeholder:"Paste or type the text you want to learn…",rows:9}); body.value = st.body;
+  const title = h("input",{type:"text",id:"title",placeholder:"e.g. Biology ch. 3, a poem"}); title.value = st.title;
+  const status = h("p",{class:"small muted","aria-live":"polite"}, st.status);
+  const preview = h("div",{class:"preview"});
+  const count = h("span",{class:"label"});
+  const saveBtn = B(editing?"Save changes":"Save and start learning",()=>doSave(),"primary big","check");
+  function refresh(){
+    const ch = chunk(body.value, st.split);
+    preview.replaceChildren(...(ch.length ? ch.slice(0,80).map((c,i)=>h("div",null,h("span",null,String(i+1).padStart(2,"0")),h("span",null,c))) : [h("p",{class:"muted small"},"Your steps will show up here.")]));
+    count.textContent = ch.length ? plural(ch.length,"step") : "Steps";
+    saveBtn.disabled = !ch.length || st.busy;
+  }
+  body.addEventListener("input",()=>{ st.body=body.value; refresh(); });
+  title.addEventListener("input",()=>st.title=title.value);
+
+  const thumb = h("img",{class:"thumb",alt:"Your photo",hidden:true});
+  const camBtn = B("Take a photo",()=>file.click(),"primary","cam");
+  async function handle(f){
+    if (!f || !f.type.startsWith("image/")){ toast("That isn't an image."); return; }
+    st.busy=true; saveBtn.disabled=true; camBtn.disabled=true;
+    const setS = m => { st.status=m; status.textContent=m; };
+    if (thumb.src) URL.revokeObjectURL(thumb.src);
+    thumb.src = URL.createObjectURL(f); thumb.hidden=false;
+    try{
+      const text = await readPhoto(f, st.lang, setS);
+      body.value = (body.value.trim() ? body.value.trim()+"\n\n" : "") + text; st.body = body.value;
+      setS("Done. Check the text below and fix anything that was misread.");
+      if (!st.title){ st.title = text.split(/\s+/).slice(0,5).join(" ").replace(/[^\p{L}\p{N}\s'-]/gu,"").trim(); title.value = st.title; }
+    } catch(e){ setS(e.message || "Couldn't read the photo. Type or paste the text instead."); }
+    st.busy=false; camBtn.disabled=false; refresh();
+  }
+  const file = h("input",{type:"file",accept:"image/*",capture:"environment",hidden:true,id:"photo"});
+  const fileAny = h("input",{type:"file",accept:"image/*",hidden:true,id:"photo2"});
+  file.addEventListener("change",()=>{handle(file.files[0]); file.value="";});
+  fileAny.addEventListener("change",()=>{handle(fileAny.files[0]); fileAny.value="";});
+  const zone = h("div",{class:"dropzone"},
+    h("h3",null,"Photo of a page"),
+    h("p",{class:"small muted"},"Book, notes, worksheet or screenshot. The text is copied for you, then you can fix it."),
+    h("div",{class:"row",style:"justify-content:center"}, camBtn, B("Choose image",()=>fileAny.click(),"","plus")),
+    thumb, file, fileAny);
+  zone.addEventListener("dragover",e=>{e.preventDefault(); zone.classList.add("drag");});
+  zone.addEventListener("dragleave",()=>zone.classList.remove("drag"));
+  zone.addEventListener("drop",e=>{e.preventDefault(); zone.classList.remove("drag"); handle(e.dataTransfer.files[0]);});
+  body.addEventListener("paste",e=>{ const f=[...(e.clipboardData?.files||[])].find(f=>f.type.startsWith("image/")); if (f){ e.preventDefault(); handle(f); } });
+
+  const seg = h("div",{class:"seg",role:"group","aria-label":"Split into"});
+  [["short","Short bits"],["sentence","Sentences"],["line","Lines"],["paragraph","Paragraphs"]].forEach(([k,l])=>{
+    const b=B(l,()=>{ st.split=k; [...seg.children].forEach(c=>c.classList.toggle("on",c===b)); refresh(); }, st.split===k?"on":""); seg.append(b);
+  });
+  function doSave(){
+    const ch = chunk(body.value, st.split); if (!ch.length) return;
+    const name = title.value.trim() || body.value.trim().split(/\s+/).slice(0,5).join(" ");
+    if (editing){
+      const changed = editing.body!==body.value || editing.split!==st.split;
+      Object.assign(editing,{title:name, body:body.value, lang:st.lang, split:st.split, subjectId:st.subjectId});
+      if (changed){ editing.chunks = ch; editing.cards={}; editing.pos=0; }
+      save(); view.draft=null; toast(changed?"Saved. Progress was reset because the text changed.":"Saved."); go({name:"home"});
+    } else {
+      const t = makeItem({kind:"text", title:name, body:body.value, lang:st.lang, split:st.split, subjectId:st.subjectId});
+      S.items.unshift(t); save(); view.draft=null; startStudy(t,0);
+    }
+  }
+  $app.append(h("div",{class:"stack"},
+    zone,
+    h("div",{class:"spread"},h("span",{class:"label"},"Language"),h("div",{style:"max-width:200px;flex:1"},langSelect("lang",st.lang,v=>st.lang=v))),
+    status,
+    h("label",{class:"label",for:"body"},"The text"), body,
+    h("div",{class:"sheetgrid"},
+      h("div",{class:"field"},h("label",{class:"label",for:"title"},"Name"), title),
+      h("div",{class:"field"},h("label",{class:"label",for:"subj"},"Subject"), h("div",null,subjectSelect("subj",st.subjectId,v=>st.subjectId=v)))),
+    h("div",{class:"spread"},h("span",{class:"label"},"Split into"),seg),
+    h("div",{class:"spread"},count,h("span",{class:"small muted"},"Each step is one thing to learn.")),
+    preview, saveBtn,
+    editing ? deleteControl(st, editing) : null));
+  refresh();
+};
+function deleteControl(st, item){
+  return st.confirmDel
+    ? h("div",{class:"sheet row"},h("span",{class:"grow"},"Delete this and its progress?"),B("Delete",()=>{S.items=S.items.filter(x=>x!==item); save(); view.draft=null; go({name:"home"}); toast("Deleted.");},"primary","trash"),B("Keep",()=>{st.confirmDel=false; render();}))
+    : B("Delete",()=>{st.confirmDel=true; render();},"ghost","trash");
+}
+
+/* ================= ADD / EDIT CARD ================= */
+VIEWS.addcard = function(){
+  const editing = view.edit ? S.items.find(t=>t.id===view.edit) : null;
+  const st = view.draft ||= { kind: editing?.kind || view.kind || "formula", term: editing?.term||"", content: editing?.content||"", note: editing?.note||"",
+    lang: editing?.lang || S.settings.lang, subjectId: editing?.subjectId || (S.settings.subject!=="all"?S.settings.subject:subjectByName(S, (view.kind||"formula")==="formula"?"Math":"General").id), confirmDel:false };
+  const K = KINDS[st.kind];
+  $app.append(topbar(editing ? "Edit card" : "New "+K.name.toLowerCase(), {to: editing?{name:"item",id:editing.id}:{name:"addmenu"}}));
+
+  const seg = h("div",{class:"seg",role:"group","aria-label":"Type"});
+  CARD_KINDS.forEach(k=>seg.append(B(KINDS[k].name,()=>{ st.kind=k; render(); }, st.kind===k?"on":"")));
+  const PH = {formula:["e.g. Area of a circle","e.g. A = πr^2"], definition:["e.g. Photosynthesis","Write it the way you want to remember it."], theorem:["e.g. Pythagorean theorem","What the theorem says."], rule:["e.g. Comma before «dar»","Explain the rule, with an example."], fact:["e.g. Capital of Australia","e.g. Canberra"]}[st.kind];
+  const term = h("input",{type:"text",id:"term",placeholder:PH[0]}); term.value = st.term;
+  const content = h("textarea",{id:"content",rows: st.kind==="formula"||st.kind==="fact"?2:4, placeholder:PH[1], style: st.kind==="formula"?"min-height:70px;font-family:var(--f-mono)":"min-height:70px"});
+  content.value = st.content;
+  const pv = h("div",{class:"fxpreview","aria-live":"polite"});
+  const note = h("input",{type:"text",id:"note",placeholder:"Optional: units, when it applies, an example"}); note.value=st.note; note.addEventListener("input",()=>st.note=note.value);
+  const showSymbols = st.kind==="formula" || st.kind==="theorem" || st.kind==="fact";
+  const saveBtn = B(editing?"Save":"Save card",()=>doSave(false),"primary big","check");
+  const againBtn = editing ? null : B("Save and add another",()=>doSave(true),"big","plus");
+  function upd(){
+    const show = st.kind==="formula" || looksLikeFormula(content.value);
+    pv.hidden = !show;
+    pv.replaceChildren(content.value.trim() ? fx(content.value) : h("span",{class:"muted small"},"Preview shows here: a^2 becomes a², x_1 becomes x₁."));
+    saveBtn.disabled = !term.value.trim() || !content.value.trim(); if (againBtn) againBtn.disabled = saveBtn.disabled;
+  }
+  term.addEventListener("input",()=>{st.term=term.value; upd();});
+  content.addEventListener("input",()=>{st.content=content.value; upd();});
+  function doSave(another){
+    const fields = {kind:st.kind, term:term.value.trim(), content:content.value.trim(), note:note.value.trim(), lang:st.lang, subjectId:st.subjectId};
+    if (!fields.term || !fields.content) return;
+    if (editing){
+      const changed = editing.content !== fields.content;
+      Object.assign(editing, fields, {body:fields.content});
+      if (changed){ editing.chunks = chunk(fields.content, "short"); editing.cards = {}; editing.pos = 0; }
+      save(); view.draft=null; toast("Saved."); go({name:"item", id:editing.id});
+    } else {
+      S.items.unshift(makeItem(fields)); save(); toast("Card saved.");
+      if (another){ view.draft = {...st, term:"", content:"", note:""}; render(); setTimeout(()=>document.getElementById("term")?.focus(),30); }
+      else { view.draft=null; S.settings.subject = st.subjectId; save(); go({name:"home"}); }
+    }
+  }
+  $app.append(h("div",{class:"stack"},
+    h("div",{style:"overflow-x:auto"},seg),
+    h("p",{class:"small muted"},K.hint),
+    h("div",{class:"field"},h("label",{class:"label",for:"term"},K.front),term),
+    h("div",{class:"field"},h("label",{class:"label",for:"content"},K.back),content, showSymbols?symbolBar(content):null, pv),
+    h("div",{class:"field"},h("label",{class:"label",for:"note"},"Note"),note),
+    h("div",{class:"sheetgrid"},
+      h("div",{class:"field"},h("label",{class:"label",for:"subj"},"Subject"),h("div",null,subjectSelect("subj",st.subjectId,v=>st.subjectId=v))),
+      h("div",{class:"field"},h("label",{class:"label",for:"lang"},"Language"),langSelect("lang",st.lang,v=>st.lang=v))),
+    saveBtn, againBtn,
+    editing ? deleteControl(st, editing) : null));
+  upd();
+  setTimeout(()=>{ if(!editing) term.focus({preventScroll:true}); },40);
+};
+
+/* ================= SCAN NOTES (Claude) ================= */
+VIEWS.scan = function(){
+  const st = view.st ||= { status:"", found:null, subjectId: S.settings.subject!=="all"?S.settings.subject:subjectByName(S,"General").id, busy:false };
+  $app.append(topbar("Scan notes",{to:{name:"addmenu"}}));
+  const file = h("input",{type:"file",accept:"image/*",capture:"environment",hidden:true,id:"scanphoto"});
+  const fileAny = h("input",{type:"file",accept:"image/*",hidden:true,id:"scanphoto2"});
+  async function handle(f){
+    if (!f) return;
+    if (!canScan()){ toast("Scanning needs Claude. Use Add text with a photo instead."); return; }
+    st.busy = true; st.status = "Claude is reading your notes… this can take up to a minute."; render();
+    try{
+      const blob = await shrink(f, 1800, Math.min(3.5e6, caps.images?.maxFileBytes||3.5e6));
+      const out = await caps.sample.json(
+`The attached image is a photo of a student's notes or a textbook page. Extract every formula, definition, theorem, rule and key fact a student should memorize.
+Return ONLY a JSON array. Each element: {"kind": "formula"|"definition"|"theorem"|"rule"|"fact", "term": short name or question, "content": the formula, definition, statement or answer, "note": short context or ""}.
+Keep the original language of the page (do not translate). Write math with plain characters: ^ for powers, _ for subscripts, √, π, Δ, ≤, ≥, ·. Use braces for multi-character exponents, e.g. x^{n-1}. Copy wording faithfully. If nothing is found return [].`,
+        { images:[blob], modelTier:"default" });
+      const arr = (Array.isArray(out) ? out : out?.items || []).filter(x=>x && x.term && x.content).map(x=>({kind: CARD_KINDS.includes(x.kind)?x.kind:"fact", term:String(x.term).slice(0,200), content:String(x.content).slice(0,1500), note:String(x.note||"").slice(0,300), keep:true}));
+      st.found = arr; st.status = arr.length ? `Found ${plural(arr.length,"card")}. Untick any you don't want, then save.` : "Nothing to memorize was found in that photo.";
+    } catch(e){
+      st.status = e?.code==="not_granted" ? "Claude access was declined, so scanning is off. You can add cards by hand." : e?.code==="rate_limited" ? "Too many requests right now. Wait a minute and try again." : "Couldn't scan that photo. Try a sharper, closer shot.";
+    }
+    st.busy = false; render();
+  }
+  file.addEventListener("change",()=>{handle(file.files[0]); file.value="";});
+  fileAny.addEventListener("change",()=>{handle(fileAny.files[0]); fileAny.value="";});
+  $app.append(h("div",{class:"stack"},
+    h("div",{class:"dropzone"},
+      h("h3",null,"Photo of your notes"),
+      h("p",{class:"small muted"},"Claude finds the formulas, definitions, theorems and rules and turns each into a card."),
+      h("div",{class:"row",style:"justify-content:center"},B("Take a photo",()=>file.click(),"primary","cam",{disabled:st.busy||null}),B("Choose image",()=>fileAny.click(),"","plus",{disabled:st.busy||null})),
+      file, fileAny),
+    h("p",{class:"small muted","aria-live":"polite"},st.status)));
+  if (st.found?.length){
+    const list = h("div",{class:"stack"});
+    st.found.forEach(x=>{
+      const cb = h("input",{type:"checkbox","aria-label":"Keep "+x.term}); cb.checked = x.keep; cb.addEventListener("change",()=>x.keep=cb.checked);
+      list.append(h("label",{class:"scanrow"},cb,h("div",{class:"stack",style:"gap:4px;min-width:0"},
+        h("div",{class:"row"},h("span",{class:"kind "+x.kind},KINDS[x.kind].name),h("b",{style:"overflow-wrap:anywhere"},x.term)),
+        h("div",{class:"small",style:"overflow-wrap:anywhere"}, x.kind==="formula"||looksLikeFormula(x.content) ? fx(x.content) : x.content))));
+    });
+    $app.append(h("div",{class:"stack",style:"margin-top:12px"},
+      h("div",{class:"field"},h("label",{class:"label",for:"subj"},"Save into subject"),h("div",null,subjectSelect("subj",st.subjectId,v=>st.subjectId=v))),
+      list,
+      B("Save selected cards",()=>{
+        const keep = st.found.filter(x=>x.keep);
+        keep.forEach(x=>S.items.unshift(makeItem({...x, lang:S.settings.lang, subjectId:st.subjectId})));
+        S.settings.subject = st.subjectId; save(); toast(`Saved ${plural(keep.length,"card")}.`); go({name:"home"});
+      },"primary big","check")));
+  }
+};
+
+/* ================= STARTER PACKS ================= */
+VIEWS.packs = function(){
+  $app.append(topbar("Starter packs",{to:{name:"addmenu"}}));
+  const list = h("div",{class:"stack"});
+  for (const p of PACKS){
+    const have = new Set(S.items.filter(it=>it.pack===p.id).map(it=>it.term));
+    const missing = p.items.filter(x=>!have.has(x.term));
+    list.append(h("div",{class:"pack"},
+      h("div",{class:"spread"},h("h3",null,p.name),h("span",{class:"chip"},p.subject)),
+      h("ul",null, p.items.slice(0,4).map(x=>h("li",null,x.term)), p.items.length>4 ? h("li",null,`and ${p.items.length-4} more`) : null),
+      h("div",{class:"row"},
+        !missing.length ? h("span",{class:"chip good"},"Added") :
+        B(missing.length<p.items.length?`Add the other ${missing.length}`:`Add ${p.items.length} cards`,()=>{
+          let sub = S.subjects.find(s=>s.name===p.subject); if (!sub){ sub={id:uid(),name:p.subject}; S.subjects.push(sub); }
+          missing.forEach(x=>S.items.push(makeItem({...x, lang:p.lang, subjectId:sub.id, pack:p.id})));
+          save(); toast(`Added to ${p.subject}.`); render();
+        },"primary","plus"),
+        p.lang==="ro" ? h("span",{class:"small muted"},"In Romanian") : null)));
+  }
+  $app.append(h("div",{class:"stack"},h("p",{class:"muted"},"Add a set, then edit any card to match how your teacher writes it."),list));
+};
+
+/* ================= TEXT STUDY (ladder) ================= */
+const METHODS = {
+  ladder:  { name:"Ladder", desc:"Read and copy it, then half the words disappear, then type it with nothing showing.", stages:["copy","fade","blind"] },
+  letters: { name:"First letters", desc:"Read it, then type just the first letter of each word while the words stay hidden.", stages:["copy","letters","blind"] },
+  scramble:{ name:"Puzzle", desc:"Read it, put the shuffled words back in order, then type it from memory.", stages:["read","scramble","blind"] },
+  speak:   { name:"Say it", desc:"Listen and read, then say it out loud from memory. Your microphone checks you.", stages:["listen","fadeSay","blindSay"] },
+};
+const STAGE_NAME = { copy:"Look & copy", read:"Read", listen:"Listen", fade:"Fade", fadeSay:"Fade", letters:"First letters", scramble:"Puzzle", blind:"From memory", blindSay:"From memory" };
+function startStudy(t, from){
+  if (!t.chunks.length){ toast("Nothing to learn in this one."); return; }
+  if (from!=null) t.pos = from;
+  else { let i=t.pos; while(i<t.chunks.length && lineCard(t,i).box) i++; t.pos = i<t.chunks.length ? i : 0; }
+  save(); go({name:"study", id:t.id, stage:0, tries:0, chain:false});
+}
+VIEWS.study = function(){
+  const t = S.items.find(x=>x.id===view.id); if (!t) return go({name:"home"});
+  const m = METHODS[t.method], i = Math.min(t.pos, t.chunks.length-1), sent = t.chunks[i];
+  const stages = m.stages, stageKey = view.chain ? "chain" : stages[view.stage];
+  $app.append(topbar(t.kind==="text" ? t.title : t.term, {to: t.kind==="text"?{name:"home"}:{name:"item",id:t.id}}));
+  const dots = h("div",{class:"progress-dots","aria-label":`Step ${i+1} of ${t.chunks.length}`});
+  if (t.chunks.length<=60) t.chunks.forEach((_,k)=>dots.append(h("span",{class: k===i?"cur":(lineCard(t,k).box?"done":"")})));
+  else dots.append(h("div",{class:"bar",style:"flex:1"},h("span",{style:`width:${Math.round(i/t.chunks.length*100)}%`})));
+  const ladder = h("div",{class:"ladder"});
+  stages.forEach((s,k)=>ladder.append(h("span",{class: !view.chain && k===view.stage?"cur":(k<view.stage||view.chain?"done":"")}, STAGE_NAME[s])));
+  if (t.chain && i>0) ladder.append(h("span",{class:view.chain?"cur":""},"Chain"));
+  const methodSel = h("select",{id:"method","aria-label":"Method"}, Object.entries(METHODS).map(([k,v])=>h("option",{value:k},v.name)));
+  methodSel.value = t.method;
+  methodSel.addEventListener("change",()=>{ t.method=methodSel.value; save(); go({...view, stage:0, tries:0, chain:false}); });
+  $app.append(h("div",{class:"stack",style:"margin-bottom:14px"},
+    h("div",{class:"spread"},h("span",{class:"label"},`Step ${i+1} of ${t.chunks.length}`),h("div",{style:"width:160px"},methodSel)),
+    dots, ladder));
+  const card = h("div",{class:"card"}); $app.append(card);
+  const prev = i>0 ? t.chunks[i-1] : null;
+  const passStage = () => {
+    if (!view.chain && view.stage < stages.length-1) return go({...view, stage:view.stage+1, tries:0});
+    if (!view.chain && t.chain && i>0) return go({...view, chain:true, tries:0});
+    finishStep(t);
+  };
+  STAGES[stageKey]({t, sent, prev, card, passStage});
+  const chainBox = h("input",{type:"checkbox",id:"chain"}); chainBox.checked=t.chain; chainBox.addEventListener("change",()=>{t.chain=chainBox.checked; save(); render();});
+  $app.append(h("details",{class:"sheet",style:"margin-top:16px"},
+    h("summary",null,"How this works"),
+    h("p",{class:"small muted",style:"margin-top:8px"}, m.desc + (t.chain?" After each step you also recite the last few steps together, so they link up.":"")),
+    h("div",{class:"row",style:"margin-top:10px"},
+      h("label",{class:"row small",for:"chain"}, chainBox, "Chain steps together"),
+      h("div",{class:"grow"}),
+      B("Skip this step",()=>{ markLine(t,i); finishStep(t,true); },"ghost","skip"))));
+};
+const chainOf = t => t.chunks.slice(Math.max(0,t.pos-2), t.pos+1).join(" ");
+function finishStep(t, skipped){
+  if (!skipped){ markLine(t,t.pos); bumpDay(); }
+  t.pos++;
+  if (t.pos >= t.chunks.length){
+    t.pos = 0;
+    if (t.kind!=="text" && !t.card.box){ t.card.box = 1; t.card.due = addDays(1); }
+    save(); go({name:"done", id:t.id}); return;
+  }
+  save(); toast(skipped ? "Skipped." : "Got it! Next line unlocked.");
+  go({name:"study", id:t.id, stage:0, tries:0, chain:false});
+}
+function sentenceEl(text, mode){
+  const el = h("div",{class:"sentence"+(mode==="blind"?" blind":"")});
+  const ws = text.split(/\s+/);
+  if (mode==="blind"){
+    ws.forEach(w=>el.append(h("span",{class:"blindbar",style:`width:${Math.max(1,norm(w).length)*0.55}em`})));
+    el.setAttribute("aria-label",`Hidden: ${ws.length} words`);
+    return el;
+  }
+  ws.forEach((w,k)=>{
+    if (k) el.append(" ");
+    const hide = mode==="fade" && norm(w).length>1 && ((k*7+text.length)%5<3);
+    if (hide){
+      const m = w.match(/^([^\p{L}\p{N}]*)([\p{L}\p{N}])(.*?)([^\p{L}\p{N}]*)$/u);
+      if (m){ el.append(m[1], h("span",{class:"hid"}, m[2] + "_".repeat(Math.max(1,m[3].length))), m[4]); return; }
+    }
+    el.append(w);
+  });
+  return el;
+}
+const listenBar = (t, text) => h("div",{class:"toolbar"}, B("Listen",()=>speak(text,t.lang),"","play"));
+
+/* typed / spoken answer box */
+function answerBox({t, target, card, onPass, mode, voiceFirst, kind, formula}){
+  const ta = h("textarea",{class:"answer",id:"answer",placeholder: voiceFirst?"Tap the mic and say it… (or type)":"Type it here…",autocomplete:"off",autocapitalize:"sentences",spellcheck:"false",rows: formula?2:3, style: formula?"font-family:var(--f-mono);min-height:64px":null});
+  const fb = h("div",{"aria-live":"polite"});
+  const check = B("Check",()=>doCheck(),"primary","check");
+  let micBtn = null;
+  if ((micAvailable() || voiceFirst) && !formula){
+    const idle = voiceFirst?"Say it":"Speak";
+    micBtn = B(idle,()=>{
+      if (!micAvailable()){ toast("Speaking isn't supported here. Type instead."); return; }
+      startMic(t.lang, txt=>{ ta.value = txt; }, on=>{ micBtn.classList.toggle("mic-live",on); micBtn.querySelector("span").textContent = on?"Stop":idle; if(!on && ta.value.trim() && voiceFirst) doCheck(); });
+    }, voiceFirst?"primary":"", "mic");
+  }
+  ta.addEventListener("keydown",e=>{ if (e.key==="Enter" && !e.shiftKey){ e.preventDefault(); doCheck(); } });
+  let done = false;
+  function pass(perfect){
+    done = true; check.disabled = true; ta.disabled = true;
+    const next = B("Next", ()=>onPass(perfect), "primary big", "check");
+    card.append(next); next.focus({preventScroll:true});
+    if (mode!=="final") setTimeout(()=>{ if (document.body.contains(next)) next.click(); }, 900);
+  }
+  function doCheck(){
+    if (done) return;
+    if (!ta.value.trim()){ ta.classList.add("shake"); setTimeout(()=>ta.classList.remove("shake"),300); ta.focus(); return; }
+    stopMic();
+    view.tries = (view.tries||0) + 1;
+    const r = kind ? judge(target, ta.value, kind) : (()=>{ const d=diff(target, ta.value); return {pass:d.pass, d}; })();
+    if (r.pass){
+      fb.replaceChildren(h("div",{class:"feedback ok"},
+        h("div",{class:"t"}, r.close ? "Close enough! The exact wording:" : (view.tries===1?"Perfect, first try!":"Correct!")),
+        r.formula ? fx(target) : renderDiff(r.d)));
+      pass(view.tries===1 && !r.close);
+    } else {
+      const d = r.d;
+      const head = r.formula ? "Not quite. Compare with the correct formula:" : (d.total && d.ok/d.total>=0.7 ? `Close, ${d.ok} of ${d.total} words. Fix the marked ones.` : `${d.ok} of ${d.total} words. Try again.`);
+      fb.replaceChildren(h("div",{class:"feedback no"},
+        h("div",{class:"t"}, head),
+        r.formula ? h("div",{class:"stack",style:"gap:4px"}, h("div",null,h("span",{class:"small muted"},"You wrote: "), fx(ta.value)), h("div",null,h("span",{class:"small muted"},"Correct: "), fx(target))) : renderDiff(d),
+        !r.formula ? h("p",{class:"small muted",style:"margin-top:6px"},"Struck out: what you wrote. Green bold: the right word. Wavy: a word you left out.") : null,
+        kind ? h("div",{class:"row",style:"margin-top:8px"}, B("I was right",()=>{ fb.replaceChildren(h("div",{class:"feedback ok"},h("div",{class:"t"},"Counted as right."))); pass(false); },"ghost","check")) : null));
+      ta.select();
+    }
+  }
+  card.append(ta);
+  let symBtn = null;
+  if (formula){
+    const bar = symbolBar(ta); bar.hidden = true;
+    symBtn = B("Symbols",()=>{ bar.hidden = !bar.hidden; symBtn.classList.toggle("on", !bar.hidden); },"", null, {"aria-expanded":"false"});
+    symBtn.addEventListener("click",()=>symBtn.setAttribute("aria-expanded", String(!bar.hidden)));
+    card.append(bar);
+  }
+  card.append(h("div",{class:"toolbar"}, micBtn, symBtn, h("div",{class:"grow"}), check), fb);
+  setTimeout(()=>{ if(!voiceFirst) ta.focus({preventScroll:true}); },50);
+}
+function peekable(card, text){
+  const holder = h("div");
+  card.append(h("div",{class:"toolbar"},B("Peek (2 s)",()=>{ holder.replaceChildren(h("div",{class:"cue",style:"font-style:normal"},text)); setTimeout(()=>holder.replaceChildren(),2000); },"ghost","eye")), holder);
+}
+const cueEl = prev => prev ? h("div",{class:"cue"},"…"+prev) : null;
+const STAGES = {
+  copy({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Read it, then type it while looking")); if (prev) card.append(cueEl(prev));
+    card.append(sentenceEl(sent,"full"), listenBar(t,sent));
+    answerBox({t, target:sent, card, onPass:passStage});
+  },
+  read({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Read it two or three times, out loud if you can")); if (prev) card.append(cueEl(prev));
+    card.append(sentenceEl(sent,"full"), listenBar(t,sent), B("I've read it",passStage,"primary big","check"));
+  },
+  listen({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Listen and repeat it out loud")); if (prev) card.append(cueEl(prev));
+    card.append(sentenceEl(sent,"full"), listenBar(t,sent));
+    answerBox({t, target:sent, card, onPass:passStage, voiceFirst:true});
+    setTimeout(()=>speak(sent,t.lang),300);
+  },
+  fade({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Some words are hidden. Type the whole line")); if (prev) card.append(cueEl(prev));
+    card.append(sentenceEl(sent,"fade"));
+    answerBox({t, target:sent, card, onPass:passStage});
+  },
+  fadeSay({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Some words are hidden. Say the whole line")); if (prev) card.append(cueEl(prev));
+    card.append(sentenceEl(sent,"fade"));
+    answerBox({t, target:sent, card, onPass:passStage, voiceFirst:true});
+  },
+  blind(a){ blindStage(a,false); },
+  blindSay(a){ blindStage(a,true); },
+  chain({t, card, passStage}){
+    const n = Math.min(3, t.pos+1), text = chainOf(t);
+    card.append(h("span",{class:"label"},`Chain: the last ${n} steps together, from memory`));
+    if (t.pos-n>=0) card.append(cueEl(t.chunks[t.pos-n]));
+    card.append(sentenceEl(text,"blind"));
+    peekable(card, text);
+    answerBox({t, target:text, card, onPass:passStage, mode:"final", voiceFirst: t.method==="speak"});
+  },
+  letters({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Type the first letter of each word")); if (prev) card.append(cueEl(prev));
+    const ws = sent.split(/\s+/).filter(w=>norm(w));
+    const line = h("div",{class:"fl"});
+    const spans = ws.map(w=>{ const s=h("span",{class:"w todo"},w); line.append(s); return s; });
+    let k=0, slips=0;
+    const inp = h("input",{class:"flinput",type:"text",id:"flinput",autocomplete:"off",autocapitalize:"none",autocorrect:"off",spellcheck:"false","aria-label":"Type first letters"});
+    const info = h("p",{class:"small muted","aria-live":"polite"},"Tap below to bring up the keyboard.");
+    const tap = B("Tap here and type",()=>inp.focus(),"fltap");
+    const mark = () => spans.forEach((s,j)=>s.classList.toggle("next", j===k));
+    function feed(ch){
+      if (k>=ws.length) return;
+      if (norm(ch)===norm(ws[k])[0]){ spans[k].classList.remove("todo","next"); k++; }
+      else { slips++; const s=spans[k]; s.classList.add("shake"); setTimeout(()=>s.classList.remove("shake"),300);
+        if (slips%3===0){ s.classList.remove("todo"); s.classList.add("slip"); k++; } }   // reveal after 3 misses so you're never stuck
+      info.textContent = `${k} of ${ws.length} words · ${plural(slips,"slip")}`;
+      mark();
+      if (k>=ws.length){
+        inp.blur(); tap.remove();
+        const good = slips <= Math.max(1, Math.floor(ws.length/8));
+        card.append(h("div",{class:"feedback "+(good?"ok":"no")},h("div",{class:"t"}, good?"Nice! On to the hard part.":`${plural(slips,"slip")}. Go once more for a cleaner run.`)));
+        card.append(good ? B("Next",passStage,"primary big","check") : B("Again",()=>go({...view, tries:0}),"primary big","redo"));
+      }
+    }
+    inp.addEventListener("input",()=>{ const v=inp.value; inp.value=""; for (const ch of v) if (norm(ch)) feed(ch); });
+    card.append(line, info, tap, inp); mark();
+    setTimeout(()=>inp.focus({preventScroll:true}),60);
+  },
+  scramble({t, sent, prev, card, passStage}){
+    card.append(h("span",{class:"label"},"Tap the words in the right order")); if (prev) card.append(cueEl(prev));
+    const ws = sent.split(/\s+/).filter(Boolean);
+    const built = h("div",{class:"built"}), pool = h("div",{class:"pool"});
+    let k=0, slips=0;
+    let order = shuffle(ws.map((w,ix)=>({w,ix})));
+    if (ws.length>1 && order.every((o,j)=>o.ix===j)) order.reverse();
+    order.forEach(o=>{
+      const b = h("button",{type:"button"}, o.w);
+      b.addEventListener("click",()=>{
+        if (k>=ws.length) return;
+        if (norm(o.w)===norm(ws[k])){
+          b.classList.add("used"); built.append((k?" ":""), ws[k]); k++;
+          if (k>=ws.length) card.append(h("div",{class:"feedback ok"},h("div",{class:"t"}, slips? `Done with ${plural(slips,"slip")}.`:"Flawless!")), B("Next",passStage,"primary big","check"));
+        } else { slips++; b.classList.add("shake"); setTimeout(()=>b.classList.remove("shake"),300); }
+      });
+      pool.append(b);
+    });
+    card.append(built, pool, listenBar(t,sent));
+  },
+};
+function blindStage({t, sent, prev, card, passStage}, voice){
+  card.append(h("span",{class:"label"}, voice?"Now say it with nothing showing":"Now write it with nothing showing")); if (prev) card.append(cueEl(prev));
+  card.append(sentenceEl(sent,"blind"));
+  peekable(card, sent);
+  answerBox({t, target:sent, card, onPass:passStage, mode:"final", voiceFirst:voice});
+}
+
+/* ================= DONE ================= */
+VIEWS.done = function(){
+  const t = S.items.find(x=>x.id===view.id); if (!t) return go({name:"home"});
+  $app.append(topbar(""));
+  $app.append(h("div",{class:"card celebrate"},
+    h("div",{class:"num"},t.chunks.length),
+    h("h2",null,`You worked through all of “${t.kind==="text"?t.title:t.term}”`),
+    h("p",{class:"muted"},"Now prove it: write the whole thing from memory. Or come back tomorrow for a review."),
+    h("div",{class:"stack"},
+      B("Full recall test",()=>go({name:"full", id:t.id, tries:0}),"primary big","spark"),
+      B("Back home",()=>go({name:"home"}),"big"))));
+};
+VIEWS.full = function(){
+  const t = S.items.find(x=>x.id===view.id); if (!t) return go({name:"home"});
+  $app.append(topbar("Full recall"));
+  const card = h("div",{class:"card"}); $app.append(card);
+  const all = t.chunks.join(" ");
+  card.append(h("span",{class:"label"},`All ${plural(t.chunks.length,"step")}, from memory`));
+  if (t.kind!=="text") card.append(h("div",{class:"front"},t.term));
+  peekable(card, all);
+  answerBox({t, target:all, card, mode:"final", voiceFirst: t.method==="speak", onPass:()=>{
+    for (const k in t.cards){ const c=t.cards[k]; c.box=Math.min(6,c.box+1); c.due=addDays(BOX_DAYS[c.box]); }
+    bumpDay(); save(); toast("Memorized!"); go({name:"home"});
+  }});
+};
+
+/* ================= CARD PRACTICE (flashcards / type / quiz) ================= */
+const MODE_NAME = {flash:"Flashcards", type:"Type it", quiz:"Quiz", gaps:"Gaps"};
+const fmtTime = secs => `${Math.floor(secs/60)}:${String(secs%60).padStart(2,"0")}`;
+function startDeck(cards, mode){
+  if (!cards.length){ toast("Add a formula, definition or rule first."); return; }
+  go({name:"deck", mode, ids: orderForPractice(cards).map(c=>c.id), k:0, right:0, missed:[], start:Date.now()});
+}
+function startTest(subjectId, n=15){
+  const cards = S.items.filter(it=>it.kind!=="text" && (subjectId==="all"||it.subjectId===subjectId));
+  if (cards.length<2){ toast("A practice test needs at least 2 cards in this subject."); return; }
+  const ids = shuffle(cards).slice(0,n).map(c=>c.id);
+  const modes = ids.map(()=>{ const r=Math.random(); return r<0.45?"quiz":r<0.75?"gaps":"type"; });
+  go({name:"deck", mode:"mix", test:true, subjectId, ids, modes, k:0, right:0, missed:[], start:Date.now()});
+}
+VIEWS.deck = function(){
+  const ids = view.ids.filter(id=>S.items.some(x=>x.id===id));
+  $app.append(topbar(view.test ? "Practice test" : MODE_NAME[view.mode]));
+  if (view.k >= ids.length) return deckEnd(ids);
+  const it = S.items.find(x=>x.id===ids[view.k]);
+  const mode = view.mode==="mix" ? view.modes[view.k] : view.mode;
+  const head = h("div",{class:"spread"},h("span",{class:"label"},`${view.k+1} of ${ids.length}`));
+  if (view.test) head.append(h("span",{class:"chip warn"},`${view.right} right so far`));
+  else {
+    const seg = h("div",{class:"seg",role:"group","aria-label":"Mode"});
+    Object.entries(MODE_NAME).forEach(([k,l])=>seg.append(B(l,()=>go({...view, mode:k, tries:0}), view.mode===k?"on":"")));
+    head.append(h("div",{style:"overflow-x:auto;max-width:100%"},seg));
+  }
+  $app.append(h("div",{class:"stack",style:"margin-bottom:14px"}, head, h("div",{class:"bar"},h("span",{style:`width:${view.k/ids.length*100}%`}))));
+  const card = h("div",{class:"card"}); $app.append(card);
+  const next = g => { gradeCard(it, g); go({...view, k:view.k+1, right:view.right+(g>=2?1:0), missed: g<2 ? [...(view.missed||[]), it.id] : (view.missed||[]), tries:0}); };
+  ({flash:flashCard, type:typeCard, quiz:quizCard, gaps:gapsCard})[mode](it, card, next);
+};
+function deckEnd(ids){
+  const secs = Math.round((Date.now()-(view.start||Date.now()))/1000);
+  const pct = ids.length ? Math.round(view.right/ids.length*100) : 0;
+  if (view.test && !view.saved){ view.saved = true; S.tests.push({date:Date.now(), subjectId:view.subjectId, score:view.right, total:ids.length, secs}); S.tests = S.tests.slice(-60); save(); }
+  const missed = [...new Set(view.missed||[])].map(id=>S.items.find(x=>x.id===id)).filter(Boolean);
+  const verdict = pct>=90 ? "Excellent!" : pct>=70 ? "Good work" : pct>=50 ? "Getting there" : "Keep practising";
+  $app.append(h("div",{class:"card celebrate"},
+    h("div",{class:"num"}, view.test ? pct+"%" : `${view.right}/${ids.length}`),
+    h("h2",null, view.test ? verdict : (view.right===ids.length ? "All correct!" : "Round finished")),
+    h("p",{class:"muted"}, `${view.right} of ${ids.length} right in ${fmtTime(secs)}.` + (view.test ? "" : " Missed cards come back sooner.")),
+    h("div",{class:"stack"},
+      missed.length ? B(missed.length===1?"Practise the one I missed":`Practise the ${missed.length} I missed`,()=>startDeck(missed,"flash"),"primary big","redo") : null,
+      view.test ? B("Take another test",()=>startTest(view.subjectId),"big","spark") : (ids.length>1 ? B("Another round",()=>go({...view, ids:shuffle(ids), k:0, right:0, missed:[], start:Date.now(), tries:0}),"big","redo") : null),
+      B("Back home",()=>go({name:"home"}),"big"))));
+  if (missed.length) $app.append(h("div",{class:"sheet",style:"margin-top:14px"},h("h3",null,"Go over these again"),
+    missed.map(it=>h("div",{class:"sheetrow"},h("b",null,it.term), isFx(it)?fx(it.content):h("span",{class:"muted"},it.content)))));
+}
+function gapsCard(it, card, next){
+  cardHead(it, card, false);
+  const f = isFx(it);
+  const toks = it.content.split(/(\s+)/);
+  const cand = toks.map((t,i)=>({t,i})).filter(o=>o.t.trim() && (f ? /[\p{L}\p{N}]/u.test(o.t) : (norm(o.t).length>=4 || /\d/.test(o.t))));
+  if (!cand.length) return typeCard(it, card, next);
+  const n = Math.max(1, Math.min(6, Math.round(cand.length*(f?0.4:0.3))));
+  const hide = new Set(shuffle(cand).slice(0,n).map(o=>o.i));
+  const line = h("div",{class:"gapline"+(f?" fx":"")});
+  const inputs = [];
+  toks.forEach((t,i)=>{
+    if (hide.has(i)){
+      const inp = h("input",{type:"text",class:"gap",autocomplete:"off",autocapitalize:"off",autocorrect:"off",spellcheck:"false","aria-label":"Missing part "+(inputs.length+1),style:`width:${Math.max(3,[...t].length+1)}ch`});
+      inp.dataset.want = t; inputs.push(inp); line.append(inp);
+    } else line.append(f ? fx(t,"") : t);
+  });
+  card.append(h("span",{class:"label"},"Fill in the missing parts"), line);
+  const check = B("Check",()=>{
+    let good = 0;
+    inputs.forEach(inp=>{
+      const w = inp.dataset.want, a = inp.value.trim();
+      const ok = a && (f ? normF(w).toLowerCase()===normF(a).toLowerCase() : same(norm(w), norm(a)));
+      inp.classList.add(ok?"ok":"bad"); inp.disabled = true;
+      if (ok) good++; else { inp.value = a ? `${a} → ${w}` : w; inp.style.width = Math.max(3,[...inp.value].length+1)+"ch"; }
+    });
+    check.remove();
+    const all = good===inputs.length;
+    card.append(h("div",{class:"feedback "+(all?"ok":"no")},h("div",{class:"t"}, all ? "All right!" : `${good} of ${inputs.length} right. The red ones show the answer.`)),
+      ...(all ? [] : [backEl(it)]),
+      B("Next",()=>next(all?2:(good*2>=inputs.length?1:0)),"primary big","check"));
+  },"primary big","check");
+  inputs.forEach((inp,ix)=>inp.addEventListener("keydown",e=>{ if (e.key==="Enter"){ e.preventDefault(); if (ix<inputs.length-1) inputs[ix+1].focus(); else check.click(); } }));
+  card.append(check);
+  setTimeout(()=>inputs[0]?.focus({preventScroll:true}),60);
+}
+function cardHead(it, card, reverse){
+  card.append(h("div",{class:"spread"},h("div",{class:"row"},h("span",{class:"kind "+it.kind},KINDS[it.kind].name),h("span",{class:"chip"},subj(it.subjectId).name)), pips(it.card.box)));
+  if (reverse){
+    card.append(h("span",{class:"label"},`Which ${KINDS[it.kind].front.toLowerCase()} is this?`));
+    card.append(h("div",{class:"back"+(isFx(it)?" fx":""),style:"border:0;padding:0"}, isFx(it) ? fx(it.content) : it.content));
+  } else {
+    card.append(h("span",{class:"label"},`What's the ${KINDS[it.kind].back.toLowerCase()}?`));
+    card.append(h("div",{class:"front"},it.term));
+  }
+}
+function backEl(it){
+  return h("div",{class:"stack",style:"gap:8px"},
+    h("div",{class:"back"+(isFx(it)?" fx":"")}, isFx(it) ? fx(it.content) : it.content),
+    it.note ? h("div",{class:"note"}, looksLikeFormula(it.note)?fx(it.note,""):it.note) : null);
+}
+function gradeBtn(label, cls, sub, fn){ const b=B(label,fn,cls); b.append(h("small",null,sub)); return b; }
+function flashCard(it, card, next){
+  cardHead(it, card, false);
+  const reveal = B("Show answer",()=>{
+    reveal.remove(); hint.remove();
+    const d = n => n===1 ? "1 day" : n+" days";
+    card.append(backEl(it),
+      h("span",{class:"label"},"How well did you know it?"),
+      h("div",{class:"grades"},
+        gradeBtn("Again","again","soon",()=>next(0)),
+        gradeBtn("Hard","","1 day",()=>next(1)),
+        gradeBtn("Good","good",d(BOX_DAYS[Math.min(6,Math.max(1,it.card.box+1))]),()=>next(2)),
+        gradeBtn("Easy","",d(BOX_DAYS[Math.min(6,Math.max(1,it.card.box+2))]),()=>next(3))));
+  },"primary big","eye");
+  const hint = h("p",{class:"small muted"},"Say or think the answer first, then check.");
+  card.append(hint, reveal);
+}
+function typeCard(it, card, next){
+  cardHead(it, card, false);
+  answerBox({t:it, target:it.content, card, mode:"final", kind:it.kind, formula:isFx(it), onPass:perfect=>next(perfect?2:1)});
+  const giveUp = B("Show answer",()=>{ giveUp.remove(); card.append(h("div",{class:"feedback no"},h("div",{class:"t"},"Here it is. It'll come back soon."),backEl(it)), B("Next",()=>next(0),"primary big","skip")); },"ghost","eye");
+  card.append(giveUp);
+}
+function quizCard(it, card, next){
+  const pool = S.items.filter(x=>x.kind!=="text" && x.id!==it.id);
+  const sameKind = pool.filter(x=>x.kind===it.kind), sameSubj = sameKind.filter(x=>x.subjectId===it.subjectId);
+  const distract = [...shuffle(sameSubj), ...shuffle(sameKind), ...shuffle(pool)]
+    .filter((x,i,a)=>a.findIndex(y=>y.id===x.id)===i && x.content!==it.content && x.term!==it.term).slice(0,3);
+  if (!distract.length){ card.append(h("p",{class:"muted small"},"The quiz needs at least two cards, so here's a flashcard.")); return flashCard(it, card, next); }
+  const reverse = Math.random() < 0.35;
+  cardHead(it, card, reverse);
+  const opts = shuffle([it, ...distract]);
+  const wrap = h("div",{class:"choices"});
+  let answered = false;
+  opts.forEach(o=>{
+    const b = h("button",{type:"button"}, reverse ? o.term : (isFx(o) ? fx(o.content) : o.content));
+    b.addEventListener("click",()=>{
+      if (answered) return; answered = true;
+      const ok = o.id===it.id;
+      [...wrap.children].forEach((c,ix)=>{ if (opts[ix].id===it.id) c.classList.add("right"); });
+      if (!ok) b.classList.add("wrongpick");
+      card.append(h("div",{class:"feedback "+(ok?"ok":"no")},h("div",{class:"t"}, ok?"Correct!":"Not this time. The answer is highlighted."), !ok ? h("div",{class:"front",style:"font-size:1.1rem"},it.term) : null, !ok ? backEl(it) : null),
+        B("Next",()=>next(ok?2:0),"primary big","check"));
+    });
+    wrap.append(b);
+  });
+  card.append(wrap);
+}
+
+/* ================= REVIEW (everything due) ================= */
+VIEWS.review = function(){
+  view.queue ||= shuffle(dueList()).slice(0,30);
+  view.k ||= 0; view.right ||= 0;
+  $app.append(topbar("Review"));
+  if (view.k >= view.queue.length){
+    $app.append(h("div",{class:"card celebrate"},
+      h("div",{class:"num"},`${view.right}/${view.queue.length}`),
+      h("h2",null, view.queue.length?"Review done":"Nothing to review right now"),
+      h("p",{class:"muted"}, view.queue.length?"Things you got right come back later. Missed ones come back tomorrow.":"Learn something first. It shows up here when it's time to refresh it."),
+      B("Back home",()=>go({name:"home"}),"primary big")));
+    return;
+  }
+  const q = view.queue[view.k], it = S.items.find(x=>x.id===q.id);
+  if (!it || (q.type==="line" && !it.chunks[q.i])){ view.k++; return render(); }
+  $app.append(h("div",{class:"stack",style:"margin-bottom:14px"},
+    h("div",{class:"spread"},h("span",{class:"label"},`${view.k+1} of ${view.queue.length}`),h("span",{class:"chip"},subj(it.subjectId).name)),
+    h("div",{class:"bar"},h("span",{style:`width:${view.k/view.queue.length*100}%`}))));
+  const card = h("div",{class:"card"}); $app.append(card);
+  const advance = ok => go({...view, k:view.k+1, right:view.right+(ok?1:0), tries:0});
+  if (q.type==="card"){ flashCard(it, card, g=>{ gradeCard(it,g); advance(g>=2); }); return; }
+  const sent = it.chunks[q.i], c = lineCard(it,q.i), prev = q.i>0 ? it.chunks[q.i-1] : null;
+  card.append(h("span",{class:"label"},prev?"What comes after this?":"How does it start?"),
+    h("div",{class:"cue"}, prev ? "…"+prev : "The first line of “"+(it.title||it.term)+"”"),
+    sentenceEl(sent,"blind"));
+  let missed = false;
+  const holder = h("div");
+  card.append(h("div",{class:"toolbar"},B("Show answer",()=>{ missed=true; holder.replaceChildren(h("div",{class:"feedback no"},h("div",{class:"t"},"Here it is. It'll come back tomorrow."),sent)); },"ghost","eye")), holder);
+  answerBox({t:it, target:sent, card, mode:"final", voiceFirst: it.method==="speak", onPass:()=>{
+    const first = view.tries===1 && !missed;
+    c.box = first ? Math.min(6,c.box+1) : 1; c.due = addDays(BOX_DAYS[c.box]); bumpDay(); save(); advance(first);
+  }});
+};
+
+/* ================= PROGRESS ================= */
+VIEWS.progress = function(){
+  $app.append(topbar("Progress"));
+  const heat = h("div",{class:"heat","aria-label":"Activity over the last 16 weeks"});
+  const start = new Date(); start.setHours(0,0,0,0); start.setDate(start.getDate() - 15*7 - start.getDay());
+  for (let d=new Date(start); d<=new Date(); d.setDate(d.getDate()+1)){
+    const n = S.stats.days[dayKey(d)]||0;
+    heat.append(h("i",{class: n===0?"":n<5?"l1":n<15?"l2":"l3", title:`${dayKey(d)}: ${n}`}));
+  }
+  const bySubj = S.subjects.map(s=>{ const its=S.items.filter(i=>i.subjectId===s.id); return {s, n:its.length, m:its.filter(isMemorized).length}; }).filter(x=>x.n);
+  const byKind = Object.keys(KINDS).map(k=>({k, n:S.items.filter(i=>i.kind===k).length, m:S.items.filter(i=>i.kind===k && isMemorized(i)).length})).filter(x=>x.n);
+  $app.append(h("div",{class:"stack"},
+    h("div",{class:"statrow"},
+      h("div",{class:"stat"},h("span",{class:"label"},"Memorized"),h("b",null,memorizedCount())),
+      h("div",{class:"stat"},h("span",{class:"label"},"Best streak"),h("b",null,Math.max(S.stats.best||0, streakNow()))),
+      h("div",{class:"stat"},h("span",{class:"label"},"Days active"),h("b",null,Object.keys(S.stats.days).length))),
+    h("div",{class:"sheet stack"},h("h3",null,"Last 16 weeks"),heat,h("p",{class:"small muted"},"Each square is a day. Darker means more lines and cards practised.")),
+    h("div",{class:"sheet stack"},h("h3",null,"By subject"),
+      bySubj.length ? bySubj.map(x=>h("div",{class:"stack",style:"gap:4px"},h("div",{class:"spread"},h("span",null,x.s.name),h("span",{class:"small muted",style:"font-variant-numeric:tabular-nums"},`${x.m} / ${x.n} memorized`)),h("div",{class:"bar good"},h("span",{style:`width:${x.m/x.n*100}%`})))) : h("p",{class:"muted small"},"Nothing added yet.")),
+    S.tests.length ? h("div",{class:"sheet stack"},h("h3",null,"Practice tests"),
+      h("div",null, S.tests.slice(-8).reverse().map(t=>h("div",{class:"testrow"},
+        h("span",null, new Date(t.date).toLocaleDateString(undefined,{day:"numeric",month:"short"})+" · "+(t.subjectId==="all"?"All subjects":subj(t.subjectId).name)),
+        h("b",{style:`color:var(${t.score/t.total>=0.7?"--good":"--warn"})`}, Math.round(t.score/t.total*100)+"%"),
+        h("span",{class:"muted"},fmtTime(t.secs)))))) : null,
+    h("div",{class:"sheet spread"},h("div",null,h("h3",null,"Focus sessions"),h("p",{class:"small muted"},"25-minute study blocks with the timer.")),h("div",{style:"text-align:right"},h("b",{style:"font-family:var(--f-display);font-size:1.4rem"},Object.values(S.stats.focus).reduce((a,b)=>a+b,0)),h("div",{class:"small muted"},`${S.stats.focus[today()]||0} today`))),
+    h("div",{class:"sheet stack"},h("h3",null,"By type"),
+      h("div",{class:"row"}, byKind.map(x=>h("span",{class:"row",style:"gap:6px;margin-right:10px"},h("span",{class:"kind "+x.k},KINDS[x.k].name),h("span",{class:"small muted"},`${x.m}/${x.n}`)))))));
+};
+
+/* ================= SETTINGS ================= */
+VIEWS.settings = function(){
+  $app.append(topbar("Settings"));
+  const strict = h("input",{type:"checkbox",id:"strict"}); strict.checked=S.settings.strict;
+  strict.addEventListener("change",()=>{S.settings.strict=strict.checked; save();});
+  const rate = h("input",{type:"range",id:"rate",min:"0.6",max:"1.4",step:"0.1",style:"width:100%"}); rate.value=S.settings.rate;
+  const rl = h("span",{class:"small muted"},S.settings.rate+"×");
+  rate.addEventListener("input",()=>{S.settings.rate=+rate.value; rl.textContent=rate.value+"×"; save();});
+  const goal = h("input",{type:"number",id:"goal",min:"1",max:"200",value:String(S.settings.goal),style:"max-width:110px"});
+  goal.addEventListener("change",()=>{ S.settings.goal = Math.max(1, Math.min(200, parseInt(goal.value)||10)); goal.value=S.settings.goal; save(); });
+
+  const subjWrap = h("div",{class:"stack",style:"gap:8px"});
+  const drawSubjects = () => {
+    const newInp = h("input",{type:"text",placeholder:"New subject",id:"newsubj"});
+    subjWrap.replaceChildren(...S.subjects.map(s=>{
+      const inp = h("input",{type:"text","aria-label":"Subject name",value:s.name});
+      inp.addEventListener("change",()=>{ const n=inp.value.trim(); if(n){ s.name=n; save(); } else inp.value=s.name; });
+      const n = S.items.filter(i=>i.subjectId===s.id).length;
+      const del = s.name==="General" ? h("span",{style:"width:44px;flex:none"}) : B(null,()=>{
+        let gen = S.subjects.find(x=>x.name==="General"); if (!gen){ gen={id:uid(),name:"General"}; S.subjects.push(gen); }
+        S.items.forEach(i=>{ if(i.subjectId===s.id) i.subjectId=gen.id; });
+        S.subjects = S.subjects.filter(x=>x!==s); if (S.settings.subject===s.id) S.settings.subject="all"; save(); drawSubjects(); toast(n?`Removed. ${plural(n,"item")} moved to General.`:"Removed.");
+      },"icon ghost","trash",{"aria-label":"Remove "+s.name});
+      return h("div",{class:"row",style:"flex-wrap:nowrap"},inp,h("span",{class:"small muted",style:"min-width:2em;text-align:right"},n),del);
+    }), h("div",{class:"row",style:"flex-wrap:nowrap"},newInp,B("Add",()=>{ const n=newInp.value.trim(); if(!n) return; S.subjects.push({id:uid(),name:n}); save(); drawSubjects(); },"primary","plus")));
+  };
+  drawSubjects();
+
+  const backupStatus = h("p",{class:"small muted","aria-live":"polite"});
+  const exportBtn = B("Save a backup file",async()=>{
+    try { const how = await saveFile(`line-by-line-backup-${today()}.json`, JSON.stringify(S)); backupStatus.textContent = how==="shared" ? "Choose where to keep it, e.g. Google Drive or Files." : "Backup saved."; }
+    catch { backupStatus.textContent = "The backup wasn't saved."; }
+  },"","box");
+  const themeSeg = h("div",{class:"seg",role:"group","aria-label":"Theme"});
+  [["system","Automatic"],["light","Light"],["dark","Dark"]].forEach(([k,l])=>themeSeg.append(B(l,()=>{ S.settings.theme=k; save(); applyTheme(); render(); }, S.settings.theme===k?"on":"")));
+  const remindBox = h("input",{type:"checkbox",id:"remind"}); remindBox.checked = !!S.settings.remind;
+  const remindAt = h("input",{type:"time",id:"remindat",value:S.settings.remindAt});
+  const syncRemind = () => { const [hh,mm] = S.settings.remindAt.split(":").map(Number); NATIVE?.setReminder?.(!!S.settings.remind, hh||19, mm||0); };
+  remindBox.addEventListener("change",()=>{ S.settings.remind = remindBox.checked; save(); syncRemind(); toast(remindBox.checked?`Reminder set for ${S.settings.remindAt} every day.`:"Reminder off."); });
+  remindAt.addEventListener("change",()=>{ if (!remindAt.value) return; S.settings.remindAt = remindAt.value; save(); syncRemind(); });
+  const imp = h("input",{type:"file",accept:"application/json,.json,*/*",hidden:true,id:"importfile"});
+  let pending = null;
+  imp.addEventListener("change",async()=>{
+    const f = imp.files[0]; imp.value=""; if (!f) return;
+    try {
+      const raw = JSON.parse(await f.text());
+      if (raw?.type==="linebyline-deck"){ const r = importDeck(raw); backupStatus.textContent = `Added ${plural(r.n,"item")} to ${r.name}.`; return; }
+      const d = migrate(raw); if (!Array.isArray(d.items) || !Array.isArray(d.subjects)) throw 0; pending = d; drawImport();
+    }
+    catch { backupStatus.textContent = "That file isn't a Line by Line backup or shared subject."; }
+  });
+  const shareSel = h("select",{id:"sharesubj","aria-label":"Subject to share"}, S.subjects.filter(s=>S.items.some(i=>i.subjectId===s.id)).map(s=>h("option",{value:s.id},s.name)));
+  const shareRow = shareSel.options.length ? h("div",{class:"row",style:"flex-wrap:nowrap"}, shareSel, B("Share",()=>shareSubject(shareSel.value),"","share")) : null;
+  const importWrap = h("div");
+  const drawImport = () => importWrap.replaceChildren(pending
+    ? h("div",{class:"row"},h("span",{class:"grow small"},`Replace everything here with the backup (${plural(pending.items.length,"item")})?`),B("Replace",()=>{ S=pending; save(); go({name:"home"}); toast("Backup restored."); },"primary"),B("Cancel",()=>{pending=null; drawImport();}))
+    : B("Restore from a backup",()=>imp.click(),"","redo"));
+  drawImport();
+
+  let confirm=false;
+  const resetWrap = h("div");
+  const drawReset = () => resetWrap.replaceChildren(confirm
+    ? h("div",{class:"row"},h("span",{class:"grow"},"Erase everything and start over?"),B("Erase",()=>{S=defaultState(); save(); go({name:"home"}); toast("Everything was reset.");},"primary","trash"),B("Cancel",()=>{confirm=false; drawReset();}))
+    : B("Reset everything",()=>{confirm=true; drawReset();},"ghost","trash"));
+  drawReset();
+
+  $app.append(h("div",{class:"stack"},
+    NATIVE ? h("div",{class:"sheet stack"},
+      h("label",{class:"row",for:"remind",style:"flex-wrap:nowrap"},remindBox,h("div",{class:"grow"},h("b",null,"Daily reminder"),h("p",{class:"small muted"},"A notification to practise, so you keep your streak."))),
+      h("div",{class:"spread"},h("label",{class:"small",for:"remindat"},"Remind me at"),remindAt)) : null,
+    !inClaude ? h("div",{class:"sheet spread"},h("b",null,"Theme"),themeSeg) : null,
+    h("div",{class:"sheet stack"},h("b",null,"Language for new items"),h("p",{class:"small muted"},"Used for reading photos, the voice and the microphone. You can pick another language on each item. The app itself stays in English."),langSelect("deflang",S.settings.lang,v=>{S.settings.lang=v; save();})),
+    h("div",{class:"sheet spread"},h("div",null,h("b",null,"Daily goal"),h("p",{class:"small muted"},"Lines and cards to practise each day.")),goal),
+    h("label",{class:"sheet row",for:"strict",style:"flex-wrap:nowrap"},strict,h("div",{class:"grow"},h("b",null,"Strict spelling"),h("p",{class:"small muted"},"Off: one small typo in a longer word still counts, and definitions that are 85% right pass. Capitals and punctuation never matter."))),
+    h("div",{class:"sheet stack"},h("div",{class:"spread"},h("b",null,"Voice speed"),rl),rate,B("Test voice",()=>speak(S.settings.lang==="ro"?"Așa voi citi rândurile tale.":"This is how fast I'll read your lines.",S.settings.lang),"","play")),
+    h("div",{class:"sheet stack"},h("b",null,"Subjects"),subjWrap),
+    h("div",{class:"sheet stack"},h("b",null,"Backup"),h("p",{class:"small muted"},"Everything is saved on this device only. Save a backup file to move it to another phone or keep it safe."),h("div",{class:"row"},exportBtn,importWrap),imp,backupStatus,
+      shareRow ? h("b",{style:"margin-top:6px"},"Share a subject") : null,
+      shareRow ? h("p",{class:"small muted"},"Send a subject's cards to a friend. They open it with “Restore from a backup” and the cards are added to what they have.") : null,
+      shareRow),
+    resetWrap));
+};
+
+/* ================= EXAMS ================= */
+const daysUntil = d => Math.round((new Date(d+"T00:00:00") - new Date(today()+"T00:00:00"))/86400000);
+function examCard(){
+  const ex = S.exams.filter(e=>daysUntil(e.date)>=0).sort((a,b)=>a.date.localeCompare(b.date))[0];
+  if (!ex) return null;
+  const d = daysUntil(ex.date);
+  return h("div",{class:"examcard"+(d<=7?" soon":"")},
+    h("div",{class:"stack",style:"gap:2px;min-width:0"},
+      h("span",{class:"label"},"Next exam"),
+      h("h3",{style:"overflow-wrap:anywhere"},ex.name),
+      h("p",{class:"small muted"},`${subj(ex.subjectId).name} · ${new Date(ex.date+"T00:00:00").toLocaleDateString(undefined,{weekday:"short",day:"numeric",month:"short"})}`),
+      h("div",{class:"row",style:"margin-top:6px"},B("Practice test",()=>startTest(ex.subjectId),"primary","spark"),B("All exams",()=>go({name:"exams"}),"ghost"))),
+    h("div",{class:"count"},h("b",null, d===0?"!":d), h("span",null, d===0?"today":d===1?"day":"days")));
+}
+VIEWS.exams = function(){
+  $app.append(topbar("Exams"));
+  const st = view.st ||= {name:"", subjectId: S.settings.subject!=="all"?S.settings.subject:subjectByName(S,"Math").id, date:""};
+  const name = h("input",{type:"text",id:"exname",placeholder:"e.g. Bac Math, Biology test"}); name.value=st.name; name.addEventListener("input",()=>st.name=name.value);
+  const date = h("input",{type:"date",id:"exdate",min:today()}); date.value=st.date; date.addEventListener("input",()=>st.date=date.value);
+  const add = B("Add exam",()=>{
+    if (!name.value.trim() || !date.value){ toast("Give the exam a name and a date."); return; }
+    S.exams.push({id:uid(), name:name.value.trim(), subjectId:st.subjectId, date:date.value}); save();
+    view.st = null; toast("Exam added."); render();
+  },"primary big","plus");
+  const list = S.exams.slice().sort((a,b)=>a.date.localeCompare(b.date));
+  $app.append(h("div",{class:"stack"},
+    h("p",{class:"muted"},"Add your exams and tests. The next one shows on the home screen with a countdown, and you can take practice tests for it."),
+    list.length ? h("div",{class:"stack"}, list.map(ex=>{
+      const d = daysUntil(ex.date);
+      return h("div",{class:"examcard"+(d>=0&&d<=7?" soon":"")},
+        h("div",{class:"stack",style:"gap:2px;min-width:0"},
+          h("h3",{style:"overflow-wrap:anywhere"},ex.name),
+          h("p",{class:"small muted"},`${subj(ex.subjectId).name} · ${new Date(ex.date+"T00:00:00").toLocaleDateString(undefined,{day:"numeric",month:"long",year:"numeric"})}`),
+          h("div",{class:"row",style:"margin-top:6px"},
+            d>=0 ? B("Practice test",()=>startTest(ex.subjectId),"","spark") : h("span",{class:"chip good"},"Done"),
+            B("Remove",()=>{ S.exams = S.exams.filter(x=>x!==ex); save(); render(); toast("Exam removed."); },"ghost","trash"))),
+        h("div",{class:"count"}, d>=0 ? [h("b",null,d===0?"!":d), h("span",null,d===0?"today":d===1?"day":"days")] : h("span",null,"past")));
+    })) : null,
+    h("div",{class:"sheet stack"},
+      h("h3",null,"Add an exam"),
+      h("div",{class:"field"},h("label",{class:"label",for:"exname"},"Name"),name),
+      h("div",{class:"sheetgrid"},
+        h("div",{class:"field"},h("label",{class:"label",for:"exsubj"},"Subject"),h("div",null,subjectSelect("exsubj",st.subjectId,v=>st.subjectId=v))),
+        h("div",{class:"field"},h("label",{class:"label",for:"exdate"},"Date"),date)),
+      add)));
+};
+
+/* ================= MATCH GAME ================= */
+VIEWS.match = function(){
+  const sel = view.subjectId ?? S.settings.subject;
+  const pool = S.items.filter(it=>it.kind!=="text" && (sel==="all"||it.subjectId===sel));
+  $app.append(topbar("Match"));
+  if (pool.length<3){
+    $app.append(h("div",{class:"empty stack"},h("p",null,"Match needs at least 3 cards in this subject."),B("Starter packs",()=>go({name:"packs"}),"primary","box")));
+    return;
+  }
+  const ids = shuffle(pool).slice(0,6).map(c=>c.id);
+  const get = id => S.items.find(x=>x.id===id);
+  const key = "match:"+sel, best = S.best[key];
+  const info = h("p",{class:"small muted","aria-live":"polite"},"Tap a name, then the answer that goes with it." + (best ? ` Your best: ${fmtTime(best)}.` : ""));
+  let picked = null, matched = 0, slips = 0, start = 0;
+  const left = h("div",{class:"col"}), right = h("div",{class:"col"});
+  const mk = (id, side) => {
+    const it = get(id);
+    const b = h("button",{type:"button"}, h("span",null, side==="l" ? it.term : (isFx(it) ? fx(it.content) : it.content)));
+    b.dataset.id = id; b.dataset.side = side;
+    b.addEventListener("click",()=>{
+      if (!start) start = Date.now();
+      if (b.classList.contains("done")) return;
+      if (!picked || picked.dataset.side===side){ picked?.classList.remove("sel"); picked = b; b.classList.add("sel"); return; }
+      if (picked.dataset.id===id){
+        picked.classList.add("done"); b.classList.add("done"); picked = null; matched++;
+        if (NATIVE?.vibrate) NATIVE.vibrate(20);
+        if (matched===ids.length){
+          const secs = Math.max(1, Math.round((Date.now()-start)/1000));
+          const record = !best || secs < best; if (record){ S.best[key] = secs; }
+          bumpDay(); save();
+          $app.append(h("div",{class:"card celebrate",style:"margin-top:14px"},
+            h("div",{class:"num"},fmtTime(secs)),
+            h("h2",null, record ? "New best time!" : "All matched"),
+            h("p",{class:"muted"}, `${plural(slips,"wrong tap")}.` + (!record ? ` Best: ${fmtTime(best)}.` : "")),
+            h("div",{class:"stack"},B("Play again",()=>go({name:"match", subjectId:sel}),"primary big","redo"),B("Back home",()=>go({name:"home"}),"big"))));
+        }
+      } else {
+        slips++; const p = picked; [p,b].forEach(x=>{ x.classList.add("shake"); setTimeout(()=>x.classList.remove("shake"),300); });
+        p.classList.remove("sel"); picked = null;
+      }
+    });
+    return b;
+  };
+  shuffle(ids).forEach(id=>left.append(mk(id,"l")));
+  shuffle(ids).forEach(id=>right.append(mk(id,"r")));
+  $app.append(h("div",{class:"stack"}, info, h("div",{class:"match"}, left, right)));
+};
+
+/* ================= PASTE A LIST ================= */
+function parseBulk(text, kind){
+  const rows = [];
+  for (const raw of text.split(/\n/)){
+    const l = raw.trim().replace(/^[-•*\d.)\s]+(?=\S)/, m => /\d/.test(m) && !/[.)]/.test(m) ? m : "");
+    if (!l) continue;
+    let pair = null;
+    for (const sep of ["\t"," | "," — "," – "," - ",": "," = "]){
+      const i = l.indexOf(sep);
+      if (i>0){ pair = sep===" = " ? [l.slice(0,i).trim(), l.trim()] : [l.slice(0,i).trim(), l.slice(i+sep.length).trim()]; break; }
+    }
+    if (!pair || !pair[1]) continue;
+    const [term, content] = pair;
+    const k = kind!=="auto" ? kind : looksLikeFormula(content) ? "formula" : (/^\d{1,4}\b/.test(content) && content.split(/\s+/).length<=4) ? "fact" : content.split(/\s+/).length>5 ? "definition" : "fact";
+    rows.push({kind:k, term, content});
+  }
+  return rows;
+}
+VIEWS.bulk = function(){
+  const st = view.st ||= {text:"", kind:"auto", subjectId: S.settings.subject!=="all"?S.settings.subject:subjectByName(S,"General").id, lang:S.settings.lang};
+  $app.append(topbar("Paste a list",{to:{name:"addmenu"}}));
+  const ta = h("textarea",{id:"bulk",rows:10,placeholder:"Ohm's law: U = R·I\nMitosis - cell division that makes two identical cells\nFall of the Berlin Wall | 9 November 1989"});
+  ta.value = st.text;
+  const kindSel = h("select",{id:"bulkkind","aria-label":"Type"}, h("option",{value:"auto"},"Guess for each line"), CARD_KINDS.map(k=>h("option",{value:k},KINDS[k].name)));
+  kindSel.value = st.kind;
+  const preview = h("div",{class:"preview"}), count = h("span",{class:"label"});
+  const saveBtn = B("Save cards",()=>{
+    const rows = parseBulk(ta.value, st.kind); if (!rows.length) return;
+    rows.forEach(r=>S.items.unshift(makeItem({...r, lang:st.lang, subjectId:st.subjectId})));
+    S.settings.subject = st.subjectId; save(); view.st=null; toast(`Saved ${plural(rows.length,"card")}.`); go({name:"home"});
+  },"primary big","check");
+  const refresh = () => {
+    const rows = parseBulk(ta.value, st.kind);
+    count.textContent = rows.length ? plural(rows.length,"card") : "Preview";
+    preview.replaceChildren(...(rows.length ? rows.slice(0,60).map(r=>h("div",null,h("span",{class:"kind "+r.kind,style:"min-width:0"},KINDS[r.kind].name),h("span",{style:"min-width:0;overflow-wrap:anywhere"},h("b",null,r.term)," → ", r.kind==="formula"?fx(r.content):r.content))) : [h("p",{class:"muted small"},"Put the name first, then a colon, dash or | and the answer. One card per line.")]));
+    saveBtn.disabled = !rows.length;
+  };
+  ta.addEventListener("input",()=>{ st.text=ta.value; refresh(); });
+  kindSel.addEventListener("change",()=>{ st.kind=kindSel.value; refresh(); });
+  $app.append(h("div",{class:"stack"},
+    h("label",{class:"label",for:"bulk"},"Your list"), ta,
+    h("div",{class:"sheetgrid"},
+      h("div",{class:"field"},h("label",{class:"label",for:"bulkkind"},"Type"),kindSel),
+      h("div",{class:"field"},h("label",{class:"label",for:"subj"},"Subject"),h("div",null,subjectSelect("subj",st.subjectId,v=>st.subjectId=v)))),
+    h("div",{class:"field"},h("label",{class:"label",for:"lang"},"Language"),langSelect("lang",st.lang,v=>st.lang=v)),
+    count, preview, saveBtn));
+  refresh();
+};
+
+/* ================= CHEAT SHEET ================= */
+VIEWS.sheet = function(){
+  const sel = S.settings.subject;
+  const its = S.items.filter(it=>it.kind!=="text" && (sel==="all"||it.subjectId===sel));
+  $app.append(topbar(sel==="all" ? "Cheat sheet" : subj(sel).name+" cheat sheet"));
+  if (!its.length){ $app.append(h("div",{class:"empty"},h("p",null,"No cards in this subject yet."))); return; }
+  const hideBox = h("input",{type:"checkbox",id:"hideans"}); hideBox.checked = !!view.hide;
+  hideBox.addEventListener("change",()=>{ view.hide = hideBox.checked; render(); });
+  $app.append(h("label",{class:"sheet row",for:"hideans",style:"margin-bottom:12px;flex-wrap:nowrap"},hideBox,h("div",null,h("b",null,"Hide the answers"),h("p",{class:"small muted"},"Quiz yourself: tap each one to check."))));
+  for (const k of ["formula","theorem","definition","rule","fact"]){
+    const group = its.filter(it=>it.kind===k).sort((a,b)=>a.term.localeCompare(b.term));
+    if (!group.length) continue;
+    $app.append(h("div",{class:"sheet",style:"margin-bottom:12px"},
+      h("div",{class:"spread",style:"margin-bottom:4px"},h("span",{class:"kind "+k},{formula:"Formulas",theorem:"Theorems",definition:"Definitions",rule:"Rules",fact:"Facts & dates"}[k]),h("span",{class:"small muted"},group.length)),
+      group.map(it=>{
+        const ans = () => h("div",null, isFx(it) ? fx(it.content) : it.content, it.note ? h("div",{class:"note"},it.note) : null);
+        const row = h("div",{class:"sheetrow"}, h("b",null,it.term));
+        if (view.hide){ const b = B("Show",()=>b.replaceWith(ans()),"","eye"); row.append(b); } else row.append(ans());
+        return row;
+      })));
+  }
+};
+
+/* ================= FOCUS TIMER ================= */
+const FOCUS_MIN = {work:25, rest:5};
+const focus = {running:false, end:0, left:FOCUS_MIN.work*60000, phase:"work", ac:null};
+const focusLeft = () => focus.running ? focus.end-Date.now() : focus.left;
+const focusActive = () => focus.running || focus.left < FOCUS_MIN[focus.phase]*60000;
+const focusFmt = ms => fmtTime(Math.max(0, Math.ceil(ms/1000)));
+setInterval(()=>{
+  if (focus.running && focusLeft()<=0){ focus.running=false; finishFocus(); }
+  document.querySelectorAll("[data-focus]").forEach(el=>el.textContent=focusFmt(focusLeft()));
+}, 500);
+function beep(){
+  try{
+    const ac = focus.ac; if (!ac) return;
+    [0,0.3,0.6].forEach(t=>{ const o=ac.createOscillator(), g=ac.createGain(); o.frequency.value=880; o.connect(g); g.connect(ac.destination);
+      g.gain.setValueAtTime(0.0001,ac.currentTime+t); g.gain.exponentialRampToValueAtTime(0.3,ac.currentTime+t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,ac.currentTime+t+0.25);
+      o.start(ac.currentTime+t); o.stop(ac.currentTime+t+0.27); });
+  } catch {}
+}
+function finishFocus(){
+  beep(); try { NATIVE?.vibrate ? NATIVE.vibrate(600) : navigator.vibrate?.([250,120,250]); } catch {}
+  if (focus.phase==="work"){ S.stats.focus[today()] = (S.stats.focus[today()]||0)+1; save(); focus.phase="rest"; toast("Focus session done. Take a 5-minute break."); }
+  else { focus.phase="work"; toast("Break's over. Ready for another round?"); }
+  focus.left = FOCUS_MIN[focus.phase]*60000;
+  if (view.name==="focus") render();
+}
+VIEWS.focus = function(){
+  $app.append(topbar("Focus timer"));
+  const toggle = () => {
+    try { focus.ac ||= new (window.AudioContext||window.webkitAudioContext)(); focus.ac.resume?.(); } catch {}
+    if (focus.running){ focus.left = focusLeft(); focus.running = false; } else { focus.end = Date.now()+focus.left; focus.running = true; }
+    render();
+  };
+  const sessions = S.stats.focus[today()]||0;
+  $app.append(h("div",{class:"card"},
+    h("div",{class:"phase"}, focus.phase==="work" ? "Focus" : "Break"),
+    h("div",{class:"bigtime","data-focus":"",role:"timer"}, focusFmt(focusLeft())),
+    h("p",{class:"muted",style:"text-align:center"}, focus.phase==="work" ? "25 minutes of studying, then a 5-minute break. The timer keeps running while you practise." : "Stand up, drink some water, look away from the screen."),
+    B(focus.running?"Pause":(focusActive()?"Resume":"Start"),toggle,"primary big", focus.running?null:"play"),
+    h("div",{class:"row",style:"justify-content:center"},
+      B("Reset",()=>{ focus.running=false; focus.left=FOCUS_MIN[focus.phase]*60000; render(); },"ghost","redo"),
+      B(focus.phase==="work"?"Skip to break":"Skip break",()=>{ focus.running=false; focus.phase = focus.phase==="work"?"rest":"work"; focus.left=FOCUS_MIN[focus.phase]*60000; render(); },"ghost","skip")),
+    h("p",{class:"small muted",style:"text-align:center"}, `Sessions today: ${sessions}`),
+    focus.running ? B("Go practise while it runs",()=>go({name:"home"}),"big","cards") : null));
+};
+
+/* ================= SHARE A SUBJECT ================= */
+async function shareSubject(subjectId){
+  const s = subj(subjectId);
+  const items = S.items.filter(i=>i.subjectId===subjectId).map(i=>({kind:i.kind, term:i.term, content:i.content, note:i.note, lang:i.lang, title:i.title, body:i.body, split:i.split}));
+  if (!items.length){ toast("That subject is empty."); return; }
+  const data = JSON.stringify({type:"linebyline-deck", v:1, subject:s.name, items});
+  try { await saveFile(`${s.name.replace(/[^\p{L}\p{N}]+/gu,"-")}-cards.json`, data); } catch { toast("Couldn't share the file."); }
+}
+function importDeck(d){
+  let sub = S.subjects.find(s=>s.name===d.subject); if (!sub){ sub={id:uid(), name:String(d.subject||"Shared").slice(0,60)}; S.subjects.push(sub); }
+  const have = new Set(S.items.filter(i=>i.subjectId===sub.id).map(i=>i.kind+"|"+(i.term||i.title)));
+  let n = 0;
+  for (const x of d.items||[]){
+    if (!x || !KINDS[x.kind] || have.has(x.kind+"|"+(x.term||x.title))) continue;
+    S.items.push(makeItem({kind:x.kind, term:String(x.term||""), content:String(x.content||""), note:String(x.note||""), lang:x.lang, title:String(x.title||""), body:String(x.body||""), split:x.split, subjectId:sub.id})); n++;
+  }
+  save(); return {n, name:sub.name};
+}
+
+// Android back button: go to the screen the on-screen back arrow leads to
+window.__back = () => { const b = document.querySelector('[aria-label="Back"]'); if (b){ b.click(); return true; } return false; };
+window.__onResume = () => { if (view.name==="home") render(); };
+render();
+})();
+</script>
+
+</body></html>
